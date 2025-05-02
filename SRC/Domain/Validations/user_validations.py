@@ -19,21 +19,21 @@ class UserValidation:
         return ask_contact
     
     def user_email(self):
-        ask_email = input("Enter email.com")
+        ask_email = input("Enter email: ")
         return ask_email
         
     def user_id(self):
         pass
 
     def user_address(self):
-        ask_address = input("Enter Address")
+        ask_address = input("Enter Address: ")
         return ask_address
 
     def user_role(self):
         pass
 
     def user_password(self):
-        ask_password = input("Enter password")
+        ask_password = input("Enter password: ")
         return ask_password
     
 validation_obj = UserValidation()
