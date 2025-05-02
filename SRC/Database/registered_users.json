@@ -1,0 +1,32 @@
+[
+   {
+      "name": "taif",
+      "email": "test@gmail.com",
+      "contact": 1234567890,
+      "address": "delhi",
+      "user_id": "taif_d389",
+      "user_role": "staff",
+      "password": "taif@123",
+      "joined_date": "02/05/2025, 14:02:49"
+   },
+   {
+      "name": "test",
+      "email": "test@mail.com",
+      "contact": 321,
+      "address": "mumbai",
+      "user_id": "test_f00c",
+      "user_role": "staff",
+      "password": "test@123",
+      "joined_date": "02/05/2025, 14:03:08"
+   },
+   {
+      "name": "admin",
+      "email": "admin@mail.com",
+      "contact": 1122334455,
+      "address": "database",
+      "user_id": "admin_6c47",
+      "user_role": "admin",
+      "password": "password",
+      "joined_date": "02/05/2025, 14:05:03"
+   }
+]
