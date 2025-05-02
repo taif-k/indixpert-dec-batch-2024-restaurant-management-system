@@ -1,0 +1,1 @@
+"{'module': 'sign_up.py', 'function': 'get_name', 'error': ValueError(\"invalid literal for int() with base 10: 't'\"), 'date': '02/05/2025, 14:17:35', 'line': 50}"
