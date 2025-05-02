@@ -1,1 +1,5 @@
-"{'module': 'sign_up.py', 'function': 'get_name', 'error': ValueError(\"invalid literal for int() with base 10: 't'\"), 'date': '02/05/2025, 14:17:35', 'line': 50}"
+
+"{'module': 'Read_writefile.py', 'function': 'read_file', 'error': AttributeError(\"module 'json' has no attribute 'loadz'\"), 'date': '02/05/2025, 20:05:54', 'line': 42}"
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
+{'module': 'sign_up.py', 'function': 'user_signup', 'error': AttributeError("'DataFile' object has no attribute 'write_fil'"), 'date': '02/05/2025, 20:18:38', 'line': 26}
