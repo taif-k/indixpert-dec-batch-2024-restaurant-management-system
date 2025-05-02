@@ -1,4 +1,6 @@
-from SRC.Authentication import user_obj
+import sys,os
+sys.path.append(os.getcwd())
+from SRC.Domain import operation_obj
 
 class User:
     def login_menu(self):
@@ -26,7 +28,7 @@ class User:
         admin_email = input("Enter email: ")
         admin_password = input("Enter password: ")
         admin_verified = 0
-        for user in user_obj.userlist:
+        for user in operation_obj.userlist:
             if user["email"] == admin_email:
                 if user["password"] == admin_password:
                     self.admin_menu()
@@ -41,7 +43,7 @@ class User:
         staff_email = input("Enter email: ")
         staff_password = input("Enter password: ")
         staff_verified = 0
-        for user in user_obj.userlist:
+        for user in operation_obj.userlist:
             if user["email"] == staff_email:
                 if user["password"] == staff_password:
                     self.staff_menu()
