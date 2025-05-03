@@ -1,12 +1,12 @@
 [
    {
-      "name": "taif",
-      "email": "test@gmail.com",
+      "name": "sidharth",
+      "email": "sid@mail.com",
       "contact": 1234567890,
       "address": "delhi",
-      "user_id": "taif_d389",
+      "user_id": "sidharth_d389",
       "user_role": "staff",
-      "password": "taif@123",
+      "password": "sid@123",
       "joined_date": "02/05/2025, 14:02:49"
    },
    {
@@ -20,13 +20,33 @@
       "joined_date": "02/05/2025, 14:03:08"
    },
    {
-      "name": "admin",
+      "name": "taif",
       "email": "admin@mail.com",
       "contact": 1122334455,
-      "address": "database",
+      "address": "delhi",
       "user_id": "admin_6c47",
       "user_role": "admin",
-      "password": "password",
+      "password": "pass@word",
       "joined_date": "02/05/2025, 14:05:03"
+   },
+   {
+      "name": "akash",
+      "email": "akash@mail.com",
+      "contact": 1122334455,
+      "address": "noida, up",
+      "user_id": "akash_a066",
+      "user_role": "staff",
+      "password": "akash",
+      "joined_date": "03/05/2025, 11:07:26"
+   },
+   {
+      "name": "rishabh",
+      "email": "ris@mail.com",
+      "contact": 9639639639,
+      "address": "punjab",
+      "user_id": "rishabh_2f6e",
+      "user_role": "staff",
+      "password": "1234567@",
+      "joined_date": "03/05/2025, 12:06:56"
    }
 ]
