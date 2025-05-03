@@ -24,7 +24,7 @@ class RestaurantUsers:
             operation_obj.write_file()
         except Exception as err:
             print("Resolving issue....check after some time")
-            operation_obj.write_error(operation_obj.get_errdetails(err))
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
             
 
 user_obj = RestaurantUsers(userdata_path,error_path)
