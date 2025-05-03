@@ -23,7 +23,7 @@ class MenuItem:
                 break
 
         self.foodmenu_list.append(foodmenu_dict)        
-        operation_obj.write_file(self.foodmenu_list,self.food_path)
+        operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
 
 
 foodmenu_obj = MenuItem(foodmenu_path)
