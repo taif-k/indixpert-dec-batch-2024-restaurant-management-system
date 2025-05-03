@@ -11,44 +11,13 @@ class User:
         print("2 - Staff Login")
         print("0 - Go Back")
 
+class Admin(User):
     def admin_menu(self):
         print()
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
         print("3 - Display Menu")
         print("0 - Admin Logout")
-
-    def staff_menu(self):
-        print()
-        print("1 - Display Menu")
-        print("2 - Place Order")
-        print("3 - See available Table")
-        print("4 - Book Table")
-        print("5 - pay")
-        print("6 - Generate Bill")
-        print("0 - Staff Logout")
-        
-    def staff_option(self):
-        while True:
-            try:
-                self.staff_menu()
-                staff_option = int(input("Enter staff option: "))
-                if staff_option == 1:
-                    pass
-                elif staff_option == 2:
-                    pass
-                elif staff_option == 3:
-                    pass
-                elif staff_option == 4:
-                    pass
-                elif staff_option == 5:
-                    pass
-                elif staff_option == 6:
-                    pass
-                elif staff_option == 0:
-                    break
-            except Exception as err:
-                pass
 
     def admin_option(self):
         while True:
@@ -89,6 +58,39 @@ class User:
             print("Try again after some time...")
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
+class Staff(User):
+    def staff_menu(self):
+        print()
+        print("1 - Display Menu")
+        print("2 - Place Order")
+        print("3 - See available Table")
+        print("4 - Book Table")
+        print("5 - pay")
+        print("6 - Generate Bill")
+        print("0 - Staff Logout")
+        
+    def staff_option(self):
+        while True:
+            try:
+                self.staff_menu()
+                staff_option = int(input("Enter staff option: "))
+                if staff_option == 1:
+                    pass
+                elif staff_option == 2:
+                    pass
+                elif staff_option == 3:
+                    pass
+                elif staff_option == 4:
+                    pass
+                elif staff_option == 5:
+                    pass
+                elif staff_option == 6:
+                    pass
+                elif staff_option == 0:
+                    break
+            except Exception as err:
+                pass
+
     def staff_login(self):
         staff_email = input("Enter staff email: ")
         staff_password = input("Enter staff password: ")
@@ -102,7 +104,7 @@ class User:
         if staff_verified == 0:
             print("Invalid Credentials") 
 
-
+class UserOption(Admin,Staff):
     def user_login(self):
         while True:
             self.login_menu()
@@ -116,4 +118,4 @@ class User:
             else:
                 print("Choose valid option")
 
-login_obj = User()
+login_obj = UserOption()
