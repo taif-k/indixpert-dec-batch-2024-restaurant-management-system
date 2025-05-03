@@ -1,0 +1,57 @@
+[
+   {
+      "food_item": "tea",
+      "food_type": "breakfast",
+      "food_id": "breakfast_6e31",
+      "small_food_size": "small",
+      "small_food_price": 10,
+      "medium_food_size": "medium",
+      "medium_food_price": 15,
+      "large_food_size": "large",
+      "large_food_price": 20
+   },
+   {
+      "food_item": "tea",
+      "food_type": "lunch",
+      "food_id": "lunch_e982",
+      "small_food_size": "small",
+      "small_food_price": 10,
+      "medium_food_size": "medium",
+      "medium_food_price": 15,
+      "large_food_size": "large",
+      "large_food_price": 20
+   },
+   {
+      "food_item": "tea",
+      "food_type": "dinner",
+      "food_id": "dinner_d97c",
+      "small_food_size": "small",
+      "small_food_price": 10,
+      "medium_food_size": "medium",
+      "medium_food_price": 15,
+      "large_food_size": "large",
+      "large_food_price": 20
+   },
+   {
+      "food_item": "rice",
+      "food_type": "dinner",
+      "food_id": "dinner_7e06",
+      "small_food_size": "na",
+      "small_food_price": 0,
+      "medium_food_size": "na",
+      "medium_food_price": 0,
+      "large_food_size": "na",
+      "large_food_price": 0
+   },
+   {
+      "food_item": "matar paneer",
+      "food_type": "lunch",
+      "food_id": "lunch_7623",
+      "small_food_size": "small",
+      "small_food_price": 10,
+      "medium_food_size": "nedium",
+      "medium_food_price": 20,
+      "large_food_size": "na",
+      "large_food_price": 0
+   }
+]
