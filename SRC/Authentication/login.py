@@ -48,7 +48,7 @@ class User:
         admin_verified = 0
         for user in operation_obj.userlist:
             if user["email"] == self.__admin_email and self.__admin_email == "admin@mail.com":
-                if user["password"] == self.__admin_password and self.__admin_password == "password":
+                if user["password"] == self.__admin_password and self.__admin_password == "pass@word":
                     self.admin_option()
                     admin_verified = 1
                     break
