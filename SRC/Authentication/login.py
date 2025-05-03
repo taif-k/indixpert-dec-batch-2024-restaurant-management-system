@@ -45,9 +45,9 @@ class Admin(User):
             self.__admin_email = input("Enter admin email: ")
             self.__admin_password = input("Enter admin password: ")
             admin_verified = 0
-            for user in operation_obj.userlist:
-                if user["email"] == self.__admin_email and self.__admin_email == "admin@mail.com":
-                    if user["password"] == self.__admin_password and self.__admin_password == "pass@word":
+            for user in operation_obj.adminlist:
+                if user["email"] == self.__admin_email:
+                    if user["password"] == self.__admin_password:
                         self.admin_option()
                         admin_verified = 1
                         break
@@ -96,7 +96,7 @@ class Staff(User):
         staff_password = input("Enter staff password: ")
         staff_verified = 0
         for user in operation_obj.userlist:
-            if user["email"] == staff_email:
+            if user["staff_email"] == staff_email:
                 if user["password"] == staff_password:
                     self.staff_option()
                     staff_verified = 1
