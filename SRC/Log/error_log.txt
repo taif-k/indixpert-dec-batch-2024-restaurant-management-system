@@ -3,3 +3,11 @@
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
 {'module': 'sign_up.py', 'function': 'user_signup', 'error': AttributeError("'DataFile' object has no attribute 'write_fil'"), 'date': '02/05/2025, 20:18:38', 'line': 26}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:30:48', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:30:48', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:31:00', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:31:00', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:34:44', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:34:44', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:35:04', 'line': 48}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:35:04', 'line': 48}
