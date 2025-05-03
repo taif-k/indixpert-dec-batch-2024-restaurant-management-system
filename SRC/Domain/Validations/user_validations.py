@@ -20,22 +20,31 @@ class UserValidation:
         return ask_contact
     
     def user_email(self):
-        ask_email = input("Enter email: ")
-        return ask_email
+        while True:
+            ask_email = input("Enter email: ")
+            if "@" in ask_email and "." in ask_email.split("@")[1]:
+                return ask_email
+            else:
+                print("Enter valid Email....Ex: taif@mail.com")
         
     def user_id(self):
         unique_id = self.unique_id = str(uuid.uuid4())[:4]
         return unique_id
 
     def user_address(self):
-        ask_address = input("Enter Address: ")
+        ask_address = input("Enter address: ")
         return ask_address
-
+    
     def user_role(self):
-        pass
+        set_role = "staff"
+        return set_role
 
     def user_password(self):
-        ask_password = input("Enter password: ")
-        return ask_password
+        while True:
+            ask_password = input("Enter password: ")
+            if len(ask_password) >= 8 and "@" in ask_password:
+                return ask_password
+            else:
+                print("Password must be atleast 8 characters long and include @ also")
     
 validation_obj = UserValidation()
