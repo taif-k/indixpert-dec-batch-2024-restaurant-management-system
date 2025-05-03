@@ -11,3 +11,5 @@
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:34:44', 'line': 48}
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:35:04', 'line': 48}
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:35:04', 'line': 48}
+{'module': 'user_validations.py', 'function': 'user_role', 'error': UnboundLocalError("cannot access local variable 'ask_role' where it is not associated with a value"), 'date': '03/05/2025, 11:54:25', 'line': 46}
+{'module': 'user_validations.py', 'function': 'user_role', 'error': AttributeError("'UserValidation' object has no attribute 'ask_role'"), 'date': '03/05/2025, 11:56:29', 'line': 45}
