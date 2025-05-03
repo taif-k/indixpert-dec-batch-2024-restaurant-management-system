@@ -1,4 +1,4 @@
-from Authentication import user_obj,login_obj
+from Authentication import signup_obj,login_obj
 from SRC.Domain import operation_obj
 
 class Restaurant:
@@ -17,7 +17,7 @@ class Restaurant:
                 self.authentication_menu()
                 authentication_type = int(input("Enter option: "))
                 if authentication_type == 1:
-                    user_obj.user_signup()
+                    signup_obj.user_signup()
                 elif authentication_type == 2:
                     login_obj.user_login()
                 elif authentication_type == 0:
