@@ -3,21 +3,21 @@ import traceback
 import datetime
 import os,sys
 sys.path.append(os.getcwd())
-from SRC.Authentication import RestaurantUsers
 
 userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_users.json"
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 
-class DataFile(RestaurantUsers):
+class DataFile:
     def __init__(self, path, err_path):
-        super().__init__(path, err_path)
+        self.user_path = path
+        self.err_path = err_path
         self.userlist = self.read_file()
 
     def write_file(self, data = None, path = None):
         if data == None and path == None:
             data = self.userlist
             path = self.user_path
-            
+
         with open(path,"w") as file:
             file.write(json.dumps(data,indent=3))
 
