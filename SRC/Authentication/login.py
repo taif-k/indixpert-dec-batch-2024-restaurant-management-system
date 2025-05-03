@@ -1,7 +1,7 @@
 import sys,os
 sys.path.append(os.getcwd())
 import json
-from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj
 
 
 class User:
@@ -17,6 +17,7 @@ class Admin(User):
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
         print("3 - Display Menu")
+        print("4 - Add Table")
         print("0 - Admin Logout")
 
     def admin_option(self):
@@ -31,7 +32,7 @@ class Admin(User):
                 elif admin_option == 3:
                     print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
                 elif admin_option == 4:
-                    pass # cancel order/table
+                    table_obj.add_table()
                 elif admin_option == 0:
                     break
                 else:
@@ -75,11 +76,11 @@ class Staff(User):
                 self.staff_menu()
                 staff_option = int(input("Enter staff option: "))
                 if staff_option == 1:
-                    pass
+                    print(json.dumps(foodmenu_obj.foodmenu_list,indent=4))
                 elif staff_option == 2:
                     pass
                 elif staff_option == 3:
-                    pass
+                    print(json.dumps(table_obj.tablelist,indent=4))
                 elif staff_option == 4:
                     pass
                 elif staff_option == 5:
@@ -96,7 +97,7 @@ class Staff(User):
         staff_password = input("Enter staff password: ")
         staff_verified = 0
         for user in operation_obj.userlist:
-            if user["staff_email"] == staff_email:
+            if user["email"] == staff_email:
                 if user["password"] == staff_password:
                     self.staff_option()
                     staff_verified = 1
