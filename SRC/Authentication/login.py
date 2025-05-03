@@ -12,59 +12,91 @@ class User:
         print("0 - Go Back")
 
     def admin_menu(self):
+        print()
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
         print("3 - Display Menu")
-        print("0 - Logout")
-
-    def admin_option(self):
-        while True:
-            self.admin_menu()
-            admin_option = int(input("Enter admin option: "))
-            if admin_option == 1:
-                foodmenu_obj.add_menu()
-            elif admin_option == 2:
-                removemenu_obj.remove_menu()
-            elif admin_option == 3:
-                print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
-            elif admin_option == 4:
-                pass # cancel order/table
-            elif admin_option == 0:
-                break
-            else:
-                print("Choose valid option ")
+        print("0 - Admin Logout")
 
     def staff_menu(self):
+        print()
         print("1 - Display Menu")
         print("2 - Place Order")
         print("3 - See available Table")
         print("4 - Book Table")
         print("5 - pay")
         print("6 - Generate Bill")
+        print("0 - Staff Logout")
+        
+    def staff_option(self):
+        while True:
+            try:
+                self.staff_menu()
+                staff_option = int(input("Enter staff option: "))
+                if staff_option == 1:
+                    pass
+                elif staff_option == 2:
+                    pass
+                elif staff_option == 3:
+                    pass
+                elif staff_option == 4:
+                    pass
+                elif staff_option == 5:
+                    pass
+                elif staff_option == 6:
+                    pass
+                elif staff_option == 0:
+                    break
+            except Exception as err:
+                pass
+
+    def admin_option(self):
+        while True:
+            try:
+                self.admin_menu()
+                admin_option = int(input("Enter admin option: "))
+                if admin_option == 1:
+                    foodmenu_obj.add_menu()
+                elif admin_option == 2:
+                    removemenu_obj.remove_menu()
+                elif admin_option == 3:
+                    print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
+                elif admin_option == 4:
+                    pass # cancel order/table
+                elif admin_option == 0:
+                    break
+                else:
+                    print("Choose valid option ")
+            except Exception as err:
+                print("Resolving issue..Try again after some time")
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def admin_login(self):
-        self.__admin_email = input("Enter email: ")
-        self.__admin_password = input("Enter password: ")
-        admin_verified = 0
-        for user in operation_obj.userlist:
-            if user["email"] == self.__admin_email and self.__admin_email == "admin@mail.com":
-                if user["password"] == self.__admin_password and self.__admin_password == "pass@word":
-                    self.admin_option()
-                    admin_verified = 1
-                    break
+        try:
+            self.__admin_email = input("Enter admin email: ")
+            self.__admin_password = input("Enter admin password: ")
+            admin_verified = 0
+            for user in operation_obj.userlist:
+                if user["email"] == self.__admin_email and self.__admin_email == "admin@mail.com":
+                    if user["password"] == self.__admin_password and self.__admin_password == "pass@word":
+                        self.admin_option()
+                        admin_verified = 1
+                        break
 
-        if admin_verified == 0:
-            print("Invalid Credentials")        
-
+            if admin_verified == 0:
+                print("Invalid Credentials")
+        except Exception as err:
+            print("Try again after some time...")
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def staff_login(self):
-        staff_email = input("Enter email: ")
-        staff_password = input("Enter password: ")
+        staff_email = input("Enter staff email: ")
+        staff_password = input("Enter staff password: ")
         staff_verified = 0
         for user in operation_obj.userlist:
             if user["email"] == staff_email:
                 if user["password"] == staff_password:
-                    self.staff_menu()
+                    self.staff_option()
                     staff_verified = 1
                     break
         if staff_verified == 0:
