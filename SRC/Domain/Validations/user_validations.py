@@ -1,3 +1,4 @@
+import uuid
 
 class UserValidation:
     def user_name(self): 
@@ -23,7 +24,8 @@ class UserValidation:
         return ask_email
         
     def user_id(self):
-        pass
+        unique_id = self.unique_id = str(uuid.uuid4())[:4]
+        return unique_id
 
     def user_address(self):
         ask_address = input("Enter Address: ")
