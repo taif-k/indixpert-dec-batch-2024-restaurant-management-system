@@ -4,14 +4,17 @@ import datetime
 import os,sys
 sys.path.append(os.getcwd())
 
-userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_users.json"
+userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
+admindata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_admin.json"
 
 class DataFile:
-    def __init__(self, path, err_path):
+    def __init__(self, path, err_path,admin_path):
         self.user_path = path
         self.err_path = err_path
+        self.admin_path = admin_path
         self.userlist = self.read_file()
+        self.adminlist = self.read_file(self.admin_path)
 
     def write_file(self, data = None, path = None,mode = "w",isJson = 1):
         if data == None and path == None:
@@ -49,7 +52,7 @@ class DataFile:
                 user_data = json.load(file)
                 return user_data     
         except Exception as err:
-            self.write_file(self.get_errdetails(err),self.err_path,mode="a",isJson=0)
+            self.write_file(data=self.get_errdetails(err),path=self.err_path,mode="a",isJson=0)
             return []       
 
-operation_obj = DataFile(userdata_path,error_path)
+operation_obj = DataFile(userdata_path,error_path,admindata_path)
