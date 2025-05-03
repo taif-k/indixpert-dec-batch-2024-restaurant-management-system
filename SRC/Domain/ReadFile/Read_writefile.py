@@ -17,6 +17,7 @@ class DataFile(RestaurantUsers):
         if data == None and path == None:
             data = self.userlist
             path = self.user_path
+            
         with open(path,"w") as file:
             file.write(json.dumps(data,indent=3))
 
@@ -40,9 +41,12 @@ class DataFile(RestaurantUsers):
             err_details = str({"module":module_name,"function":function_name,"error":error,"date":str_date,"line":line_no})
             return err_details
         
-    def read_file(self):
+    def read_file(self,path = None):
+        if path == None:
+            path = self.user_path
+
         try:
-            with open(self.user_path,"r") as file:
+            with open(path,"r") as file:
                 user_data = json.load(file)
                 return user_data     
         except Exception as err:
