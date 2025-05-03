@@ -13,3 +13,9 @@
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 07:35:04', 'line': 48}
 {'module': 'user_validations.py', 'function': 'user_role', 'error': UnboundLocalError("cannot access local variable 'ask_role' where it is not associated with a value"), 'date': '03/05/2025, 11:54:25', 'line': 46}
 {'module': 'user_validations.py', 'function': 'user_role', 'error': AttributeError("'UserValidation' object has no attribute 'ask_role'"), 'date': '03/05/2025, 11:56:29', 'line': 45}
+{'module': 'login.py', 'function': 'staff_login', 'error': KeyError('staff_email'), 'date': '03/05/2025, 20:26:59', 'line': 99}
+{'module': 'login.py', 'function': 'staff_login', 'error': KeyError('staff_email'), 'date': '03/05/2025, 20:27:37', 'line': 99}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 20:56:33', 'line': 51}
+{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 20:56:33', 'line': 51}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '03/05/2025, 21:03:38', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '03/05/2025, 21:03:38', 'line': 363}
