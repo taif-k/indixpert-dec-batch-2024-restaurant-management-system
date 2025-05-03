@@ -13,6 +13,6 @@ class RemoveFood:
             if remove_item != "y":
                 break
 
-        operation_obj.write_file(foodmenu_obj.foodmenu_list,foodmenu_obj.food_path)
+        operation_obj.write_file(data=foodmenu_obj.foodmenu_list,path=foodmenu_obj.food_path)
 
 removemenu_obj = RemoveFood()
