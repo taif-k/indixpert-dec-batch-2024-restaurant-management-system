@@ -20,16 +20,6 @@
       "joined_date": "02/05/2025, 14:03:08"
    },
    {
-      "name": "taif",
-      "email": "admin@mail.com",
-      "contact": 1122334455,
-      "address": "delhi",
-      "user_id": "admin_6c47",
-      "user_role": "admin",
-      "password": "pass@word",
-      "joined_date": "02/05/2025, 14:05:03"
-   },
-   {
       "name": "akash",
       "email": "akash@mail.com",
       "contact": 1122334455,
@@ -48,5 +38,15 @@
       "user_role": "staff",
       "password": "1234567@",
       "joined_date": "03/05/2025, 12:06:56"
+   },
+   {
+      "name": "aman",
+      "user_role": "staff",
+      "email": "aman@mail.com",
+      "contact": 9876543210,
+      "address": "punjab",
+      "user_id": "aman_94c0",
+      "password": "pass@321",
+      "joined_date": "03/05/2025, 16:32:12"
    }
 ]
