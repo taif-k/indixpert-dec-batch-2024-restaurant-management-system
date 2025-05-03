@@ -1,6 +1,8 @@
 import sys,os
 sys.path.append(os.getcwd())
-from SRC.Domain import operation_obj
+import json
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj
+
 
 class User:
     def login_menu(self):
@@ -10,11 +12,27 @@ class User:
         print("0 - Go Back")
 
     def admin_menu(self):
-        print("1 - See menu")
-        print("2 - Remove Menu Item")
-        print("3 - Add Menu Item")
-        print("4 - Cancel table")
-        print("5 - Logout")
+        print("1 - Add Food Item")
+        print("2 - Remove Food Item")
+        print("3 - Display Menu")
+        print("0 - Logout")
+
+    def admin_option(self):
+        while True:
+            self.admin_menu()
+            admin_option = int(input("Enter admin option: "))
+            if admin_option == 1:
+                foodmenu_obj.add_menu()
+            elif admin_option == 2:
+                removemenu_obj.remove_menu()
+            elif admin_option == 3:
+                print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
+            elif admin_option == 4:
+                pass # cancel order/table
+            elif admin_option == 0:
+                break
+            else:
+                print("Choose valid option ")
 
     def staff_menu(self):
         print("1 - Display Menu")
@@ -25,13 +43,13 @@ class User:
         print("6 - Generate Bill")
 
     def admin_login(self):
-        admin_email = input("Enter email: ")
-        admin_password = input("Enter password: ")
+        self.__admin_email = input("Enter email: ")
+        self.__admin_password = input("Enter password: ")
         admin_verified = 0
         for user in operation_obj.userlist:
-            if user["email"] == admin_email:
-                if user["password"] == admin_password:
-                    self.admin_menu()
+            if user["email"] == self.__admin_email and self.__admin_email == "admin@mail.com":
+                if user["password"] == self.__admin_password and self.__admin_password == "password":
+                    self.admin_option()
                     admin_verified = 1
                     break
 
