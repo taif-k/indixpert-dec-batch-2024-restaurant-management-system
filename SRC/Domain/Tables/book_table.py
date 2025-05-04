@@ -24,7 +24,7 @@ class Table:
 
         operation_obj.write_file(data=self.tablelist,path=self.alltable_path)
 
-    def book_table(self):
+    def table_book(self):
         pass
 
 table_obj = Table(alltable_path) 
