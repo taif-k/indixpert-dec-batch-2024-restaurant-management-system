@@ -1,7 +1,7 @@
 import sys,os
 sys.path.append(os.getcwd())
 import json
-from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj
 
 
 class User:
@@ -78,7 +78,7 @@ class Staff(User):
                 if staff_option == 1:
                     print(json.dumps(foodmenu_obj.foodmenu_list,indent=4))
                 elif staff_option == 2:
-                    pass
+                    order_obj.book_order()
                 elif staff_option == 3:
                     print(json.dumps(table_obj.tablelist,indent=4))
                 elif staff_option == 4:
