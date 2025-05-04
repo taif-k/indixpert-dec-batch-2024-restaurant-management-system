@@ -1,7 +1,7 @@
 import uuid
 
 class UserValidation:
-    def user_name(self): 
+    def user_name(self):
         while True:       
             ask_name = input("Enter name: ")
             if ask_name.isalpha():
