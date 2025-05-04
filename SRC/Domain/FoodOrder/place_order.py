@@ -40,7 +40,7 @@ class PlaceOrder:
     def book_order(self):
         orderplaceddict = {}
         orderplaceddict["customer_name"] = validation_obj.user_name()     
-        orderplaceddict["item_booked"] = self.orders_list()
+        orderplaceddict["order_placed"] = self.orders_list()
         orderplaceddict["order_id"] = validation_obj.user_id()
         orderplaceddict["total_price"] = 100 * self.orderdict["item_quantity"] # testing
         orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
