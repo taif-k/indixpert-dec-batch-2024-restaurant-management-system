@@ -19,3 +19,18 @@
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '03/05/2025, 20:56:33', 'line': 51}
 {'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '03/05/2025, 21:03:38', 'line': 363}
 {'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '03/05/2025, 21:03:38', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 08:42:07', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 08:42:07', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 08:45:45', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 08:45:45', 'line': 363}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '04/05/2025, 09:50:11', 'line': 18}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:00:18', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:00:18', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:08:54', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:08:54', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:11:59', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:11:59', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:20:29', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:20:29', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:51:49', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 10:51:49', 'line': 363}
