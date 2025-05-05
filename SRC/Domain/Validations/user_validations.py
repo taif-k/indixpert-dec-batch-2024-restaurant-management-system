@@ -3,7 +3,7 @@ import uuid
 class UserValidation:
     def user_name(self):
         while True:       
-            ask_name = input("Enter name: ")
+            ask_name = input("Enter name: ").lower()
             if ask_name.isalpha():
                 return ask_name
             else:
@@ -21,7 +21,7 @@ class UserValidation:
     
     def user_email(self):
         while True:
-            ask_email = input("Enter email: ")
+            ask_email = input("Enter email: ").lower()
             if "@" in ask_email and "." in ask_email.split("@")[1]:
                 return ask_email
             else:
@@ -32,7 +32,7 @@ class UserValidation:
         return unique_id
 
     def user_address(self):
-        ask_address = input("Enter address: ")
+        ask_address = input("Enter address: ").lower()
         return ask_address
     
     def user_role(self):
