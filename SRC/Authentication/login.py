@@ -43,12 +43,12 @@ class Admin(User):
 
     def admin_login(self):
         try:
-            self.__admin_email = input("Enter admin email: ")
+            self.__admin_email = input("Enter admin email: ").lower()
             self.__admin_password = input("Enter admin password: ")
             admin_verified = 0
             for user in operation_obj.adminlist:
                 if user["email"] == self.__admin_email:
-                    if user["password"] == self.__admin_password:
+                    if user["password"] == self.__admin_password: 
                         self.admin_option()
                         admin_verified = 1
                         break
@@ -93,7 +93,7 @@ class Staff(User):
                 pass
 
     def staff_login(self):
-        staff_email = input("Enter staff email: ")
+        staff_email = input("Enter staff email: ").lower()
         staff_password = input("Enter staff password: ")
         staff_verified = 0
         for user in operation_obj.userlist:
