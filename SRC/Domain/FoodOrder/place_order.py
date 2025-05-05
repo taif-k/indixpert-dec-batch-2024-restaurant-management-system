@@ -1,5 +1,3 @@
-# import sys,os #
-# sys.path.append(os.getcwd()) #
 from SRC.Domain import foodmenu_obj,operation_obj,validation_obj,table_obj
 import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
@@ -60,23 +58,25 @@ class PlaceOrder:
         operation_obj.write_file(data=self.bill_list,path=self.bill_path)
                 
     def select_table(self):
-        print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
-        table_select = int(input("Enter table no. to book: ")) # 2
-        seat_select = int(input("Enter no. of seats to book: ")) # 4
-        
         table_available = 0
-        for table in table_obj.tablelist:
-            if table["table_no"] == table_select and seat_select <= table["available_seats"]:
-                table_available = 1
-                break   
-            else:
-                print("Choose available Table/seats")
-        if table_available == 1:
-            updated_seats = table["available_seats"]-seat_select
-            updatetable = {"table_no":table_select,"available_seats":updated_seats}
-            table_obj.tablelist.remove(table)
-            table_obj.tablelist.append(updatetable)
-            operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
+        while table_available != 1:
+            print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
+            table_select = int(input("Enter table no. to book: ")) 
+            seat_select = int(input("Enter no. of seats to book: "))
+            
+            for table in table_obj.tablelist:
+                if table["table_no"] == table_select and seat_select <= table["available_seats"]:
+                    table_available = 1
+                    break   
+            if table_available == 0:
+                print("Choose Available Seats/Table")
+
+            if table_available == 1:
+                updated_seats = table["available_seats"]-seat_select
+                updatetable = {"table_no":table_select,"available_seats":updated_seats}
+                table_obj.tablelist.remove(table)
+                table_obj.tablelist.append(updatetable)
+                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
 
     def book_order(self):
         table_book = input("Book Table first to place order: y/n: ").lower()
@@ -98,7 +98,6 @@ class PlaceOrder:
             print("Cannot place order :(")
         
 order_obj = PlaceOrder(error_path,placedorder_path,bill_path)
-# order_obj.book_order()
 
 
     
