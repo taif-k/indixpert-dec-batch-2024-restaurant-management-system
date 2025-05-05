@@ -1,5 +1,4 @@
 from SRC.Domain import foodmenu_obj,operation_obj,validation_obj
-import json
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
@@ -45,9 +44,14 @@ class PlaceOrder:
 
     def bill_generate(self,order_id = None):
         for order in self.placedorder_list:
-            if order["order_id"] == f"{order_id}":
+            if str(order["order_id"]) == str(f"{order_id}"):
                 gst = 0.10
-                billdict = {"total_amount":order["total_price"]+(order["total_price"] * gst),"customer_name":order["customer_name"],"order_time": order["order_time"],"order_id":order["order_id"]}
+                billdict = {
+                    "total_amount":order["total_price"]+(order["total_price"] * gst),
+                    "customer_name":order["customer_name"],
+                    "order_time": order["order_time"],
+                    "order_id":order["order_id"],
+                    }
                 self.bill_list.append(billdict)
                 break
 
