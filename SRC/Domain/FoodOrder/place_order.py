@@ -1,3 +1,5 @@
+# import sys,os #
+# sys.path.append(os.getcwd()) #
 from SRC.Domain import foodmenu_obj,operation_obj,validation_obj,table_obj
 import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
@@ -59,12 +61,13 @@ class PlaceOrder:
                 
     def select_table(self):
         print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
-        table_select = int(input("Enter table no. to book: ")) 
-        seat_select = int(input("Enter no. of seats to book: "))
+        table_select = int(input("Enter table no. to book: ")) # 2
+        seat_select = int(input("Enter no. of seats to book: ")) # 4
         
         for table in table_obj.tablelist:
             if table["table_no"] == table_select and seat_select <= table["available_seats"]:
-                updatetable = {"table_no":table_select,"available_seats":seat_select}
+                updated_seats = table["available_seats"]-seat_select
+                updatetable = {"table_no":table_select,"available_seats":updated_seats}
                 table_obj.tablelist.remove(table)
                 table_obj.tablelist.append(updatetable)
                 break   
@@ -93,6 +96,7 @@ class PlaceOrder:
             print("Cannot place order :(")
         
 order_obj = PlaceOrder(error_path,placedorder_path,bill_path)
+# order_obj.book_order()
 
 
     
