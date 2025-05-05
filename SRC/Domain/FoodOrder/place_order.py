@@ -76,7 +76,8 @@ class PlaceOrder:
                 updatetable = {"table_no":table_select,"available_seats":updated_seats}
                 table_obj.tablelist.remove(table)
                 table_obj.tablelist.append(updatetable)
-                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
+                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
+                print("Booking confirmed")  
 
     def book_order(self):
         table_book = input("Book Table first to place order: y/n: ").lower()
