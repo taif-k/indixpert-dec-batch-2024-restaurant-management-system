@@ -64,17 +64,19 @@ class PlaceOrder:
         table_select = int(input("Enter table no. to book: ")) # 2
         seat_select = int(input("Enter no. of seats to book: ")) # 4
         
+        table_available = 0
         for table in table_obj.tablelist:
             if table["table_no"] == table_select and seat_select <= table["available_seats"]:
-                updated_seats = table["available_seats"]-seat_select
-                updatetable = {"table_no":table_select,"available_seats":updated_seats}
-                table_obj.tablelist.remove(table)
-                table_obj.tablelist.append(updatetable)
+                table_available = 1
                 break   
             else:
                 print("Choose available Table/seats")
-                self.select_table()
-        operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
+        if table_available == 1:
+            updated_seats = table["available_seats"]-seat_select
+            updatetable = {"table_no":table_select,"available_seats":updated_seats}
+            table_obj.tablelist.remove(table)
+            table_obj.tablelist.append(updatetable)
+            operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
 
     def book_order(self):
         table_book = input("Book Table first to place order: y/n: ").lower()
