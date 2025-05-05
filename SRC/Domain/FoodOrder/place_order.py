@@ -1,5 +1,5 @@
-from SRC.Domain import foodmenu_obj,operation_obj,validation_obj
-
+from SRC.Domain import foodmenu_obj,operation_obj,validation_obj,table_obj
+import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
 bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
@@ -17,9 +17,9 @@ class PlaceOrder:
         self.total_price = 0
         while True:
             self.orderdict = {}
-            self.orderdict["search_foodtype"] = input("Search Breakfast/Lunch/Dinner: ")
-            self.orderdict["search_fooditem"] = input("Search Food item: ")
-            self.orderdict["search_servesize"] = input("Search small/medium/large: ")
+            self.orderdict["search_foodtype"] = input("Search Breakfast/Lunch/Dinner: ").lower()
+            self.orderdict["search_fooditem"] = input("Search Food item: ").lower()
+            self.orderdict["search_servesize"] = input("Search small/medium/large: ").lower()
             self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
             
             food_available = 0
@@ -57,19 +57,41 @@ class PlaceOrder:
 
         operation_obj.write_file(data=self.bill_list,path=self.bill_path)
                 
+    def select_table(self):
+        print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
+        table_select = int(input("Enter table no. to book: ")) 
+        seat_select = int(input("Enter no. of seats to book: "))
+
+        for table in table_obj.tablelist:
+            if table["table_no"] == table_select and seat_select <= table["available_seats"]:
+                updatetable = {"table_no":table_select,"available_seats":seat_select}
+                table_obj.tablelist.remove(table)
+                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
+                table_obj.tablelist.append(updatetable)
+                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
+                break
+            else:
+                print("Choose available Table/seats")
+                self.select_table()
+
     def book_order(self):
-        orderplaceddict = {}
-        orderplaceddict["customer_name"] = validation_obj.user_name()     
-        orderplaceddict["order_placed"] = self.orders_list()
-        orderplaceddict["order_id"] = validation_obj.user_id()
-        orderplaceddict["total_price"] = self.total_price
-        orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
+        table_book = input("Book Table first to place order: y/n").lower()
+        if table_book == "y":
+            orderplaceddict = {}
+            self.select_table()
+            orderplaceddict["customer_name"] = validation_obj.user_name()     
+            orderplaceddict["order_placed"] = self.orders_list()
+            orderplaceddict["order_id"] = validation_obj.user_id()
+            orderplaceddict["total_price"] = self.total_price
+            orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
 
-        print(f"Order placed Sucessfully :)....Order id: {validation_obj.user_id()}")
-        self.placedorder_list.append(orderplaceddict)
+            print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
+            self.placedorder_list.append(orderplaceddict)
 
-        operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
-        self.bill_generate(order_id=orderplaceddict["order_id"])
+            operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
+            self.bill_generate(order_id=orderplaceddict["order_id"])
+        else:
+            print("Cannot place order :(")
         
 order_obj = PlaceOrder(error_path,placedorder_path,bill_path)
 
