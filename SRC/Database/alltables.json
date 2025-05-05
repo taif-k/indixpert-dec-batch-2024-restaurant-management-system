@@ -1,18 +1,14 @@
 [
    {
-      "table_no": "Table 1",
-      "total_seat": 4
+      "table_no": 1,
+      "available_seats": 4
    },
    {
-      "table_no": "Table 2",
-      "total_seat": 4
+      "table_no": 2,
+      "available_seats": 4
    },
    {
-      "table_no": "Table 3",
-      "total_seat": 4
-   },
-   {
-      "table_no": "Table 4",
-      "total_seat": 4
+      "table_no": 3,
+      "available_seats": 4
    }
 ]
