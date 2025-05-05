@@ -17,8 +17,8 @@ class Table:
             elif add_table == "y":
                 table += 1
                 tabledict = {}
-                tabledict["table_no"] = f"Table {table}"
-                tabledict["total_seat"] = 4  
+                tabledict["table_no"] = int(f"{table}")
+                tabledict["available_seats"] = 4  
                 self.tablelist.append(tabledict)
                 print("Table added to Restaurant Successfully...")
 
