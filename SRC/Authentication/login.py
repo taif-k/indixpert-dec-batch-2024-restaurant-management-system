@@ -1,8 +1,7 @@
 import sys,os
 sys.path.append(os.getcwd())
 import json
-from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj
-
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,bill_obj
 
 class User:
     def login_menu(self):
@@ -81,9 +80,9 @@ class Staff(User):
                 elif staff_option == 3:
                     print(json.dumps(table_obj.tablelist,indent=4))
                 elif staff_option == 4:
-                    pass
+                    order_obj.select_table()
                 elif staff_option == 5:
-                    pass
+                    bill_obj.payment_option()
                 elif staff_option == 0:
                     break
             except Exception as err:
