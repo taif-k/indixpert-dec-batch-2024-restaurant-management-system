@@ -4,17 +4,5 @@
       "customer_name": "rajat",
       "order_time": "05/05/2025, 07:53:26",
       "order_id": "f94e"
-   },
-   {
-      "total_amount": 330.0,
-      "customer_name": "sahil",
-      "order_time": "05/05/2025, 08:52:01",
-      "order_id": "47ba"
-   },
-   {
-      "total_amount": 330.0,
-      "customer_name": "abhishek",
-      "order_time": "05/05/2025, 09:24:22",
-      "order_id": "cde2"
    }
 ]
