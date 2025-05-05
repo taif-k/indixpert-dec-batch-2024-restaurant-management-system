@@ -1,120 +1,24 @@
 [
    {
-      "customer_name": "preet",
+      "customer_name": "rajat",
       "order_placed": [
          {
             "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "small",
-            "item_quantity": 2,
-            "item_price": 40
-         },
-         {
-            "search_foodtype": "dinner",
             "search_fooditem": "rice",
             "search_servesize": "medium",
-            "item_quantity": 5,
-            "item_price": 20
-         }
-      ],
-      "order_id": "d050",
-      "total_price": 180,
-      "order_time": "04/05/2025, 15:49:03"
-   },
-   {
-      "customer_name": "mohit",
-      "order_placed": [
+            "item_quantity": 2,
+            "item_price": 110
+         },
          {
             "search_foodtype": "lunch",
             "search_fooditem": "matar paneer",
             "search_servesize": "large",
-            "item_quantity": 3,
-            "item_price": 60
-         },
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "small",
-            "item_quantity": 10,
-            "item_price": 40
-         }
-      ],
-      "order_id": "8158",
-      "total_price": 580,
-      "order_time": "04/05/2025, 15:53:26"
-   },
-   {
-      "customer_name": "abeer",
-      "order_placed": [
-         {
-            "search_foodtype": "dinner",
-            "search_fooditem": "rice",
-            "search_servesize": "small",
-            "item_quantity": 5,
-            "item_price": 10
-         },
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "medium",
             "item_quantity": 2,
-            "item_price": 50
+            "item_price": 120
          }
       ],
-      "order_id": "92f3",
-      "total_price": 150,
-      "order_time": "04/05/2025, 16:07:06"
-   },
-   {
-      "customer_name": "rohit",
-      "order_placed": [
-         {
-            "search_foodtype": "dinner",
-            "search_fooditem": "rice",
-            "search_servesize": "small",
-            "item_quantity": 3,
-            "item_price": 10
-         }
-      ],
-      "order_id": "f309",
-      "total_price": 30,
-      "order_time": "04/05/2025, 16:52:15"
-   },
-   {
-      "customer_name": "mohit",
-      "order_placed": [
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "medium",
-            "item_quantity": 2,
-            "item_price": 50
-         }
-      ],
-      "order_id": "4a28",
-      "total_price": 100,
-      "order_time": "04/05/2025, 16:54:19"
-   },
-   {
-      "customer_name": "abeer",
-      "order_placed": [
-         {
-            "search_foodtype": "dinner",
-            "search_fooditem": "rice",
-            "search_servesize": "medium",
-            "item_quantity": 2,
-            "item_price": 20
-         },
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "small",
-            "item_quantity": 1,
-            "item_price": 40
-         }
-      ],
-      "order_id": "9203",
-      "total_price": 80,
-      "order_time": "04/05/2025, 17:02:46"
+      "order_id": "f94e",
+      "total_price": 460,
+      "order_time": "05/05/2025, 07:53:26"
    }
 ]
