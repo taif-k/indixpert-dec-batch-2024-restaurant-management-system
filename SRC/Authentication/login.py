@@ -66,8 +66,7 @@ class Staff(User):
         print("2 - Place Order")
         print("3 - See available Table")
         print("4 - Book Table")
-        print("5 - pay")
-        print("6 - Generate Bill")
+        print("5 - pay Bill")
         print("0 - Staff Logout")
         
     def staff_option(self):
@@ -84,8 +83,6 @@ class Staff(User):
                 elif staff_option == 4:
                     pass
                 elif staff_option == 5:
-                    pass
-                elif staff_option == 6:
                     pass
                 elif staff_option == 0:
                     break
