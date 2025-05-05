@@ -61,21 +61,20 @@ class PlaceOrder:
         print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
         table_select = int(input("Enter table no. to book: ")) 
         seat_select = int(input("Enter no. of seats to book: "))
-
+        
         for table in table_obj.tablelist:
             if table["table_no"] == table_select and seat_select <= table["available_seats"]:
                 updatetable = {"table_no":table_select,"available_seats":seat_select}
                 table_obj.tablelist.remove(table)
-                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
                 table_obj.tablelist.append(updatetable)
-                operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
-                break
+                break   
             else:
                 print("Choose available Table/seats")
                 self.select_table()
+        operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)  
 
     def book_order(self):
-        table_book = input("Book Table first to place order: y/n").lower()
+        table_book = input("Book Table first to place order: y/n: ").lower()
         if table_book == "y":
             orderplaceddict = {}
             self.select_table()
@@ -94,5 +93,6 @@ class PlaceOrder:
             print("Cannot place order :(")
         
 order_obj = PlaceOrder(error_path,placedorder_path,bill_path)
+
 
     
