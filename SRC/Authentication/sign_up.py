@@ -17,7 +17,7 @@ class RestaurantUsers:
             userdict["email"] = validation_obj.user_email()
             userdict["contact"] = validation_obj.user_contact()
             userdict["address"] = validation_obj.user_address()
-            userdict["user_id"] = userdict["name"].split()[-1] + "_" + validation_obj.user_id(id_length=4)
+            userdict["user_id"] = userdict["name"].split()[-1] + "_" + validation_obj.id_unique()
             userdict["password"] = validation_obj.user_password()
             userdict["joined_date"] = operation_obj.get_errdetails(get_date=True)
             operation_obj.userlist.append(userdict)
