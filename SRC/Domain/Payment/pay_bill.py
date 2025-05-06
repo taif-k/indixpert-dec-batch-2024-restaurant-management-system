@@ -1,32 +1,40 @@
-from SRC.Domain import order_obj,paymentid_obj
+from SRC.Domain import order_obj,paymentid_obj,operation_obj,foodmenu_obj
 
 class Bill:
     def __init__(self):
         pass
 
     def cash_pay(self):
-        cash_amount = int(input("Enter cash amount: "))
-        valid_amount = 0
-        for amount in order_obj.bill_list:
-            if cash_amount >= amount["total_amount"]:
-                valid_amount = 1
-                break
+        try:
+            cash_amount = int(input("Enter cash amount: "))
+            valid_amount = 0
+            for amount in order_obj.bill_list:
+                if cash_amount >= amount["total_amount"]:
+                    valid_amount = 1
+                    break
 
-        if valid_amount == 1:
-            return_cash = cash_amount - amount["total_amount"]
-            print("Bill paid :)")
-            print(f"Amount returned {return_cash}")
+            if valid_amount == 1:
+                return_cash = cash_amount - amount["total_amount"]
+                print("Bill paid :)")
+                print(f"Amount returned {return_cash}")
 
-        if valid_amount == 0:
-            print("Paying Amount should be Non-Negative/Greater than bill amount")    
+            if valid_amount == 0:
+                print("Paying Amount should be Non-Negative/Greater than bill amount")
+        except Exception as err:
+            print(foodmenu_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)            
     
     def card_pay(self):
-        swipe_card = int(input("Enter 1 to Swipe Card: "))
-        self.__card_num = paymentid_obj.id_unique()
-        if swipe_card == 1 and len(self.__card_num) == 16:
-            print("Bill paid")
-        else:
-            print("Card Declined")
+        try:
+            swipe_card = int(input("Enter 1 to Swipe Card: "))
+            self.__card_num = paymentid_obj.id_unique()
+            if swipe_card == 1 and len(self.__card_num) == 16:
+                print("Bill paid")
+            else:
+                print("Card Declined")
+        except Exception as err:
+            print(foodmenu_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def upi_menu(self):
         print("1 - paytm")
@@ -34,15 +42,18 @@ class Bill:
         print("3- gpay")
 
     def upi_pay(self):
-        self.upi_menu()
-        upi_option = int(input("Enter upi option: "))
-        self.__pin = input("Enter upi pin: ")
-        if upi_option in [1,2,3] and len(self.__pin) == 4 and self.__pin.isdigit():
-            print(f"\nBill paid Transaction id is {paymentid_obj.id_unique()}")
-        else:
-            print("\nIncorrect pin/Invalid option")
+        try:
+            self.upi_menu()
+            upi_option = int(input("Enter upi option: "))
+            self.__pin = input("Enter upi pin: ")
+            if upi_option in [1,2,3] and len(self.__pin) == 4 and self.__pin.isdigit():
+                print(f"\nBill paid Transaction id is {paymentid_obj.id_unique()}")
+            else:
+                print("\nInvalid pin/option")
+        except Exception as err:
+            print(foodmenu_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
             
-
     def payment_menu(self):
         print()
         print("1 - Cash")
@@ -50,27 +61,31 @@ class Bill:
         print("3 - Card")
 
     def payment_option(self):
-        order_id = input("\nEnter order id: ")
-        orderid_matched = 0
-        for id in order_obj.bill_list:
-            if id["order_id"] == order_id:
-                orderid_matched = 1
-                self.billamount= id["total_amount"]
-                break
+        try:
+            order_id = input("\nEnter order id: ")
+            orderid_matched = 0
+            for id in order_obj.bill_list:
+                if id["order_id"] == order_id:
+                    orderid_matched = 1
+                    self.billamount= id["total_amount"]
+                    break
 
-        if orderid_matched == 1:
-            print(f"Bill amount for above order id: {self.billamount}")
-            self.payment_menu()
-            pay_bill = int(input("Enter payment option: "))
-            if pay_bill == 1:
-                self.cash_pay()
-            elif pay_bill == 2:
-                self.upi_pay()
-            elif pay_bill == 3:
-                self.card_pay()
+            if orderid_matched == 1:
+                print(f"Bill amount for above order id: {self.billamount}")
+                self.payment_menu()
+                pay_bill = int(input("Enter payment option: "))
+                if pay_bill == 1:
+                    self.cash_pay()
+                elif pay_bill == 2:
+                    self.upi_pay()
+                elif pay_bill == 3:
+                    self.card_pay()
+                else:
+                    print("Invalid payment option")    
             else:
-                print("Invalid payment option")    
-        else:
-            print("Order id not found")
+                print("Order id not found")
+        except Exception as err:
+            print(foodmenu_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
                 
 bill_obj = Bill()
