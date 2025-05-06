@@ -13,7 +13,7 @@ class RestaurantUsers:
         try:
             userdict = {}
             userdict["name"] = validation_obj.user_name()
-            userdict["user_role"] = validation_obj.user_role()
+            userdict["user_role"] = validation_obj.user_role(role = "staff")
             userdict["email"] = validation_obj.user_email()
             userdict["contact"] = validation_obj.user_contact()
             userdict["address"] = validation_obj.user_address()
