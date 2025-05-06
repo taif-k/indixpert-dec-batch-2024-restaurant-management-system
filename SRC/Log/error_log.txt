@@ -45,3 +45,5 @@
 {'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '04/05/2025, 16:52:18', 'line': 112}
 {'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 17:02:09', 'line': 363}
 {'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '04/05/2025, 17:02:09', 'line': 363}
+{'module': 'sign_up.py', 'function': 'user_signup', 'error': TypeError('can only concatenate list (not "str") to list'), 'date': '06/05/2025, 08:32:32', 'line': 20}
+{'module': 'add_items.py', 'function': 'add_menu', 'error': IndexError('list index out of range'), 'date': '06/05/2025, 08:48:13', 'line': 14}
