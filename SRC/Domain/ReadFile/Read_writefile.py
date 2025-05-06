@@ -52,6 +52,7 @@ class DataFile:
                 user_data = json.load(file)
                 return user_data     
         except Exception as err:
+            print("check file path..")
             self.write_file(data=self.get_errdetails(err),path=self.err_path,mode="a",isJson=0)
             return []       
 
