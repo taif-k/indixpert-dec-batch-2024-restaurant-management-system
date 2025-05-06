@@ -49,12 +49,12 @@ class Admin(User):
 
     def user_login(self):
         try:
-            self.__admin_email = input("Enter admin email: ").lower()
-            self.__admin_password = input("Enter admin password: ")
+            admin_email = input("Enter admin email: ").lower()
+            admin_password = input("Enter admin password: ")
             admin_verified = 0
             for user in operation_obj.adminlist:
-                if user["email"] == self.__admin_email:
-                    if user["password"] == self.__admin_password: 
+                if user["email"] == admin_email:
+                    if user["password"] == admin_password: 
                         self.user_option()
                         admin_verified = 1
                         break
