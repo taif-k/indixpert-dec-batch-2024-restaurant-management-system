@@ -1,6 +1,13 @@
 import uuid
+from abc import ABC,abstractmethod
 
-class UserValidation:
+class Validation(ABC):
+    @abstractmethod
+    def id_unique(self):
+        pass
+
+
+class UserValidation(Validation):
     def user_name(self):
         while True:       
             ask_name = input("Enter name: ").lower()
@@ -27,13 +34,13 @@ class UserValidation:
             else:
                 print("Enter valid Email....Ex: taif@mail.com")
         
-    def user_id(self,id_length = None):
-        unique_id = self.unique_id = str(uuid.uuid4())[:id_length]
-        return unique_id
-
     def user_address(self):
         ask_address = input("Enter address: ").lower()
         return ask_address
+    
+    def id_unique(self):
+        user_id = self.unique_id = str(uuid.uuid4())[:4]
+        return user_id
     
     def user_role(self):
         set_role = "staff"
@@ -46,5 +53,21 @@ class UserValidation:
                 return ask_password
             else:
                 print("Password must be atleast 8 characters long and include @ also")
-    
+
 validation_obj = UserValidation()
+
+class FoodValidation(Validation):
+    def id_unique(self):
+        food_id = self.unique_id = str(uuid.uuid4())[:2]
+        return food_id
+    
+Foodvalid_obj = FoodValidation()
+
+class PaymentValidation(Validation):
+    def id_unique(self):
+        card_upi_no = self.unique_id = str(uuid.uuid4())[:16]
+        return card_upi_no
+    
+paymentid_obj = PaymentValidation()
+
+        
