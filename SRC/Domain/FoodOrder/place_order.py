@@ -86,7 +86,7 @@ class PlaceOrder:
             self.select_table()
             orderplaceddict["customer_name"] = validation_obj.user_name()     
             orderplaceddict["order_placed"] = self.orders_list()
-            orderplaceddict["order_id"] = validation_obj.user_id()
+            orderplaceddict["order_id"] = validation_obj.id_unique()
             orderplaceddict["total_price"] = self.total_price
             orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
 
