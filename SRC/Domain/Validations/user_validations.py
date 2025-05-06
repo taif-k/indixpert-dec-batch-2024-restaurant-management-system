@@ -27,8 +27,8 @@ class UserValidation:
             else:
                 print("Enter valid Email....Ex: taif@mail.com")
         
-    def user_id(self):
-        unique_id = self.unique_id = str(uuid.uuid4())[:4]
+    def user_id(self,id_length = None):
+        unique_id = self.unique_id = str(uuid.uuid4())[:id_length]
         return unique_id
 
     def user_address(self):
