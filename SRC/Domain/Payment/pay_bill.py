@@ -1,4 +1,4 @@
-from SRC.Domain import order_obj,validation_obj
+from SRC.Domain import order_obj,paymentid_obj
 
 class Bill:
     def __init__(self):
@@ -22,7 +22,7 @@ class Bill:
     
     def card_pay(self):
         swipe_card = int(input("Enter 1 to Swipe Card: "))
-        self.__card_num = validation_obj.user_id(id_length=16)
+        self.__card_num = paymentid_obj.id_unique()
         if swipe_card == 1 and len(self.__card_num) == 16:
             print("Bill paid")
         else:
@@ -38,7 +38,7 @@ class Bill:
         upi_option = int(input("Enter upi option: "))
         self.__pin = input("Enter upi pin: ")
         if upi_option in [1,2,3] and len(self.__pin) == 4 and self.__pin.isdigit():
-            print(f"\nBill paid Transaction id is {validation_obj.user_id(id_length=16)}")
+            print(f"\nBill paid Transaction id is {paymentid_obj.id_unique()}")
         else:
             print("\nIncorrect pin/Invalid option")
             
