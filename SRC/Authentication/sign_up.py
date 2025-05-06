@@ -6,8 +6,8 @@ error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-sy
 
 class RestaurantUsers:
     def __init__(self,path,err_path):
-        self.user_path = path
-        self.err_path = err_path
+        self.__user_path = path
+        self.__err_path = err_path
 
     def user_signup(self):
         try:
