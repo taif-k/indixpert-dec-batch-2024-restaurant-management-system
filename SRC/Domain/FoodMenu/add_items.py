@@ -1,4 +1,4 @@
-from SRC.Domain import operation_obj,validation_obj
+from SRC.Domain import operation_obj,Foodvalid_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuItem:
@@ -11,7 +11,7 @@ class MenuItem:
             foodmenu_dict = {}
             foodmenu_dict["food_item"] = input("Enter Food item to add: ").lower()
             foodmenu_dict["food_type"] = input("Enter Food category: ").lower()
-            foodmenu_dict["food_id"] = foodmenu_dict["food_type"][0] +"_"+ validation_obj.user_id(id_length=2) #ex: b_12
+            foodmenu_dict["food_id"] = foodmenu_dict["food_type"][0] +"_"+ Foodvalid_obj.id_unique() #ex: b_12
             for s in range(0,3):
                 size = ["small","medium","large"]
 
