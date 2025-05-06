@@ -2,16 +2,23 @@ import sys,os
 sys.path.append(os.getcwd())
 import json
 from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,bill_obj
+from abc import ABC,abstractmethod
 
-class User:
-    def login_menu(self):
-        print()
-        print("1 - Admin Login")
-        print("2 - Staff Login")
-        print("0 - Go Back")
+class User(ABC):
+    @abstractmethod
+    def user_login(self):
+        pass
+
+    @abstractmethod
+    def user_menu(self):
+        pass
+
+    @abstractmethod
+    def user_option(self):
+        pass
 
 class Admin(User):
-    def admin_menu(self):
+    def user_menu(self):
         print()
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
@@ -19,10 +26,10 @@ class Admin(User):
         print("4 - Add Table")
         print("0 - Admin Logout")
 
-    def admin_option(self):
+    def user_option(self):
         while True:
             try:
-                self.admin_menu()
+                self.user_menu()
                 admin_option = int(input("Enter admin option: "))
                 if admin_option == 1:
                     foodmenu_obj.add_menu()
@@ -40,7 +47,7 @@ class Admin(User):
                 print("Resolving issue..Try again after some time")
                 operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
-    def admin_login(self):
+    def user_login(self):
         try:
             self.__admin_email = input("Enter admin email: ").lower()
             self.__admin_password = input("Enter admin password: ")
@@ -48,7 +55,7 @@ class Admin(User):
             for user in operation_obj.adminlist:
                 if user["email"] == self.__admin_email:
                     if user["password"] == self.__admin_password: 
-                        self.admin_option()
+                        self.user_option()
                         admin_verified = 1
                         break
 
@@ -57,9 +64,10 @@ class Admin(User):
         except Exception as err:
             print("Try again after some time...")
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+admin_obj = Admin()
 
 class Staff(User):
-    def staff_menu(self):
+    def user_menu(self):
         print()
         print("1 - Display Menu")
         print("2 - Place Order")
@@ -68,10 +76,10 @@ class Staff(User):
         print("5 - pay Bill")
         print("0 - Staff Logout")
         
-    def staff_option(self):
+    def user_option(self):
         while True:
             try:
-                self.staff_menu()
+                self.user_menu()
                 staff_option = int(input("Enter staff option: "))
                 if staff_option == 1:
                     print(json.dumps(foodmenu_obj.foodmenu_list,indent=4))
@@ -88,28 +96,35 @@ class Staff(User):
             except Exception as err:
                 pass
 
-    def staff_login(self):
+    def user_login(self):
         staff_email = input("Enter staff email: ").lower()
         staff_password = input("Enter staff password: ")
         staff_verified = 0
         for user in operation_obj.userlist:
             if user["email"] == staff_email:
                 if user["password"] == staff_password:
-                    self.staff_option()
+                    self.user_option()
                     staff_verified = 1
                     break
         if staff_verified == 0:
             print("Invalid Credentials") 
+staff_obj = Staff()
 
 class UserOption(Admin,Staff):
+    def select_user(self):
+        print()
+        print("1 - Admin Login")
+        print("2 - Staff Login")
+        print("0 - Go Back")
+
     def user_login(self):
         while True:
-            self.login_menu()
+            self.select_user()
             ask_login = int(input("Enter Login Option: "))
             if ask_login == 1:
-                self.admin_login()
+                admin_obj.user_login()
             elif ask_login == 2:
-                self.staff_login()
+                staff_obj.user_login()
             elif ask_login == 0:
                 break
             else:
