@@ -7,11 +7,11 @@ class MenuItem:
         self.foodmenu_list = operation_obj.read_file(self.food_path)
 
     def add_menu(self):
-        foodmenu_dict = {}
         while True:
+            foodmenu_dict = {}
             foodmenu_dict["food_item"] = input("Enter Food item to add: ").lower()
             foodmenu_dict["food_type"] = input("Enter Food category: ").lower()
-            foodmenu_dict["food_id"] = foodmenu_dict["food_type"] +"_"+ validation_obj.user_id() #ex: lunch_c123
+            foodmenu_dict["food_id"] = foodmenu_dict["food_type"][0] +"_"+ validation_obj.user_id(id_length=2) #ex: b_12
             for s in range(0,3):
                 size = ["small","medium","large"]
 
@@ -24,6 +24,7 @@ class MenuItem:
 
         self.foodmenu_list.append(foodmenu_dict)        
         operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
+        print("\nFood item added to Menu")
 
 
 foodmenu_obj = MenuItem(foodmenu_path)
