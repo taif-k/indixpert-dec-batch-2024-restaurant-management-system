@@ -20,5 +20,27 @@
       "order_id": "f94e",
       "total_price": 460,
       "order_time": "05/05/2025, 07:53:26"
+   },
+   {
+      "customer_name": "preetpal",
+      "order_placed": [
+         {
+            "search_foodtype": "dinner",
+            "search_fooditem": "rajma",
+            "search_servesize": "large",
+            "item_quantity": 1,
+            "item_price": 200
+         },
+         {
+            "search_foodtype": "dinner",
+            "search_fooditem": "dal fry",
+            "search_servesize": "small",
+            "item_quantity": 2,
+            "item_price": 150
+         }
+      ],
+      "order_id": "b713",
+      "total_price": 500,
+      "order_time": "06/05/2025, 09:24:36"
    }
 ]
