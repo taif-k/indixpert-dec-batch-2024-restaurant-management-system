@@ -4,11 +4,11 @@
       "available_seats": 4
    },
    {
-      "table_no": 2,
+      "table_no": 3,
       "available_seats": 4
    },
    {
-      "table_no": 3,
-      "available_seats": 4
+      "table_no": 2,
+      "available_seats": 2
    }
 ]
