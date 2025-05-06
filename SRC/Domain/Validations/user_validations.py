@@ -1,11 +1,14 @@
 import uuid
 from abc import ABC,abstractmethod
+from SRC.Domain import operation_obj
 
 class Validation(ABC):
+    def __init__(self):
+        self.error_msg = "Resolving issue with assigning unique id"
+
     @abstractmethod
     def id_unique(self):
         pass
-
 
 class UserValidation(Validation):
     def user_name(self):
@@ -39,11 +42,18 @@ class UserValidation(Validation):
         return ask_address
     
     def id_unique(self):
-        user_id = self.unique_id = str(uuid.uuid4())[:4]
-        return user_id
+        try:
+            user_id = self.unique_id = str(uuid.uuid4())[:4]
+            return user_id
+        except Exception as err:
+            print(self.error_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
     
-    def user_role(self):
-        set_role = "staff"
+    def user_role(self,role = None):
+        if role == None:
+            set_role = "admin"
+                
+        set_role = role
         return set_role
 
     def user_password(self):
@@ -58,15 +68,21 @@ validation_obj = UserValidation()
 
 class FoodValidation(Validation):
     def id_unique(self):
-        food_id = self.unique_id = str(uuid.uuid4())[:2]
-        return food_id
-    
+        try:
+            food_id = self.unique_id = str(uuid.uuid4())[:2]
+            return food_id
+        except Exception as err:
+            print(self.error_msg)
+
 Foodvalid_obj = FoodValidation()
 
 class PaymentValidation(Validation):
     def id_unique(self):
-        card_upi_no = self.unique_id = str(uuid.uuid4())[:16]
-        return card_upi_no
+        try:
+            card_upi_no = self.unique_id = str(uuid.uuid4())[:16]
+            return card_upi_no
+        except:
+            print(self.error_msg)
     
 paymentid_obj = PaymentValidation()
 
