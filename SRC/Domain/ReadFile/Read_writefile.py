@@ -1,8 +1,7 @@
 import json
 import traceback
 import datetime
-import os,sys
-sys.path.append(os.getcwd())
+import os
 
 userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
