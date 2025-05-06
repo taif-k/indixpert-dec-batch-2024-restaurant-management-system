@@ -1,6 +1,8 @@
 import uuid
+import sys,os
+sys.path.append(os.getcwd())
 from abc import ABC,abstractmethod
-from SRC.Domain import operation_obj
+from SRC.Domain.ReadFile.Read_writefile import operation_obj
 
 class Validation(ABC):
     def __init__(self):
