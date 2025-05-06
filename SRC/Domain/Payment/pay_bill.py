@@ -38,7 +38,7 @@ class Bill:
         upi_option = int(input("Enter upi option: "))
         self.__pin = input("Enter upi pin: ")
         if upi_option in [1,2,3] and len(self.__pin) == 4 and self.__pin.isdigit():
-            print("\nBill paid")
+            print(f"\nBill paid Transaction id is {validation_obj.user_id(id_length=16)}")
         else:
             print("\nIncorrect pin/Invalid option")
             
