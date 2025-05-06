@@ -4,7 +4,7 @@ class UserValidation:
     def user_name(self):
         while True:       
             ask_name = input("Enter name: ").lower()
-            if ask_name.isalpha():
+            if all(word.isalpha() for word in ask_name.split()):
                 return ask_name
             else:
                 print("Name should be in Alphabets")
@@ -27,8 +27,8 @@ class UserValidation:
             else:
                 print("Enter valid Email....Ex: taif@mail.com")
         
-    def user_id(self):
-        unique_id = self.unique_id = str(uuid.uuid4())[:4]
+    def user_id(self,id_length = None):
+        unique_id = self.unique_id = str(uuid.uuid4())[:id_length]
         return unique_id
 
     def user_address(self):
