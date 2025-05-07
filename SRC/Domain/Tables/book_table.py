@@ -10,23 +10,24 @@ class Table:
 
     def add_table(self):
         try:
-            table =  0
-            while True:
-                add_table = input("Add Table: y/n")
-                if add_table == "n":
-                    break
-                elif add_table == "y":
-                    table += 1
-                    tabledict = {}
-                    tabledict["table_no"] = int(f"{table}")
-                    tabledict["available_seats"] = 4  
-                    self.tablelist.append(tabledict)
-                    print("Table added to Restaurant Successfully...")
-                else:
-                    print("\nInvalid option")
+            add_newtable = input("Add Table to Restaurant y/n: ").lower()
+            if add_newtable != "y":
+                print("New Table not added")
+                return None
+            
+            largest_table_no = 0
+            for table in self.tablelist:
+                if table["table_no"] > largest_table_no:
+                    largest_table_no = table["table_no"]
+
+            tabledict = {"table_no":largest_table_no + 1,"available_seats":4}
+            self.tablelist.append(tabledict)
+
+            print(f"Table no {largest_table_no + 1} added to Restaurant Successfully...")
             operation_obj.write_file(data=self.tablelist,path=self.alltable_path)
         except Exception as err:
             print("Try again after some time")
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 table_obj = Table(alltable_path) 
+table_obj.add_table()
