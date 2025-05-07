@@ -22,7 +22,7 @@ class Admin(User):
         print()
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
-        print("3 - Update Food item")
+        print("3 - Update Food item Price")
         print("4 - Display Menu")
         print("5 - Add Table")
         print("0 - Admin Logout")
