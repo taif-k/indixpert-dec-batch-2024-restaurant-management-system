@@ -6,10 +6,11 @@ class MenuItem:
         self.food_path = foodmenu_path
         self.foodmenu_list = operation_obj.read_file(self.food_path)
         self.err_msg = "Resolving issue...Try again after some time"
+        self.serve_size = ("small","medium","large")
 
     def add_menu(self):
         try:
-            serve_size = ("small","medium","large")
+            
             while True:
                 foodmenu_dict = {}
                 foodmenu_dict["food_item"] = input("Enter Food item to add: ").lower()
@@ -24,8 +25,8 @@ class MenuItem:
 
                 if already_present == 0:
                     for s in range(0,3):
-                        foodmenu_dict[f"{serve_size[s]}_food_size"] = input(f"is serving size {serve_size[s]}/NA: ").lower()
-                        foodmenu_dict[f"{serve_size[s]}_food_price"] = int(input("Enter item price: "))
+                        foodmenu_dict[f"{self.serve_size[s]}_food_size"] = input(f"is serving size {self.serve_size[s]}/NA: ").lower()
+                        foodmenu_dict[f"{self.serve_size[s]}_food_price"] = int(input("Enter item price: "))
                     self.foodmenu_list.append(foodmenu_dict)
                     print("\nFood item added to Menu")
 
