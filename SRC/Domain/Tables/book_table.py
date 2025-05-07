@@ -1,5 +1,3 @@
-import sys,os
-sys.path.append(os.getcwd())
 from SRC.Domain import operation_obj
 alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 
@@ -29,5 +27,4 @@ class Table:
             print("Try again after some time")
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
-table_obj = Table(alltable_path) 
-table_obj.add_table()
+table_obj = Table(alltable_path)
