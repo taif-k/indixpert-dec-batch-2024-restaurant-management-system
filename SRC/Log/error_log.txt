@@ -50,3 +50,12 @@
 {'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: 'a'"), 'date': '07/05/2025, 13:16:15', 'line': 18}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\Domain\\\\Tables\\\\book_table.py"\''), 'date': '07/05/2025, 13:26:50', 'line': 33}
 {'module': 'book_table.py', 'function': 'add_table', 'error': ValueError('invalid literal for int() with base 10: "{\'table_no\': 2, \'available_seats\': 2}"'), 'date': '07/05/2025, 13:27:46', 'line': 27}
+{'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '07/05/2025, 16:43:00', 'line': 13}
+{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('s_food_price'), 'date': '07/05/2025, 16:45:08', 'line': 14}
+{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('small,medium,large_food_price'), 'date': '07/05/2025, 16:45:56', 'line': 14}
+{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('small_food_price'), 'date': '07/05/2025, 16:51:34', 'line': 15}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '07/05/2025, 16:52:38', 'line': 34}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '07/05/2025, 16:52:39', 'line': 34}
+{'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '07/05/2025, 17:11:42', 'line': 16}
+{'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '07/05/2025, 17:11:45', 'line': 16}
+{'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '07/05/2025, 17:18:20', 'line': 15}
