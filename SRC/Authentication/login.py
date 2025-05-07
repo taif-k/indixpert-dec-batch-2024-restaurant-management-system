@@ -1,7 +1,7 @@
 import sys,os
 sys.path.append(os.getcwd())
 import json
-from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,bill_obj
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,bill_obj,updateitem_obj
 from abc import ABC,abstractmethod
 
 class User(ABC):
@@ -22,8 +22,9 @@ class Admin(User):
         print()
         print("1 - Add Food Item")
         print("2 - Remove Food Item")
-        print("3 - Display Menu")
-        print("4 - Add Table")
+        print("3 - Update Food item")
+        print("4 - Display Menu")
+        print("5 - Add Table")
         print("0 - Admin Logout")
 
     def user_option(self):
@@ -36,8 +37,10 @@ class Admin(User):
                 elif admin_option == 2:
                     removemenu_obj.remove_menu()
                 elif admin_option == 3:
-                    print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
+                    updateitem_obj.update_item()
                 elif admin_option == 4:
+                    print(json.dumps(foodmenu_obj.foodmenu_list,indent=3))
+                elif admin_option == 5:
                     table_obj.add_table()
                 elif admin_option == 0:
                     break
