@@ -29,6 +29,8 @@ class PlaceOrder:
                         if self.orderdict["search_servesize"] in (item["small_food_size"],item["medium_food_size"],item["large_food_size"]):
                             food_available = 1
                             self.orderdict["item_price"] = item[f"{self.orderdict["search_servesize"]}_food_price"]
+                            self.orderdict["tableno_booked"] = self.table_select
+                            self.orderdict["seats_booked"] = self.seat_select
                             self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
                             break
 
@@ -71,19 +73,19 @@ class PlaceOrder:
             table_available = 0
             while table_available != 1:
                 print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
-                table_select = int(input("Enter table no. to book: ")) 
-                seat_select = int(input("Enter no. of seats to book: "))
+                self.table_select = int(input("Enter table no. to book: ")) 
+                self.seat_select = int(input("Enter no. of seats to book: "))                          ####
                 
                 for table in table_obj.tablelist:
-                    if table["table_no"] == table_select and seat_select <= table["available_seats"]:
+                    if table["table_no"] == self.table_select and self.seat_select <= table["available_seats"]:
                         table_available = 1
                         break   
                 if table_available == 0:
                     print("Choose Available Seats/Table")
 
                 if table_available == 1:
-                    updated_seats = table["available_seats"]-seat_select
-                    updatetable = {"table_no":table_select,"available_seats":updated_seats}
+                    updated_seats = table["available_seats"]-self.seat_select
+                    updatetable = {"table_no":self.table_select,"available_seats":updated_seats}
                     table_obj.tablelist.remove(table)
                     table_obj.tablelist.append(updatetable)
                     operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
@@ -103,7 +105,7 @@ class PlaceOrder:
                 orderplaceddict["order_id"] = validation_obj.id_unique()
                 orderplaceddict["total_price"] = self.total_price
                 orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
-
+                
                 print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                 self.placedorder_list.append(orderplaceddict)
 
