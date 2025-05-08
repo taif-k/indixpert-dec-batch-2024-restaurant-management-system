@@ -3,6 +3,7 @@ sys.path.append(os.getcwd())
 import json
 from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,updateitem_obj,pay_obj
 from abc import ABC,abstractmethod
+import pwinput
 
 class User(ABC):
     @abstractmethod
@@ -101,7 +102,7 @@ class Staff(User):
 
     def user_login(self):
         staff_email = input("Enter staff email: ").lower()
-        staff_password = input("Enter staff password: ")
+        staff_password = pwinput.pwinput(prompt="Enter staff password: ",mask="*")
         staff_verified = 0
         for user in operation_obj.userlist:
             if user["email"] == staff_email:
