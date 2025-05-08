@@ -59,3 +59,4 @@
 {'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '07/05/2025, 17:11:42', 'line': 16}
 {'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '07/05/2025, 17:11:45', 'line': 16}
 {'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '07/05/2025, 17:18:20', 'line': 15}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('table_no'), 'date': '08/05/2025, 09:09:30', 'line': 32}
