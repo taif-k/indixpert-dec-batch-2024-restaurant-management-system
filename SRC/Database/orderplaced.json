@@ -57,5 +57,22 @@
       "order_id": "8af4",
       "total_price": 120,
       "order_time": "08/05/2025, 08:50:05"
+   },
+   {
+      "customer_name": "rohit",
+      "order_placed": [
+         {
+            "search_foodtype": "breakfast",
+            "search_fooditem": "oats",
+            "search_servesize": "medium",
+            "item_quantity": 1,
+            "item_price": 80,
+            "tableno_booked": 2,
+            "seats_booked": 1
+         }
+      ],
+      "order_id": "f751",
+      "total_price": 80,
+      "order_time": "08/05/2025, 09:17:48"
    }
 ]
