@@ -51,10 +51,12 @@ class PlaceOrder:
                 if str(order["order_id"]) == str(f"{order_id}"):
                     gst = 0.10
                     billdict = {
-                        "total_amount":order["total_price"]+(order["total_price"] * gst),
                         "customer_name":order["customer_name"],
-                        "order_time": order["order_time"],
                         "order_id":order["order_id"],
+                        "food_amount":order["total_price"],
+                        "gst":f"{gst * 100}%",
+                        "total":order["total_price"]+(order["total_price"] * gst),
+                        "order_time": order["order_time"],
                         }
                     self.bill_list.append(billdict)
                     break
