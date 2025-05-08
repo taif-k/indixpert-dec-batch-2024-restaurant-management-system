@@ -1,34 +1,18 @@
 [
    {
-      "customer_name": "rajat",
-      "order_id": "f94e",
-      "food_amount": 460.0,
-      "gst": "10.0%",
-      "total": 506.0,
-      "order_time": "05/05/2025, 07:53:26"
-   },
-   {
-      "customer_name": "preetpal",
-      "order_id": "b713",
-      "food_amount": 500.0,
-      "gst": "10.0%",
-      "total": 550.0,
-      "order_time": "05/05/2025, 07:53:26"
-   },
-   {
-      "customer_name": "sheeza",
-      "order_id": "8af4",
-      "food_amount": 120,
-      "gst": "10.0%",
-      "total": 132.0,
-      "order_time": "08/05/2025, 08:50:05"
-   },
-   {
       "customer_name": "rohit",
       "order_id": "f751",
       "food_amount": 80,
       "gst": "10.0%",
       "total": 88.0,
       "order_time": "08/05/2025, 09:17:48"
+   },
+   {
+      "customer_name": "akash",
+      "order_id": "08c9",
+      "food_amount": 80,
+      "gst": "10.0%",
+      "total": 88.0,
+      "order_time": "08/05/2025, 11:02:06"
    }
 ]
