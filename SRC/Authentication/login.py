@@ -1,7 +1,7 @@
 import sys,os
 sys.path.append(os.getcwd())
 import json
-from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,bill_obj,updateitem_obj
+from SRC.Domain import operation_obj,foodmenu_obj,removemenu_obj,table_obj,order_obj,updateitem_obj,pay_obj
 from abc import ABC,abstractmethod
 
 class User(ABC):
@@ -93,7 +93,7 @@ class Staff(User):
                 elif staff_option == 4:
                     order_obj.select_table()
                 elif staff_option == 5:
-                    bill_obj.payment_option()
+                    pay_obj.payment_option()
                 elif staff_option == 0:
                     break
             except Exception as err:
