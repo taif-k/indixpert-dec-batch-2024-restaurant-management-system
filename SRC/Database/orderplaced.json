@@ -1,64 +1,5 @@
 [
    {
-      "customer_name": "rajat",
-      "order_placed": [
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "rice",
-            "search_servesize": "medium",
-            "item_quantity": 2,
-            "item_price": 110
-         },
-         {
-            "search_foodtype": "lunch",
-            "search_fooditem": "matar paneer",
-            "search_servesize": "large",
-            "item_quantity": 2,
-            "item_price": 120
-         }
-      ],
-      "order_id": "f94e",
-      "total_price": 460,
-      "order_time": "05/05/2025, 07:53:26"
-   },
-   {
-      "customer_name": "preetpal",
-      "order_placed": [
-         {
-            "search_foodtype": "dinner",
-            "search_fooditem": "rajma",
-            "search_servesize": "large",
-            "item_quantity": 1,
-            "item_price": 200
-         },
-         {
-            "search_foodtype": "dinner",
-            "search_fooditem": "dal fry",
-            "search_servesize": "small",
-            "item_quantity": 2,
-            "item_price": 150
-         }
-      ],
-      "order_id": "b713",
-      "total_price": 500,
-      "order_time": "06/05/2025, 09:24:36"
-   },
-   {
-      "customer_name": "sheeza",
-      "order_placed": [
-         {
-            "search_foodtype": "breakfast",
-            "search_fooditem": "oats",
-            "search_servesize": "small",
-            "item_quantity": 2,
-            "item_price": 60
-         }
-      ],
-      "order_id": "8af4",
-      "total_price": 120,
-      "order_time": "08/05/2025, 08:50:05"
-   },
-   {
       "customer_name": "rohit",
       "order_placed": [
          {
@@ -74,5 +15,22 @@
       "order_id": "f751",
       "total_price": 80,
       "order_time": "08/05/2025, 09:17:48"
+   },
+   {
+      "customer_name": "akash",
+      "order_placed": [
+         {
+            "search_foodtype": "breakfast",
+            "search_fooditem": "oats",
+            "search_servesize": "medium",
+            "item_quantity": 1,
+            "item_price": 80,
+            "tableno_booked": 3,
+            "seats_booked": 1
+         }
+      ],
+      "order_id": "08c9",
+      "total_price": 80,
+      "order_time": "08/05/2025, 11:02:06"
    }
 ]
