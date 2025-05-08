@@ -42,5 +42,20 @@
       "order_id": "b713",
       "total_price": 500,
       "order_time": "06/05/2025, 09:24:36"
+   },
+   {
+      "customer_name": "sheeza",
+      "order_placed": [
+         {
+            "search_foodtype": "breakfast",
+            "search_fooditem": "oats",
+            "search_servesize": "small",
+            "item_quantity": 2,
+            "item_price": 60
+         }
+      ],
+      "order_id": "8af4",
+      "total_price": 120,
+      "order_time": "08/05/2025, 08:50:05"
    }
 ]
