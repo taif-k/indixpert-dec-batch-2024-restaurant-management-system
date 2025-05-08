@@ -60,3 +60,10 @@
 {'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '07/05/2025, 17:11:45', 'line': 16}
 {'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '07/05/2025, 17:18:20', 'line': 15}
 {'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('table_no'), 'date': '08/05/2025, 09:09:30', 'line': 32}
+{'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total_amount'), 'date': '08/05/2025, 10:14:33', 'line': 87}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('order_id'), 'date': '08/05/2025, 10:17:05', 'line': 59}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('tableno_booked'), 'date': '08/05/2025, 10:21:15', 'line': 55}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('tableno_booked'), 'date': '08/05/2025, 10:31:04', 'line': 55}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '08/05/2025, 10:46:35', 'line': 53}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '08/05/2025, 10:46:56', 'line': 53}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '08/05/2025, 10:56:44', 'line': 51}
