@@ -1,0 +1,68 @@
+[
+   {
+      "food_item": "chole bhature",
+      "food_type": "breakfast",
+      "food_id": "b_32",
+      "small_food_size": "small",
+      "small_food_price": 90,
+      "medium_food_size": "medium",
+      "medium_food_price": 100,
+      "large_food_size": "large",
+      "large_food_price": 120
+   },
+   {
+      "food_item": "oats",
+      "food_type": "breakfast",
+      "food_id": "b_65",
+      "small_food_size": "small",
+      "small_food_price": 60,
+      "medium_food_size": "medium",
+      "medium_food_price": 80,
+      "large_food_size": "large",
+      "large_food_price": 100
+   },
+   {
+      "food_item": "matar paneer",
+      "food_type": "lunch",
+      "food_id": "l_ae",
+      "small_food_size": "small",
+      "small_food_price": 100,
+      "medium_food_size": "medium",
+      "medium_food_price": 110,
+      "large_food_size": "large",
+      "large_food_price": 120
+   },
+   {
+      "food_item": "rice",
+      "food_type": "lunch",
+      "food_id": "l_f6",
+      "small_food_size": "small",
+      "small_food_price": 90,
+      "medium_food_size": "medium",
+      "medium_food_price": 110,
+      "large_food_size": "large",
+      "large_food_price": 130
+   },
+   {
+      "food_item": "dal fry",
+      "food_type": "dinner",
+      "food_id": "d_fc",
+      "small_food_size": "small",
+      "small_food_price": 150,
+      "medium_food_size": "medium",
+      "medium_food_price": 200,
+      "large_food_size": "large",
+      "large_food_price": 250
+   },
+   {
+      "food_item": "rajma",
+      "food_type": "dinner",
+      "food_id": "d_df",
+      "small_food_size": "small",
+      "small_food_price": 150,
+      "medium_food_size": "medium",
+      "medium_food_price": 170,
+      "large_food_size": "large",
+      "large_food_price": 200
+   }
+]
