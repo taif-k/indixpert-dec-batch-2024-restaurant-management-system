@@ -69,3 +69,5 @@
 {'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '08/05/2025, 10:56:44', 'line': 51}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '08/05/2025, 20:04:48', 'line': 55}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '08/05/2025, 20:29:07', 'line': 58}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '09/05/2025, 08:29:13', 'line': 58}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '09/05/2025, 08:34:32', 'line': 58}
