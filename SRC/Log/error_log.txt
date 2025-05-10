@@ -74,3 +74,6 @@
 {'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '09/05/2025, 08:47:26', 'line': 149}
 {'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '09/05/2025, 08:50:02', 'line': 149}
 {'module': 'place_order.py', 'function': 'select_table', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '10/05/2025, 08:21:34', 'line': 80}
+{'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '10/05/2025, 14:51:45', 'line': 20}
+{'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '10/05/2025, 15:00:47', 'line': 26}
+{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': AttributeError("'PaymentSelect' object has no attribute 'order_id'"), 'date': '10/05/2025, 15:11:32', 'line': 17}
