@@ -1,7 +1,8 @@
 import json
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.FoodMenu import foodmenu_obj,removemenu_obj,updateitem_obj 
-from SRC.Domain.Tables import table_obj
+from SRC.Domain.Tables.book_table import table_obj
+from SRC.Domain.Tables.display_table import display_table_obj
 from SRC.Domain.FoodOrder import order_obj
 from SRC.Domain.Payment import pay_obj
 from abc import ABC,abstractmethod
@@ -116,7 +117,7 @@ class Staff(User):
                 elif staff_option == 2:
                     order_obj.book_order()
                 elif staff_option == 3:
-                    print(json.dumps(table_obj.tablelist,indent=4))
+                    display_table_obj.available_tables()
                 elif staff_option == 4:
                     order_obj.select_table()
                 elif staff_option == 5:
