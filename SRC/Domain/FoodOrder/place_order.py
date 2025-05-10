@@ -1,9 +1,9 @@
 from SRC.Domain.FoodMenu import foodmenu_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validations import validation_obj
-from SRC.Domain.Tables import table_obj
+from SRC.Domain.Tables.book_table import table_obj
+from SRC.Domain.Tables import display_table_obj
 
-import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
 bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
@@ -76,9 +76,9 @@ class PlaceOrder:
         try:
             table_available = 0
             while table_available != 1:
-                print(f"Available seats: {json.dumps(table_obj.tablelist,indent=3)}")
+                display_table_obj.available_tables()
                 self.table_select = int(input("Enter table no. to book: ")) 
-                self.seat_select = int(input("Enter no. of seats to book: "))                          ####
+                self.seat_select = int(input("Enter no. of seats to book: "))                          
                 
                 for table in table_obj.tablelist:
                     if table["table_no"] == self.table_select and self.seat_select <= table["available_seats"]:
