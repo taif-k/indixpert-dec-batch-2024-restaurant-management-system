@@ -1,7 +1,4 @@
-import sys,os
-sys.path.append(os.getcwd())
-from SRC.Domain.Tables.book_table import Table
-# from .book_table import Table
+from .book_table import Table
 alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 
 class DisplayTable(Table):
@@ -9,13 +6,13 @@ class DisplayTable(Table):
         super().__init__(tablepath)
 
     def available_tables(self):
-        print("\n       Available Tables")
+        print()
         print(f"{"Table No."}     {"Available Seats"}")
-        print("-------------------------------------------")
+        print("------------------------------------")
         
         for table in self.tablelist:
-            print(f"{table["table_no"]}                      {table["available_seats"]}")
+            print(f"   {table["table_no"]}                     {table["available_seats"]}")
 
 display_table_obj = DisplayTable(alltable_path)
-display_table_obj.available_tables()
+
 
