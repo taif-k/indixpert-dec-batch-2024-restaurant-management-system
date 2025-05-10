@@ -1,5 +1,5 @@
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.FoodMenu import foodmenu_obj,removemenu_obj,updateitem_obj 
+from SRC.Domain.FoodMenu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
 from SRC.Domain.Tables.book_table import table_obj
 from SRC.Domain.Tables.display_table import display_table_obj
 from SRC.Domain.FoodOrder import order_obj
@@ -19,28 +19,6 @@ class User(ABC):
     @abstractmethod
     def user_option(self):
         pass
-
-    def formatted_menu(self,menu):
-        separate_menu = {"breakfast": [], "lunch": [], "dinner": []}
-
-        for item in menu:
-            if item["food_type"] == "breakfast":
-                separate_menu["breakfast"].append(item)
-            elif item["food_type"] == "lunch":
-                separate_menu["lunch"].append(item)
-            elif item["food_type"] == "dinner":
-                separate_menu["dinner"].append(item)
-
-        for food_type in ["breakfast", "lunch", "dinner"]:
-            if separate_menu[food_type]:
-                print(f"\n                {food_type.upper()}")
-                print(f"{'Food ID':<10}{'Name':<20}{'Serving':<10}{'Price(Rs)':<6}")
-                print("----------------------------------------------------------")
-                for food in separate_menu[food_type]:
-                    print(f"{food['food_id']:<10}{food['food_item']:<20}{'small':<10}{food['small_food_price']:<6}")
-                    print(f"{'':<10}{'':<20}{'medium':<10}{food['medium_food_price']:<6}")
-                    print(f"{'':<10}{'':<20}{'large':<10}{food['large_food_price']:<6}")
-                    print()
 
 class Admin(User):
     def user_menu(self):
@@ -65,7 +43,7 @@ class Admin(User):
                 elif admin_option == 3:
                     updateitem_obj.update_item()
                 elif admin_option == 4:
-                    self.formatted_menu(foodmenu_obj.foodmenu_list)
+                    display_menu_obj.formatted_menu(foodmenu_obj.foodmenu_list)
                 elif admin_option == 5:
                     table_obj.add_table()
                 elif admin_option == 0:
@@ -112,7 +90,7 @@ class Staff(User):
                 self.user_menu()
                 staff_option = int(input("Enter staff option: "))
                 if staff_option == 1:
-                    self.formatted_menu(foodmenu_obj.foodmenu_list)
+                    display_menu_obj.formatted_menu(foodmenu_obj.foodmenu_list)
                 elif staff_option == 2:
                     order_obj.book_order()
                 elif staff_option == 3:
