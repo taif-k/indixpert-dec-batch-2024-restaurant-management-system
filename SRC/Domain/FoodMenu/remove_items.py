@@ -1,4 +1,5 @@
-from SRC.Domain import foodmenu_obj,operation_obj
+from SRC.Domain.FoodMenu import foodmenu_obj
+from SRC.Domain.ReadFile import operation_obj
 
 class RemoveFood:
     def remove_menu(self):

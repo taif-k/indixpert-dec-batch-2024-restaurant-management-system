@@ -1,4 +1,8 @@
-from SRC.Domain import foodmenu_obj,operation_obj,validation_obj,table_obj
+from SRC.Domain.FoodMenu import foodmenu_obj
+from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validations import validation_obj
+from SRC.Domain.Tables import table_obj
+
 import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"

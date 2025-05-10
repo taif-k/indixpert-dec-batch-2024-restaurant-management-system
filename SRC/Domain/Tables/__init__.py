@@ -1,0 +1,1 @@
+from .book_table import table_obj

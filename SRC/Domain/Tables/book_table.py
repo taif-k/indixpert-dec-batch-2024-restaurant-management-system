@@ -1,4 +1,4 @@
-from SRC.Domain import operation_obj
+from SRC.Domain.ReadFile import operation_obj
 alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 
 class Table:
