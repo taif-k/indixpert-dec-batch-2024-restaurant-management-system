@@ -24,7 +24,7 @@ class Payment(ABC):
 
         if id_matched == 1:
             for table in table_obj.tablelist:
-                if table["table_no"] == table_no:
+                if table["table_no"] == table_no and table["available_seats"] < 4:
                     table["available_seats"] = table["available_seats"] + seats
                     break
 
