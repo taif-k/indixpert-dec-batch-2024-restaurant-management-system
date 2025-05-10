@@ -1,15 +1,19 @@
-from SRC.Domain.FoodMenu import foodmenu_obj
+from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
+foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
-class RemoveFood:
+class RemoveFood(MenuItem):
+    def __init__(self, foodmenu_path):
+        super().__init__(foodmenu_path)
+
     def remove_menu(self):
         try:
             while True:
                 food_id = input("Enter food item id to remove from menu: ")
                 id_matched = 0
-                for item in foodmenu_obj.foodmenu_list:
+                for item in self.foodmenu_list:
                     if item["food_id"] == food_id:
-                        foodmenu_obj.foodmenu_list.remove(item)
+                        self.foodmenu_list.remove(item)
                         id_matched = 1
                         break
                 if id_matched == 0:
@@ -19,9 +23,9 @@ class RemoveFood:
                 if remove_item != "y":
                     break
 
-            operation_obj.write_file(data=foodmenu_obj.foodmenu_list,path=foodmenu_obj.food_path)
+            operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(self.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
-removemenu_obj = RemoveFood()
+removemenu_obj = RemoveFood(foodmenu_path)
