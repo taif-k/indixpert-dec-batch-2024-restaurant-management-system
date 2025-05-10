@@ -43,7 +43,7 @@ class Admin(User):
                 elif admin_option == 3:
                     updateitem_obj.update_item()
                 elif admin_option == 4:
-                    display_menu_obj.formatted_menu(foodmenu_obj.foodmenu_list)
+                    display_menu_obj.formatted_menu()
                 elif admin_option == 5:
                     table_obj.add_table()
                 elif admin_option == 0:
@@ -90,7 +90,7 @@ class Staff(User):
                 self.user_menu()
                 staff_option = int(input("Enter staff option: "))
                 if staff_option == 1:
-                    display_menu_obj.formatted_menu(foodmenu_obj.foodmenu_list)
+                    display_menu_obj.formatted_menu()
                 elif staff_option == 2:
                     order_obj.book_order()
                 elif staff_option == 3:
