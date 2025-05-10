@@ -2,7 +2,7 @@ from SRC.Domain.FoodOrder import order_obj
 from SRC.Domain.Validations import paymentid_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.FoodMenu import foodmenu_obj
-from SRC.Domain.Tables import table_obj
+from SRC.Domain.Tables.book_table import table_obj
 
 from abc import ABC,abstractmethod
 
