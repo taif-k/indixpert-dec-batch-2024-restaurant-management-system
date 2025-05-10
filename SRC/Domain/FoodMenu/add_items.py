@@ -1,4 +1,5 @@
-from SRC.Domain import operation_obj,Foodvalid_obj
+from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validations import Foodvalid_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuItem:
