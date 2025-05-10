@@ -1,6 +1,9 @@
-# import sys,os
-# sys.path.append(os.getcwd())
-from SRC.Domain import order_obj,paymentid_obj,operation_obj,foodmenu_obj,table_obj
+from SRC.Domain.FoodOrder import order_obj
+from SRC.Domain.Validations import paymentid_obj
+from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.FoodMenu import foodmenu_obj
+from SRC.Domain.Tables import table_obj
+
 from abc import ABC,abstractmethod
 
 class Payment(ABC):
@@ -116,4 +119,3 @@ class PaymentSelect(Upi,Cash,Card):
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 pay_obj = PaymentSelect()
-# pay_obj.payment_option()
