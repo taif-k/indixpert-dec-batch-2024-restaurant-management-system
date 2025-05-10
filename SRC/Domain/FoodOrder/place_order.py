@@ -4,7 +4,6 @@ from SRC.Domain.Validations import validation_obj
 from SRC.Domain.Tables.book_table import table_obj
 from SRC.Domain.Tables import display_table_obj
 
-import json
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
 bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
