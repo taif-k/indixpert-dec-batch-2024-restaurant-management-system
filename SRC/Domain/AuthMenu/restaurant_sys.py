@@ -1,4 +1,4 @@
-from Authentication import signup_obj,login_obj
+from SRC.Authentication import signup_obj,login_obj
 from SRC.Domain.ReadFile import operation_obj
 
 class Restaurant:
