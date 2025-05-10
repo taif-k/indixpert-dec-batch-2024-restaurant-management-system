@@ -2,7 +2,7 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.FoodMenu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
 from SRC.Domain.Tables.book_table import table_obj
 from SRC.Domain.Tables.display_table import display_table_obj
-from SRC.Domain.FoodOrder import order_obj
+from SRC.Domain.FoodOrder import order_obj,cancel_obj
 from SRC.Domain.Payment import pay_obj
 from abc import ABC,abstractmethod
 import pwinput
@@ -28,6 +28,7 @@ class Admin(User):
         print("3 - Update Food item Price")
         print("4 - Display Menu")
         print("5 - Add Table")
+        print("6 - Cancel Order")
         print("0 - Admin Logout")
         
 
@@ -46,6 +47,8 @@ class Admin(User):
                     display_menu_obj.formatted_menu()
                 elif admin_option == 5:
                     table_obj.add_table()
+                elif admin_option == 6:
+                    cancel_obj.order_cancel()
                 elif admin_option == 0:
                     break
                 else:
