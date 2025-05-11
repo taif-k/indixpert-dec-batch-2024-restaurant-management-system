@@ -1,8 +1,8 @@
-from SRC.Domain.FoodMenu import foodmenu_obj
+from SRC.Domain.Menu import foodmenu_obj
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Validations import validation_obj
-from SRC.Domain.Tables.book_table import table_obj
-from SRC.Domain.Tables import display_table_obj
+from SRC.Domain.Validation import validation_obj
+from SRC.Domain.Table.book_table import table_obj
+from SRC.Domain.Table import display_table_obj
 from SRC.Domain.Bill.generate_bill import bill_obj
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"

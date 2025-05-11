@@ -1,8 +1,8 @@
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.FoodMenu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
-from SRC.Domain.Tables.book_table import table_obj
-from SRC.Domain.Tables.display_table import display_table_obj
-from SRC.Domain.FoodOrder import order_obj,cancel_obj
+from SRC.Domain.Menu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
+from SRC.Domain.Table.book_table import table_obj
+from SRC.Domain.Table.display_table import display_table_obj
+from SRC.Domain.Order import order_obj,cancel_obj
 from SRC.Domain.Payment import pay_obj
 from abc import ABC,abstractmethod
 import pwinput

@@ -1,6 +1,6 @@
 import os,sys
 sys.path.append(os.getcwd())
-from SRC.Domain.Validations import validation_obj
+from SRC.Domain.Validation import validation_obj
 from SRC.Domain.ReadFile import operation_obj
 userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
