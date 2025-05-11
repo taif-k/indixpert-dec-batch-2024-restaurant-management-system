@@ -1,9 +1,7 @@
 from SRC.Domain.Menu import foodmenu_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import validation_obj
-from SRC.Domain.Table.book_table import table_obj
-from SRC.Domain.Table import display_table_obj
-from SRC.Domain.Bill.generate_bill import bill_obj
+from SRC.Domain.Table import display_table_obj,table_obj
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
@@ -31,9 +29,7 @@ class PlaceOrder:
                 
                 print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                 self.placedorder_list.append(orderplaceddict)
-
                 operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
-                bill_obj.bill_generate(order_id=orderplaceddict["order_id"])
             else:
                 print("Cannot place order :(")
         except Exception as err:
