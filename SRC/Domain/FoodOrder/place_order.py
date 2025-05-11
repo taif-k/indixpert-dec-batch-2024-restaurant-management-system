@@ -3,6 +3,7 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validations import validation_obj
 from SRC.Domain.Tables.book_table import table_obj
 from SRC.Domain.Tables import display_table_obj
+from SRC.Domain.Bill.generate_bill import bill_obj
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
@@ -32,7 +33,7 @@ class PlaceOrder:
                 self.placedorder_list.append(orderplaceddict)
 
                 operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
-                self.bill_generate(order_id=orderplaceddict["order_id"])
+                bill_obj.bill_generate(order_id=orderplaceddict["order_id"])
             else:
                 print("Cannot place order :(")
         except Exception as err:
@@ -96,27 +97,6 @@ class PlaceOrder:
                 if add_moreitem != "y":
                     break 
             return self.orderlist
-        except Exception as err:
-            print(foodmenu_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)            
-
-    def bill_generate(self,order_id = None):
-        try:
-            for order in self.placedorder_list:
-                if str(order["order_id"]) == str(f"{order_id}"):
-                    gst = 0.10
-                    billdict = {
-                        "customer_name":order["customer_name"],
-                        "order_id":order["order_id"],
-                        "food_amount":order["total_price"],
-                        "gst":f"{gst * 100}%",
-                        "total":order["total_price"]+(order["total_price"] * gst),
-                        "order_time": order["order_time"],
-                        }
-                    self.bill_list.append(billdict)
-                    break
-
-            operation_obj.write_file(data=self.bill_list,path=self.bill_path)
         except Exception as err:
             print(foodmenu_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)            
