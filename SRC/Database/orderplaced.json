@@ -32,5 +32,22 @@
       "order_id": "08c9",
       "total_price": 80,
       "order_time": "08/05/2025, 11:02:06"
+   },
+   {
+      "customer_name": "dimpy",
+      "order_placed": [
+         {
+            "search_foodtype": "lunch",
+            "search_fooditem": "butter naan",
+            "search_servesize": "medium",
+            "item_quantity": 2,
+            "item_price": 60,
+            "tableno_booked": 3,
+            "seats_booked": 1
+         }
+      ],
+      "order_id": "a348",
+      "total_price": 120,
+      "order_time": "11/05/2025, 08:53:09"
    }
 ]
