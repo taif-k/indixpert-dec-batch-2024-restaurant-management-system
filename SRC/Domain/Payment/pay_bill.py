@@ -108,6 +108,11 @@ class PaymentSelect(Upi,Cash,Card):
                     break
 
             if orderid_matched == 1:
+                for bill in order_obj.bill_list:
+                    if bill["order_id"] == self.order_id:
+                        print(f"\nPayment for Order id {self.order_id} already done")
+                        return None
+                    
                 print(f"Bill amount for above order id: {self.billamount}")
                 self.payment_menu()
                 pay_bill = int(input("Enter payment option: "))
