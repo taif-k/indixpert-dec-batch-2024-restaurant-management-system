@@ -1,4 +1,5 @@
 from .add_items import MenuItem
+from SRC.Domain.ReadFile import operation_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuDisplay(MenuItem):
@@ -6,6 +7,7 @@ class MenuDisplay(MenuItem):
         super().__init__(foodmenu_path)
 
     def formatted_menu(self):
+        self.foodmenu_list= operation_obj.read_file(foodmenu_path)
         separate_menu = {"breakfast": [], "lunch": [], "dinner": []}
 
         for item in self.foodmenu_list:
