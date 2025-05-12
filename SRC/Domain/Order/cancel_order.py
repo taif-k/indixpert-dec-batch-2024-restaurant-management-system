@@ -13,21 +13,16 @@ class CancelOrder(PlaceOrder):
     def order_cancel(self):
         try:
             order_id = input("Enter order id to cancel: ")
-
             id_matched = 0 
             for order in self.placedorder_list:
                 if order["order_id"] == order_id:
                     id_matched = 1
-                    self.placedorder_list.remove(order)
-                    operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path) 
                     break
 
             if id_matched == 1:
-                for bill in self.bill_list:
-                    if bill["order_id"] == order_id:
-                        self.bill_list.remove(bill)
-                        break
-                operation_obj.write_file(data=self.bill_list,path=self.bill_path)
+                self.placedorder_list.remove(order)
+                operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path) 
+
                 pay_obj.order_id = order_id
                 pay_obj.seat_deallocate()
                 print("\nOrder Cancelled")
