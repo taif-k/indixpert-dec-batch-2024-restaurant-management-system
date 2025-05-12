@@ -1,4 +1,4 @@
-from SRC.Domain.Menu import foodmenu_obj
+from SRC.Domain.Menu import foodmenu_obj,display_menu_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import validation_obj
 from SRC.Domain.Table import display_table_obj,table_obj
@@ -20,6 +20,8 @@ class PlaceOrder:
             table_book = input("Book Table first to place order: y/n: ").lower()
             if table_book == "y":
                 orderplaceddict = {}
+                display_menu_obj.formatted_menu()
+                print()
                 self.select_table()
                 orderplaceddict["customer_name"] = validation_obj.user_name()     
                 orderplaceddict["order_placed"] = self.orders_list()
