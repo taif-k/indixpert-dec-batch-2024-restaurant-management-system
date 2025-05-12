@@ -105,7 +105,7 @@ class Staff(User):
                 elif staff_option == 0:
                     break
             except Exception as err:
-                pass
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def user_login(self):
         staff_email = input("Enter staff email: ").lower()
@@ -121,7 +121,7 @@ class Staff(User):
             print("Invalid Credentials") 
 staff_obj = Staff()
 
-class UserOption(Admin,Staff):
+class UserOption():
     def select_user(self):
         print()
         print("1 - Admin Login")
