@@ -12,7 +12,7 @@ class Payment(ABC):
     def payment_type(self):
         pass
 
-    def seat_deallocate(self,txn_no):
+    def seat_deallocate(self,txn_no=None):
         try:
             id_matched = 0
             for id in order_obj.placedorder_list:
@@ -31,7 +31,8 @@ class Payment(ABC):
                         break
 
             operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
-            bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no)
+            if txn_no != None:
+                bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no)
         except Exception as err:
             print("Resolving issue...Try again :)")
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
