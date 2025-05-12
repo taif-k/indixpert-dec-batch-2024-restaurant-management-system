@@ -5,7 +5,9 @@
       "food_amount": 80,
       "gst": "10.0%",
       "total": 88.0,
-      "order_time": "08/05/2025, 09:17:48"
+      "order_time": "08/05/2025, 09:17:48",
+      "card/transaction_no": "9ceb0433-cccc-89",
+      "status": "paid"
    },
    {
       "customer_name": "akash",
@@ -13,7 +15,9 @@
       "food_amount": 80,
       "gst": "10.0%",
       "total": 88.0,
-      "order_time": "08/05/2025, 11:02:06"
+      "order_time": "08/05/2025, 11:02:06",
+      "card/transaction_no": "7b7b0222-aac1-9a",
+      "status": "paid"
    },
    {
       "customer_name": "dimpy",
@@ -21,7 +25,9 @@
       "food_amount": 120,
       "gst": "10.0%",
       "total": 132.0,
-      "order_time": "11/05/2025, 08:53:09"
+      "order_time": "11/05/2025, 08:53:09",
+      "card/transaction_no": "1c7b0433-f10b-ff",
+      "status": "paid"
    },
    {
       "customer_name": "bilal",
