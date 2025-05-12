@@ -49,5 +49,22 @@
       "order_id": "a348",
       "total_price": 120,
       "order_time": "11/05/2025, 08:53:09"
+   },
+   {
+      "customer_name": "bilal",
+      "order_placed": [
+         {
+            "search_foodtype": "breakfast",
+            "search_fooditem": "chole bhature",
+            "search_servesize": "large",
+            "item_quantity": 1,
+            "item_price": 150,
+            "tableno_booked": 3,
+            "seats_booked": 1
+         }
+      ],
+      "order_id": "a4b7",
+      "total_price": 150,
+      "order_time": "12/05/2025, 09:03:50"
    }
 ]
