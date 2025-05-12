@@ -53,22 +53,22 @@ class Upi(Payment):
 Upi_obj = Upi()
 
 class Cash(Payment):
-    def payment_type(self):
+    def payment_type(self,order_id):
         try:
             cash_amount = int(input("Enter cash amount: "))
             valid_amount = 0
-            for amount in order_obj.bill_list:
-                if cash_amount >= amount["total"]:
+            for amount in order_obj.placedorder_list:
+                if cash_amount >= pay_obj.billamount and amount["order_id"] == order_id:
                     valid_amount = 1
                     break
 
             if valid_amount == 1:
-                return_cash = cash_amount - amount["total"]
+                return_cash = cash_amount - pay_obj.billamount
                 print("Bill paid :)")
                 print(f"Amount returned {return_cash}")
                 self.seat_deallocate(txn_no="cash")
             else:
-                print("Paying Amount should be Non-Negative/Greater than bill amount")
+                print("Paying Amount should be Greater than bill amount")
         except Exception as err:
             print(foodmenu_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)  
@@ -118,11 +118,11 @@ class PaymentSelect(Upi,Cash,Card):
                 self.payment_menu()
                 pay_bill = int(input("Enter payment option: "))
                 if pay_bill == 1:
-                    cash_obj.payment_type()
+                    cash_obj.payment_type(order_id = self.order_id)
                 elif pay_bill == 2:
-                    Upi_obj.payment_type()
+                    Upi_obj.payment_type(self.order_id)
                 elif pay_bill == 3:
-                    card_obj.payment_type()
+                    card_obj.payment_type(self.order_id)
                 else:
                     print("Invalid payment option")    
             else:
