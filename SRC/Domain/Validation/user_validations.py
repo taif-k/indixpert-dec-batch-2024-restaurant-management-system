@@ -1,5 +1,6 @@
 import uuid
 import sys,os
+import pwinput
 sys.path.append(os.getcwd())
 from abc import ABC,abstractmethod
 from SRC.Domain.ReadFile import operation_obj
@@ -60,7 +61,7 @@ class UserValidation(Validation):
 
     def user_password(self):
         while True:
-            ask_password = input("Enter password: ")
+            ask_password = pwinput.pwinput(prompt="Enter password: ",mask="#")
             if len(ask_password) >= 8 and "@" in ask_password:
                 return ask_password
             else:
