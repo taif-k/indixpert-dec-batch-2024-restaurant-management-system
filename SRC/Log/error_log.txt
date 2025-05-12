@@ -78,3 +78,5 @@
 {'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '10/05/2025, 15:00:47', 'line': 26}
 {'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': AttributeError("'PaymentSelect' object has no attribute 'order_id'"), 'date': '10/05/2025, 15:11:32', 'line': 17}
 {'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total'), 'date': '11/05/2025, 16:45:09', 'line': 102}
+{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': NameError("name 'pay_obj' is not defined"), 'date': '12/05/2025, 17:41:38', 'line': 22}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '12/05/2025, 17:42:12', 'line': 61}
