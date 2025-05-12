@@ -18,7 +18,7 @@ class Bill:
 
             self.placedorder_list = operation_obj.read_file(self.ordered_path)
             for order in self.placedorder_list:
-                if str(order["order_id"]) == str(f"{order_id}"):
+                if order["order_id"] == order_id:
                     gst = 0.10
                     billdict = {
                         "customer_name":order["customer_name"],
