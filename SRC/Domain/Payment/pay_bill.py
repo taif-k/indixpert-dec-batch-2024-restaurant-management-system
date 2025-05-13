@@ -58,12 +58,12 @@ class Cash(Payment):
             cash_amount = int(input("Enter cash amount: "))
             valid_amount = 0
             for amount in order_obj.placedorder_list:
-                if cash_amount >= pay_obj.billamount and amount["order_id"] == order_id:
+                if cash_amount >= pay_obj.total and amount["order_id"] == order_id:
                     valid_amount = 1
                     break
 
             if valid_amount == 1:
-                return_cash = cash_amount - pay_obj.billamount
+                return_cash = cash_amount - pay_obj.total
                 print("Bill paid :)")
                 print(f"Amount returned {return_cash}")
                 self.seat_deallocate(txn_no="cash")
@@ -101,7 +101,7 @@ class PaymentSelect():
         gst = 0.10
         subtotal = bill["total_price"]
         gst_amount = subtotal * gst
-        total = subtotal + gst_amount
+        self.total = subtotal + gst_amount
 
         print("\n--------------------------------------------")
         print(f"Order ID      : {bill['order_id']}")
@@ -121,7 +121,7 @@ class PaymentSelect():
         print("\n--------------------------------------------")
         print(f"{"Subtotal"}           Rs. {subtotal}")
         print(f"{"GST (10%)"}          Rs. {gst_amount}")
-        print(f"{"Total Bill"}         Rs. {total}")
+        print(f"{"Total Bill"}         Rs. {self.total}")
 
           
     def payment_option(self):
