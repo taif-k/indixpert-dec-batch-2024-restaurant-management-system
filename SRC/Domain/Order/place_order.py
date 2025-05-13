@@ -17,10 +17,9 @@ class PlaceOrder:
 
     def book_order(self):
         try:
-            table_book = input("Book Table first to place order: y/n: ").lower()
+            table_book = input("Book Table to place order: y/n: ").lower()
             if table_book == "y":
                 orderplaceddict = {}
-                display_menu_obj.formatted_menu()
                 print()
                 self.select_table()
                 orderplaceddict["customer_name"] = validation_obj.user_name()     
@@ -68,34 +67,52 @@ class PlaceOrder:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
+    def display_item(self,searched_item):
+        print("-------------------------------------")
+        print(f"{"ID":<10} {"ITEM":<10} {"SERVING":<7} {"PRICE":<10}")
+        print("-------------------------------------")
+        print(f"{searched_item["food_id"]:<10}  {searched_item["food_item"]:<10}  {"1-Small":<7}  {searched_item["small_food_price"]:<10}")
+        print(f"{"":<10} {"":<10} {"2-Medium":<10} {searched_item["medium_food_price"]:<10}")
+        print(f"{"":<10} {"":<10} {"3-Large":<10} {searched_item["large_food_price"]:<10}")
+
     def orders_list(self):
         try:
             self.orderlist = []
             self.total_price = 0
             while True:
                 self.orderdict = {}
-                self.orderdict["search_foodtype"] = input("Search Breakfast/Lunch/Dinner: ").lower()
+                display_menu_obj.formatted_menu()
                 self.orderdict["search_fooditem"] = input("Search Food item: ").lower()
                 
                 food_available = 0
                 for item in foodmenu_obj.foodmenu_list:
-                    if item["food_type"] == self.orderdict["search_foodtype"]  and item["food_item"] == self.orderdict["search_fooditem"]:
+                    if item["food_item"] == self.orderdict["search_fooditem"]:
+                            found_item = item
                             food_available = 1
                             break
 
                 if food_available == 1:    
+                    self.display_item(found_item)
                     while True:
-                        self.orderdict["search_servesize"] = input("Search small/medium/large: ").lower()
-                        if self.orderdict["search_servesize"] in (item["small_food_size"],item["medium_food_size"],item["large_food_size"]):           
-                            self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
-                            self.orderdict["item_price"] = item[f"{self.orderdict["search_servesize"]}_food_price"]
-                            self.orderdict["tableno_booked"] = self.table_select
-                            self.orderdict["seats_booked"] = self.seat_select
-                            self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
-                            self.orderlist.append(self.orderdict)
+                        choose_serving = int(input("Choose Serving Size: "))      
+                        if choose_serving == 1:
+                            serve = "small"
+                            break
+                        elif choose_serving == 2:
+                            serve = "medium"
+                            break
+                        elif choose_serving == 3:
+                            serve = "large"
                             break
                         else:
-                            print(print_obj.invalidserving_msg)
+                            print(print_obj.invalid_msg)
+                         
+                    self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
+                    self.orderdict["item_price"] = item[f"{serve}_food_price"]
+                    self.orderdict["tableno_booked"] = self.table_select
+                    self.orderdict["seats_booked"] = self.seat_select
+                    self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
+                    self.orderlist.append(self.orderdict)
                 else:
                     print(print_obj.noitem_msg)
 
