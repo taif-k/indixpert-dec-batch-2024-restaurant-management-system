@@ -14,7 +14,7 @@ class PrintMessage:
         self.choose_validtable = "Choose Available Seats/Table"
         self.book_confirm_msg = "\nBooking confirmed"
         self.invalidserving_msg = "\nInvalid serving size" 
-        self.noitem_msg = "\nFood Category/Item Not available...Search anything else"
+        self.noitem_msg = "\nFood Item Not available...Search anything else"
         self.invalidamount_msg = "\nPaying Amount should be Greater than bill amount"
         self.notable_msg = "New Table not added"
         self.tableno = "Table No."
