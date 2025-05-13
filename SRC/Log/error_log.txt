@@ -80,3 +80,9 @@
 {'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total'), 'date': '11/05/2025, 16:45:09', 'line': 102}
 {'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': NameError("name 'pay_obj' is not defined"), 'date': '12/05/2025, 17:41:38', 'line': 22}
 {'module': 'pay_bill.py', 'function': 'payment_type', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '12/05/2025, 17:42:12', 'line': 61}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '13/05/2025, 11:50:22', 'line': 102}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '13/05/2025, 11:50:30', 'line': 102}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:21', 'line': 19}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:24', 'line': 19}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:25', 'line': 19}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': KeyError('item_quantity'), 'date': '13/05/2025, 12:01:32', 'line': 107}
