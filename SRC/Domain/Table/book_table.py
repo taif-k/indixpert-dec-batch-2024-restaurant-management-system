@@ -1,4 +1,5 @@
 from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validation import print_obj
 alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 
 class Table:
@@ -10,7 +11,7 @@ class Table:
         try:
             add_newtable = input("Add Table to Restaurant y/n: ").lower()
             if add_newtable != "y":
-                print("New Table not added")
+                print(print_obj.notable_msg)
                 return None
             
             largest_table_no = 0
@@ -24,7 +25,7 @@ class Table:
             print(f"Table no {largest_table_no + 1} added to Restaurant Successfully...")
             operation_obj.write_file(data=self.tablelist,path=self.alltable_path)
         except Exception as err:
-            print("Try again after some time")
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 table_obj = Table(alltable_path)

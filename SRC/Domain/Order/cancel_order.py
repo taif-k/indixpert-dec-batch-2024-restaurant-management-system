@@ -1,6 +1,7 @@
 from .place_order import PlaceOrder
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Payment import pay_obj
+from SRC.Domain.Validation import print_obj
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
@@ -25,9 +26,9 @@ class CancelOrder(PlaceOrder):
 
                 pay_obj.order_id = order_id
                 pay_obj.seat_deallocate()
-                print("\nOrder Cancelled")
+                print(print_obj.cancelled_msg)
             else:
-                print("\nOrder not found")
+                print(print_obj.noid_msg)
         except Exception as err:
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=self.err_path,mode="a",isJson=0)
 

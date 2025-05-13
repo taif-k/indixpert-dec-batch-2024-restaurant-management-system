@@ -1,5 +1,5 @@
-from SRC.Domain.Order import order_obj
-from SRC.Domain.Validation import paymentid_obj
+from SRC.Domain.Order import order_obj 
+from SRC.Domain.Validation import paymentid_obj,print_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Menu import foodmenu_obj
 from SRC.Domain.Table.book_table import table_obj
@@ -34,7 +34,7 @@ class Payment(ABC):
             if txn_no != None:
                 bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no)
         except Exception as err:
-            print("Resolving issue...Try again :)")
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
     
 class Upi(Payment):
@@ -46,9 +46,9 @@ class Upi(Payment):
                 print(f"\nBill paid Transaction id is {self.transaction_id}")
                 self.seat_deallocate(txn_no = self.transaction_id)
             else:
-                print("\nInvalid pin/option")
+                print(print_obj.invalid_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 Upi_obj = Upi()
 
@@ -68,9 +68,9 @@ class Cash(Payment):
                 print(f"Amount returned {return_cash}")
                 self.seat_deallocate(txn_no="cash")
             else:
-                print("Paying Amount should be Greater than bill amount")
+                print(print_obj.invalidamount_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)  
 cash_obj = Cash()
 
@@ -85,11 +85,11 @@ class Card(Payment):
             else:
                 print("Card Declined")
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 card_obj = Card()
 
-class PaymentSelect(Upi,Cash,Card):
+class PaymentSelect():
 
     def payment_menu(self):
         print()
@@ -116,7 +116,7 @@ class PaymentSelect(Upi,Cash,Card):
                     
                 print(f"Bill amount for above order id: {self.billamount}")
                 self.payment_menu()
-                pay_bill = int(input("Enter payment option: "))
+                pay_bill = int(input(print_obj.enter_option))
                 if pay_bill == 1:
                     cash_obj.payment_type(order_id = self.order_id)
                 elif pay_bill == 2:
@@ -124,11 +124,11 @@ class PaymentSelect(Upi,Cash,Card):
                 elif pay_bill == 3:
                     card_obj.payment_type(self.order_id)
                 else:
-                    print("Invalid payment option")    
+                    print(print_obj.invalid_msg)    
             else:
-                print("Order id not found")
+                print(print_obj.noid_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 pay_obj = PaymentSelect()

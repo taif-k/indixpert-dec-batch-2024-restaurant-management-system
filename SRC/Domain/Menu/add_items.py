@@ -1,12 +1,11 @@
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Validation import Foodvalid_obj
+from SRC.Domain.Validation import Foodvalid_obj,print_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuItem:
     def __init__(self,foodmenu_path):
         self.food_path = foodmenu_path
         self.foodmenu_list = operation_obj.read_file(self.food_path)
-        self.err_msg = "Resolving issue...Try again after some time"
         self.serve_size = ("small","medium","large")
 
     def add_menu(self):
@@ -29,7 +28,7 @@ class MenuItem:
                         foodmenu_dict[f"{self.serve_size[s]}_food_size"] = input(f"is serving size {self.serve_size[s]}/NA: ").lower()
                         foodmenu_dict[f"{self.serve_size[s]}_food_price"] = int(input("Enter item price: "))
                     self.foodmenu_list.append(foodmenu_dict)
-                    print("\nFood item added to Menu")
+                    print(print_obj.food_added)
 
                 add_item = input("Enter more items: y/n").lower()
                 if add_item != "y":
@@ -37,7 +36,7 @@ class MenuItem:
                 
             operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
         except Exception as err:
-            print(self.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
         
 foodmenu_obj = MenuItem(foodmenu_path)

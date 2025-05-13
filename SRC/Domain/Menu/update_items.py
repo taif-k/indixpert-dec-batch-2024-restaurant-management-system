@@ -1,5 +1,6 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validation import print_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class UpdateItem(MenuItem):
@@ -21,10 +22,10 @@ class UpdateItem(MenuItem):
                     break
 
             if id_matched == 0:
-                print("Food item not found ")
+                print(print_obj.noid_msg)
 
         except Exception as err:
-            print(self.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 updateitem_obj = UpdateItem(foodmenu_path)
