@@ -97,6 +97,33 @@ class PaymentSelect():
         print("2 - Upi")
         print("3 - Card")
 
+    def bill_display(self,bill):
+        gst = 0.10
+        subtotal = bill["total_price"]
+        gst_amount = subtotal * gst
+        total = subtotal + gst_amount
+
+        print("\n--------------------------------------------")
+        print(f"Order ID      : {bill['order_id']}")
+        print(f"Customer Name : {bill['customer_name']}")
+        print(f"Order Time    : {bill['order_time']}")
+        print("--------------------------------------------")
+        print(f"{"Item"}    {"Qty"}    {"Price"}    {"Amount"}")
+        print("--------------------------------------------")
+
+        for order in bill["order_placed"]:
+            item = order["search_fooditem"]
+            qty = order["item_quantity"]
+            price = order["item_price"]
+            amount = qty * price
+            print(f"{item}     {qty}      {price}       {amount}")
+
+        print("\n--------------------------------------------")
+        print(f"{"Subtotal"}           Rs. {subtotal}")
+        print(f"{"GST (10%)"}          Rs. {gst_amount}")
+        print(f"{"Total Bill"}         Rs. {total}")
+
+          
     def payment_option(self):
         try:
             self.order_id = input("\nEnter order id: ")
@@ -104,8 +131,7 @@ class PaymentSelect():
             for id in order_obj.placedorder_list:
                 if id["order_id"] == self.order_id:
                     orderid_matched = 1
-                    gst = 0.10
-                    self.billamount= id["total_price"] + (id["total_price"] * gst)
+                    individual_bill = id
                     break
 
             if orderid_matched == 1:
@@ -114,7 +140,7 @@ class PaymentSelect():
                         print(f"\nPayment for Order id {self.order_id} already done")
                         return None
                     
-                print(f"Bill amount for above order id: {self.billamount}")
+                self.bill_display(individual_bill)    
                 self.payment_menu()
                 pay_bill = int(input(print_obj.enter_option))
                 if pay_bill == 1:
