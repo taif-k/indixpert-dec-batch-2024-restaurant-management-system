@@ -12,7 +12,7 @@ class Bill:
         self.bill_path = bill_path
         self.bill_list = operation_obj.read_file(self.bill_path)
 
-    def bill_generate(self,order_id = None,txn_no = None):
+    def bill_generate(self,order_id = None,txn_no = None, mode = None):
         try:
             if txn_no == None:
                 txn_no = "cash"
@@ -29,7 +29,7 @@ class Bill:
                         "total":order["total_price"]+(order["total_price"] * gst),
                         "order_time": order["order_time"],
                         "card/transaction_no": txn_no,
-                        "status":"paid"
+                        "mode":mode
                         }
                     self.bill_list.append(billdict)
                     break
