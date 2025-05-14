@@ -11,7 +11,7 @@ class Payment(ABC):
     def payment_type(self):
         pass
 
-    def seat_deallocate(self,txn_no=None):
+    def seat_deallocate(self,txn_no=None,mode = None):
         try:
             id_matched = 0
             for id in order_obj.placedorder_list:
@@ -31,7 +31,7 @@ class Payment(ABC):
 
             operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
             if txn_no != None:
-                bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no)
+                bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no,mode= mode)
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
@@ -43,7 +43,7 @@ class Upi(Payment):
             if (len(self.__pin) == 4 or len(self.__pin) == 6) and self.__pin.isdigit():
                 self.transaction_id = paymentid_obj.id_unique()
                 print(f"\nBill paid Transaction id is {self.transaction_id}")
-                self.seat_deallocate(txn_no = self.transaction_id)
+                self.seat_deallocate(txn_no = self.transaction_id, mode = "upi")
             else:
                 print(print_obj.invalid_msg)
         except Exception as err:
@@ -57,7 +57,7 @@ class Cash(Payment):
             return_cash = cash_amount - pay_obj.total
             print(print_obj.billpaid)
             print(f"{print_obj.amountreturned}: {return_cash}")
-            self.seat_deallocate(txn_no="cash")
+            self.seat_deallocate(txn_no="cash",mode = "cash")
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)  
@@ -70,7 +70,7 @@ class Card(Payment):
             self.__card_num = paymentid_obj.id_unique()
             if swipe_card == 1 and len(self.__card_num) == 16:
                 print(print_obj.billpaid)
-                self.seat_deallocate(txn_no = self.__card_num)
+                self.seat_deallocate(txn_no = self.__card_num, mode = "card")
             else:
                 print(print_obj.card_declined)
         except Exception as err:
