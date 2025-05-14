@@ -95,3 +95,8 @@
 {'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 18:52:02', 'line': 97}
 {'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("'NoneType' object is not iterable"), 'date': '13/05/2025, 18:52:28', 'line': 114}
 {'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: 'rajma'"), 'date': '13/05/2025, 19:00:43', 'line': 97}
+{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:16:07', 'line': 74}
+{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('na'), 'date': '13/05/2025, 20:19:08', 'line': 21}
+{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:29:13', 'line': 74}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '13/05/2025, 20:34:10', 'line': 95}
+{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '14/05/2025, 07:15:19', 'line': 27}
