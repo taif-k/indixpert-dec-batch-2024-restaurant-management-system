@@ -78,7 +78,7 @@ class Card(Payment):
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 card_obj = Card()
 
-class PaymentSelect():
+class PaymentSelect(Card):
 
     def payment_menu(self):
         print()
