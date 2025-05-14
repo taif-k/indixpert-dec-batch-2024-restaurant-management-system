@@ -23,7 +23,7 @@ class MenuItem:
                 for item in self.foodmenu_list:
                     if item["food_item"] == foodmenu_dict["food_item"] and item["food_type"] == foodmenu_dict["food_type"]:
                         already_present = 1
-                        print("Food item already present in specific category")
+                        print(print_obj.foodalready_present)
                         break
 
                 if already_present == 0:
