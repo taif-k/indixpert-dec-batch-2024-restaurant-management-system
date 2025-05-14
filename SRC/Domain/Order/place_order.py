@@ -67,13 +67,18 @@ class PlaceOrder:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
-    def display_item(self,searched_item):
+    def display_item(self, searched_item):
         print("-------------------------------------")
-        print(f"{"ID":<10} {"ITEM":<10} {"SERVING":<7} {"PRICE":<10}")
+        print(f"{"ID":<10} {"ITEM":<10} {"SERVING":<12} {"PRICE":<10}")
         print("-------------------------------------")
-        print(f"{searched_item["food_id"]:<10}  {searched_item["food_item"]:<10}  {"1-Small":<7}  {searched_item["small_food_price"]:<10}")
-        print(f"{"":<10} {"":<10} {"2-Medium":<10} {searched_item["medium_food_price"]:<10}")
-        print(f"{"":<10} {"":<10} {"3-Large":<10} {searched_item["large_food_price"]:<10}")
+        
+        if "nosize_food_price" in searched_item:
+            print(f"{searched_item["food_id"]:<10} {searched_item["food_item"]:<10} {'-':<12} {searched_item["nosize_food_price"]:<10}")
+        else:
+            print(f"{searched_item["food_id"]:<10}  {searched_item["food_item"]:<10}  {"1-Small"::<12}  {searched_item["small_food_price"]:<10}")
+            print(f"{"":<10} {"":<10} {"2-Medium":<12} {searched_item["medium_food_price"]:<10}")
+            print(f"{"":<10} {"":<10} {"3-Large":<12} {searched_item["large_food_price"]:<10}")
+
 
     def orders_list(self):
         try:
@@ -91,28 +96,35 @@ class PlaceOrder:
                             food_available = 1
                             break
 
-                if food_available == 1:    
+                if food_available == 1:
                     self.display_item(found_item)
-                    while True:
-                        choose_serving = int(input("Choose Serving Size: "))      
-                        if choose_serving == 1:
-                            serve = "small"
-                            break
-                        elif choose_serving == 2:
-                            serve = "medium"
-                            break
-                        elif choose_serving == 3:
-                            serve = "large"
-                            break
-                        else:
-                            print(print_obj.invalid_msg)
-                         
-                    self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
-                    self.orderdict["item_price"] = item[f"{serve}_food_price"]
+
+                    if "nosize_food_price" in found_item:
+                        self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
+                        self.orderdict["item_price"] = found_item["nosize_food_price"]
+                    else:
+                        while True:
+                            choose_serving = int(input("Choose Serving Size: "))      
+                            if choose_serving == 1:
+                                serve = "small"
+                                break
+                            elif choose_serving == 2:
+                                serve = "medium"
+                                break
+                            elif choose_serving == 3:
+                                serve = "large"
+                                break
+                            else:
+                                print(print_obj.invalid_msg)
+                        
+                        self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
+                        self.orderdict["item_price"] = found_item[f"{serve}_food_price"]
+                    
                     self.orderdict["tableno_booked"] = self.table_select
                     self.orderdict["seats_booked"] = self.seat_select
                     self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
                     self.orderlist.append(self.orderdict)
+
                 else:
                     print(print_obj.noitem_msg)
 
