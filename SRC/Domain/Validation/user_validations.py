@@ -4,7 +4,7 @@ import pwinput
 sys.path.append(os.getcwd())
 from abc import ABC,abstractmethod
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Validation import print_obj
+from SRC.Domain.Validation.print_variables import print_obj
 
 class Validation(ABC):
     @abstractmethod
