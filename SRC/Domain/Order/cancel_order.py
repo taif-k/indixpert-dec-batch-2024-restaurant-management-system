@@ -13,6 +13,7 @@ class CancelOrder(PlaceOrder):
 
     def order_cancel(self):
         try:
+            self.placedorder_list = operation_obj.read_file(path=self.ordered_path)
             order_id = input("Enter order id to cancel: ")
             id_matched = 0 
             for order in self.placedorder_list:
