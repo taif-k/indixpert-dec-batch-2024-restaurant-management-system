@@ -7,8 +7,8 @@ class MenuDisplay(MenuItem):
         super().__init__(foodmenu_path)
 
     def formatted_menu(self):
-        self.foodmenu_list= operation_obj.read_file(foodmenu_path)
-        separate_menu = {"breakfast": [], "lunch": [], "dinner": []}
+        self.foodmenu_list = operation_obj.read_file(foodmenu_path)
+        separate_menu = {"breakfast": [], "lunch": [], "dinner": [], "beverages": []}
 
         for item in self.foodmenu_list:
             if item["food_type"] == "breakfast":
@@ -17,16 +17,22 @@ class MenuDisplay(MenuItem):
                 separate_menu["lunch"].append(item)
             elif item["food_type"] == "dinner":
                 separate_menu["dinner"].append(item)
+            elif item["food_type"] == "beverages":
+                separate_menu["beverages"].append(item)
 
-        for food_type in ["breakfast", "lunch", "dinner"]:
+        for food_type in ["breakfast", "lunch", "dinner", "beverages"]:
             if separate_menu[food_type]:
                 print(f"\n                {food_type.upper()}")
-                print(f"{"Food ID":<10}{"Name":<20}{"Serving":<10}{"Price(Rs)":<6}")
+                print(f"{'Food ID':<10}{'Name':<20}{'Serving':<10}{'Price(Rs)':<6}")
                 print("----------------------------------------------------------")
                 for food in separate_menu[food_type]:
-                    print(f"{food["food_id"]:<10}{food["food_item"]:<20}{"small":<10}{food["small_food_price"]:<6}")
-                    print(f"{"":<10}{"":<20}{'medium':<10}{food["medium_food_price"]:<6}")
-                    print(f"{"":<10}{"":<20}{"large":<10}{food["large_food_price"]:<6}")
-                    print()
+                    if food_type in ("breakfast", "lunch", "dinner"):
+                        print(f"{food['food_id']:<10}{food['food_item']:<20}{'small':<10}{food['small_food_price']:<6}")
+                        print(f"{'':<10}{'':<20}{'medium':<10}{food['medium_food_price']:<6}")
+                        print(f"{'':<10}{'':<20}{'large':<10}{food['large_food_price']:<6}")
+                    elif food_type == "beverages":
+                        print(f"{food['food_id']:<10}{food['food_item']:<20}{'NA':<10}{food['nosize_food_price']:<6}")
+                print()
+
 
 display_menu_obj = MenuDisplay(foodmenu_path)
