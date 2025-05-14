@@ -15,10 +15,24 @@ class PrintMessage:
         self.book_confirm_msg = "\nBooking confirmed"
         self.invalidserving_msg = "\nInvalid serving size" 
         self.noitem_msg = "\nFood Item Not available...Search anything else"
+        self.foodalready_present = "\nFood item already present in specific category"
         self.invalidamount_msg = "\nPaying Amount should be Greater than bill amount"
         self.notable_msg = "New Table not added"
         self.tableno = "Table No."
         self.availableseat = "Available Seats"  
+        self.billpaid = "\nBill paid :)"
+        self.amountreturned = "Amount returned"
+        self.card_declined = "\nCard Declined"
+        self.subtotal = "Subtotal"
+        self.gst = "GST"
+        self.totalbill = "Total Bill"
+        self.namenot_aplha = "\nName should be in Alphabets"
+        self.invalid_contact = "\nContact should be of 10 digits" 
+        self.invalid_email = "\nEnter valid Email....Ex: taif@mail.com"
+        self.password_demo = "\nPassword must be atleast 8 characters long and include @ also"
+
+
+
 
 
 print_obj = PrintMessage()
