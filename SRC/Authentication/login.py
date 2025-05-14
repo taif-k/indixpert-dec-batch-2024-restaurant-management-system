@@ -6,6 +6,7 @@ from SRC.Domain.Order import order_obj,cancel_obj
 from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
 from abc import ABC,abstractmethod
+import os
 import pwinput
 
 class User(ABC):
@@ -21,6 +22,7 @@ class User(ABC):
     def user_option(self):
         pass
 
+
 class Admin(User):
     def user_menu(self):
         print()
@@ -31,7 +33,10 @@ class Admin(User):
         print("5 - Add Table")
         print("6 - Cancel Order")
         print("0 - Admin Logout")
-        
+    
+    def clear_screen(self):
+        if os.name == "nt":
+            os.system("cls")
 
     def user_option(self):
         while True:
@@ -51,6 +56,7 @@ class Admin(User):
                 elif admin_option == 6:
                     cancel_obj.order_cancel()
                 elif admin_option == 0:
+                    self.clear_screen()
                     break
                 else:
                     print(print_obj.invalid_msg)
@@ -104,6 +110,7 @@ class Staff(User):
                 elif staff_option == 5:
                     pay_obj.payment_option()
                 elif staff_option == 0:
+                    admin_obj.clear_screen()
                     break
             except Exception as err:
                 operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
@@ -138,6 +145,7 @@ class UserOption():
             elif ask_login == 2:
                 staff_obj.user_login()
             elif ask_login == 0:
+                admin_obj.clear_screen()
                 break
             else:
                 print(print_obj.invalid_msg)
