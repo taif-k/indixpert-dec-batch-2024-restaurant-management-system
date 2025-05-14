@@ -6,16 +6,19 @@ class MenuItem:
     def __init__(self,foodmenu_path):
         self.food_path = foodmenu_path
         self.foodmenu_list = operation_obj.read_file(self.food_path)
-        self.serve_size = ("small","medium","large")
 
+        self.categories_with_size = ("breakfast", "lunch", "dinner") 
+        self.serve_size = ("small","medium","large")
+        self.categories_without_size = ("beverages")
+ 
     def add_menu(self):
         try:
-            
             while True:
                 foodmenu_dict = {}
                 foodmenu_dict["food_item"] = input("Enter Food item to add: ").lower()
-                foodmenu_dict["food_type"] = input("Enter Food category: ").lower()
-                foodmenu_dict["food_id"] = foodmenu_dict["food_type"][0] +"_"+ Foodvalid_obj.id_unique() #ex: b_12
+                foodmenu_dict["food_type"] = input("Enter Food category: ").strip().lower()
+                foodmenu_dict["food_id"] = foodmenu_dict["food_type"][0] + "_" + Foodvalid_obj.id_unique()
+
                 already_present = 0
                 for item in self.foodmenu_list:
                     if item["food_item"] == foodmenu_dict["food_item"] and item["food_type"] == foodmenu_dict["food_type"]:
@@ -24,19 +27,24 @@ class MenuItem:
                         break
 
                 if already_present == 0:
-                    for s in range(0,3):
-                        foodmenu_dict[f"{self.serve_size[s]}_food_size"] = input(f"is serving size {self.serve_size[s]}/NA: ").lower()
-                        foodmenu_dict[f"{self.serve_size[s]}_food_price"] = int(input("Enter item price: "))
+                    if foodmenu_dict["food_type"] in self.categories_with_size:
+                        for s in self.serve_size:
+                            foodmenu_dict[f"{s}_food_size"] = input(f"Is serving size {s}/NA: ").lower()
+                            foodmenu_dict[f"{s}_food_price"] = int(input("Enter item price: "))
+                    elif foodmenu_dict["food_type"] in self.categories_without_size:
+                        foodmenu_dict["nosize_food_price"] = int(input("Enter item price: "))
                     self.foodmenu_list.append(foodmenu_dict)
                     print(print_obj.food_added)
 
-                add_item = input("Enter more items: y/n").lower()
+                add_item = input("Enter more items: y/n: ").lower()
                 if add_item != "y":
                     break
-                
-            operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
+
+            operation_obj.write_file(data=self.foodmenu_list, path=self.food_path)
+
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=operation_obj.err_path, mode="a", isJson=0)
+
         
 foodmenu_obj = MenuItem(foodmenu_path)
