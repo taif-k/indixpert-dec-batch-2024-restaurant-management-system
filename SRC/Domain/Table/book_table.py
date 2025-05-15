@@ -1,9 +1,10 @@
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
+import datetime
 
 class Table:
-    def __init__(self,tablepath):
+    def __init__(self, tablepath):
         self.alltable_path = tablepath
         self.tablelist = operation_obj.read_file(self.alltable_path)
 
@@ -13,13 +14,21 @@ class Table:
             if add_newtable != "y":
                 print(print_obj.notable_msg)
                 return None
-            
+
             largest_table_no = 0
             for table in self.tablelist:
                 if table["table_no"] > largest_table_no:
                     largest_table_no = table["table_no"]
 
-            tabledict = {"table_no":largest_table_no + 1,"available_seats":4}
+            tabledict = {
+                "table_no": largest_table_no + 1,
+                "slots": [
+                    {"slot1": 4},  
+                    {"slot2": 4},  
+                    {"slot3": 4},
+                ]
+            }
+
             self.tablelist.append(tabledict)
 
             print(f"Table no {largest_table_no + 1} added to Restaurant Successfully...")
