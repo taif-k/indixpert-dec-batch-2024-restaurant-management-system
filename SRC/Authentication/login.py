@@ -8,6 +8,7 @@ from SRC.Domain.Validation import print_obj
 from abc import ABC,abstractmethod
 import os
 import pwinput
+from SRC.Domain.Report.get_report import report_obj
 
 class User(ABC):
     @abstractmethod
@@ -32,6 +33,7 @@ class Admin(User):
         print("4 - Display Menu")
         print("5 - Add Table")
         print("6 - Cancel Order")
+        print("7 - Report")
         print("0 - Admin Logout")
     
     def clear_screen(self):
@@ -55,6 +57,8 @@ class Admin(User):
                     table_obj.add_table()
                 elif admin_option == 6:
                     cancel_obj.order_cancel()
+                elif admin_option == 7:
+                    report_obj.report_option()
                 elif admin_option == 0:
                     self.clear_screen()
                     break
