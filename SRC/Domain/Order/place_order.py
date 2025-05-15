@@ -75,7 +75,7 @@ class PlaceOrder:
         if "nosize_food_price" in searched_item:
             print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{'-'}\t\t{searched_item["nosize_food_price"]}\t\t")
         else:
-            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
+            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}  {"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
             print(f"{""}\t\t{""}\t\t{"2-Medium"}\t{searched_item["medium_food_price"]}")
             print(f"{""}\t\t{""}\t\t{"3-Large"}\t\t{searched_item["large_food_price"]}\t\t")
             print("-")
