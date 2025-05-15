@@ -100,3 +100,8 @@
 {'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:29:13', 'line': 74}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '13/05/2025, 20:34:10', 'line': 95}
 {'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '14/05/2025, 07:15:19', 'line': 27}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:13:38', 'line': 34}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:14:39', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:25:32', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:26:01', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:30:35', 'line': 33}
