@@ -105,3 +105,6 @@
 {'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:25:32', 'line': 33}
 {'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:26:01', 'line': 33}
 {'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:30:35', 'line': 33}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '15/05/2025, 13:15:11', 'line': 47}
+{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '15/05/2025, 13:15:50', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '15/05/2025, 13:26:33', 'line': 75}
