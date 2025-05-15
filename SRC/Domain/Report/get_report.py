@@ -1,8 +1,44 @@
 from SRC.Domain.Bill.generate_bill import bill_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation.print_variables import print_obj
+import datetime
 
 class ReportData:
+
+    def time_range_menu(self):
+        print("1 - Weekly")
+        print("2 - Monthly")
+        print("3 - 6 Months")
+        print("4 - Yearly")
+
+    def time_report(self):
+        try:
+            self.time_range_menu()
+            range_option = int(input("Enter option: "))
+            today = datetime.datetime.now()
+
+            if range_option == 1:
+                time_compare = today + datetime.timedelta(-7)
+            elif range_option == 2:
+                time_compare = today + datetime.timedelta(-30)
+            elif range_option == 3:
+                time_compare = today + datetime.timedelta(-180)
+            elif range_option == 4:
+                time_compare = today + datetime.timedelta(-365)
+            else:
+                print(print_obj.invalid_msg)
+
+            timelist = []
+            for bill in bill_obj.bill_list:
+                if bill["order_time"] >= time_compare:
+                    timelist.append(bill)
+
+            self.display_mode(timelist)
+
+        except Exception as err:
+            print(print_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+
     def display_mode(self, modelist):
 
         print("------------------------------------------------------------------------")
@@ -20,7 +56,7 @@ class ReportData:
     
     def report_type(self):
         print("1 - pay Mode")
-        print("2 - Total Orders")
+        print("2 - Time wise")
 
     def mode_menu(self):
         print("1- Cash")
@@ -33,9 +69,8 @@ class ReportData:
         if report_option == 1:
             self.mode_report()
         elif report_option == 2:
-            self.total_orders()
+            self.time_report()
             
-
     def mode_report(self):
         try:
             self.mode_menu()
@@ -57,10 +92,7 @@ class ReportData:
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
-
-    def total_orders(self):
-        print("working..Total orders no.")    
-
+ 
 
 report_obj = ReportData()
 
