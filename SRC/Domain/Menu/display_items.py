@@ -29,7 +29,7 @@ class MenuDisplay(MenuItem):
                     print("----------------------------------------------------------")
                     for food in separate_menu[food_type]:
                         if food_type in ("breakfast", "lunch", "dinner"):
-                            print(f"{food["food_id"]}\t{food["food_item"]}\t\t{"small"}\t\t{food["small_food_price"]}")
+                            print(f"{food["food_id"]}\t      {food["food_item"]}\t\t{"small"}\t\t{food["small_food_price"]}")
                             print(f"{""}{""}\t\t\t\t{'medium'}\t\t{food["medium_food_price"]}")
                             print(f"{""}{""}\t\t\t\t{"large"}\t\t{food["large_food_price"]}")
                             print()
