@@ -1,34 +1,14 @@
 [
    {
-      "table_no": 1,
-      "slots": [
-         { "slot1": 4 },
-         { "slot2": 4 },
-         { "slot3": 4 }
-      ]
-   },
-   {
       "table_no": 2,
-      "slots": [
-         { "slot1": 4 },
-         { "slot2": 4 },
-         { "slot3": 4 }
-      ]
+      "available_seats": 4
    },
    {
       "table_no": 3,
-      "slots": [
-         { "slot1": 4 },
-         { "slot2": 4 },
-         { "slot3": 4 }
-      ]
+      "available_seats": 4
    },
    {
-      "table_no": 4,
-      "slots": [
-         { "slot1": 4 },
-         { "slot2": 4 },
-         { "slot3": 4 }
-      ]
+      "table_no": 1,
+      "available_seats": 3
    }
 ]
