@@ -69,15 +69,15 @@ class PlaceOrder:
 
     def display_item(self, searched_item):
         print("-------------------------------------")
-        print(f"{"ID":<10} {"ITEM":<10} {"SERVING":<12} {"PRICE":<10}")
+        print(f"{"ID"}\t\t{"ITEM"}\t\t{"SERVING"}\t\t{"PRICE"}")
         print("-------------------------------------")
         
         if "nosize_food_price" in searched_item:
-            print(f"{searched_item["food_id"]:<10} {searched_item["food_item"]:<10} {'-':<12} {searched_item["nosize_food_price"]:<10}")
+            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{'-'}\t\t{searched_item["nosize_food_price"]}\t\t")
         else:
-            print(f"{searched_item["food_id"]:<10}  {searched_item["food_item"]:<10}  {"1-Small"::<12}  {searched_item["small_food_price"]:<10}")
-            print(f"{"":<10} {"":<10} {"2-Medium":<12} {searched_item["medium_food_price"]:<10}")
-            print(f"{"":<10} {"":<10} {"3-Large":<12} {searched_item["large_food_price"]:<10}")
+            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
+            print(f"{""}\t\t{""}\t\t{"2-Medium"}\t{searched_item["medium_food_price"]}")
+            print(f"{""}\t\t{""}\t\t{"3-Large"}\t\t{searched_item["large_food_price"]}\t\t")
 
 
     def orders_list(self):
