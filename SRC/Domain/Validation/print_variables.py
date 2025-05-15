@@ -27,7 +27,7 @@ class PrintMessage:
         self.gst = "GST"
         self.totalbill = "Total Bill"
         self.namenot_aplha = "\nName should be in Alphabets"
-        self.invalid_contact = "\nContact should be of 10 digits" 
+        self.invalid_contact = "\nContact should be valid 10 digits" 
         self.invalid_email = "\nEnter valid Email....Ex: taif@mail.com"
         self.password_demo = "\nPassword must be atleast 8 characters long and include @ also"
 
