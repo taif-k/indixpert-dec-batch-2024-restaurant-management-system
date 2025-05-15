@@ -30,7 +30,7 @@ class ReportData:
 
             timelist = []
             for bill in bill_obj.bill_list:
-                if bill["order_time"] >= time_compare:
+                if bill["order_time"] >= time_compare.strftime("%d/%m/%Y, %H:%M:%S"):
                     timelist.append(bill)
 
             self.display_mode(timelist)
