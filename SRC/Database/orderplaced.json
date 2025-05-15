@@ -66,5 +66,22 @@
       "order_id": "a4b7",
       "total_price": 150,
       "order_time": "12/05/2025, 09:03:50"
+   },
+   {
+      "customer_name": "taif",
+      "order_placed": [
+         {
+            "search_foodtype": "lunch",
+            "search_fooditem": "jeera rice",
+            "search_servesize": "small",
+            "item_quantity": 2,
+            "item_price": 80,
+            "tableno_booked": 2,
+            "seats_booked": 1
+         }
+      ],
+      "order_id": "549f",
+      "total_price": 160,
+      "order_time": "12/05/2025, 17:34:41"
    }
 ]

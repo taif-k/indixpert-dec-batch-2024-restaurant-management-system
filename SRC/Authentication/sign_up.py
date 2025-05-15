@@ -2,6 +2,7 @@ import os,sys
 sys.path.append(os.getcwd())
 from SRC.Domain.Validation import validation_obj
 from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validation import print_obj
 userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
 
@@ -24,7 +25,7 @@ class RestaurantUsers:
             operation_obj.userlist.append(userdict)
             operation_obj.write_file()
         except Exception as err:
-            print("Resolving issue....check after some time")
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
             
 

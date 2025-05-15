@@ -1,6 +1,6 @@
 from SRC.Domain.Menu import foodmenu_obj,display_menu_obj
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Validation import validation_obj
+from SRC.Domain.Validation import validation_obj,print_obj
 from SRC.Domain.Table import display_table_obj,table_obj
 
 error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
@@ -17,25 +17,28 @@ class PlaceOrder:
 
     def book_order(self):
         try:
-            table_book = input("Book Table first to place order: y/n: ").lower()
+            table_book = input("Book Table to place order: y/n: ").lower()
             if table_book == "y":
                 orderplaceddict = {}
-                display_menu_obj.formatted_menu()
                 print()
                 self.select_table()
                 orderplaceddict["customer_name"] = validation_obj.user_name()     
                 orderplaceddict["order_placed"] = self.orders_list()
-                orderplaceddict["order_id"] = validation_obj.id_unique()
-                orderplaceddict["total_price"] = self.total_price
-                orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
-                
-                print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
-                self.placedorder_list.append(orderplaceddict)
-                operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
+                if orderplaceddict["order_placed"] != []:
+                    orderplaceddict["order_id"] = validation_obj.id_unique()
+                    orderplaceddict["total_price"] = self.total_price
+                    orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
+                    
+                    print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
+                    self.placedorder_list.append(orderplaceddict)
+                    operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
+                else:
+                    print(":(")
+                    
             else:
-                print("Cannot place order :(")
+                print(print_obj.no_order_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def select_table(self):
@@ -51,7 +54,7 @@ class PlaceOrder:
                         table_available = 1
                         break   
                 if table_available == 0:
-                    print("Choose Available Seats/Table")
+                    print(print_obj.choose_validtable)
 
                 if table_available == 1:
                     updated_seats = table["available_seats"]-self.seat_select
@@ -59,10 +62,23 @@ class PlaceOrder:
                     table_obj.tablelist.remove(table)
                     table_obj.tablelist.append(updatetable)
                     operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
-                    print("Booking confirmed")  
+                    print(print_obj.book_confirm_msg)  
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+
+    def display_item(self, searched_item):
+        print("-------------------------------------")
+        print(f"{"ID":<10} {"ITEM":<10} {"SERVING":<12} {"PRICE":<10}")
+        print("-------------------------------------")
+        
+        if "nosize_food_price" in searched_item:
+            print(f"{searched_item["food_id"]:<10} {searched_item["food_item"]:<10} {'-':<12} {searched_item["nosize_food_price"]:<10}")
+        else:
+            print(f"{searched_item["food_id"]:<10}  {searched_item["food_item"]:<10}  {"1-Small"::<12}  {searched_item["small_food_price"]:<10}")
+            print(f"{"":<10} {"":<10} {"2-Medium":<12} {searched_item["medium_food_price"]:<10}")
+            print(f"{"":<10} {"":<10} {"3-Large":<12} {searched_item["large_food_price"]:<10}")
+
 
     def orders_list(self):
         try:
@@ -70,33 +86,54 @@ class PlaceOrder:
             self.total_price = 0
             while True:
                 self.orderdict = {}
-                self.orderdict["search_foodtype"] = input("Search Breakfast/Lunch/Dinner: ").lower()
+                display_menu_obj.formatted_menu()
                 self.orderdict["search_fooditem"] = input("Search Food item: ").lower()
-                self.orderdict["search_servesize"] = input("Search small/medium/large: ").lower()
-                self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
                 
                 food_available = 0
                 for item in foodmenu_obj.foodmenu_list:
-                    if item["food_type"] == self.orderdict["search_foodtype"]  and item["food_item"] == self.orderdict["search_fooditem"]:
-                        if self.orderdict["search_servesize"] in (item["small_food_size"],item["medium_food_size"],item["large_food_size"]):
+                    if item["food_item"] == self.orderdict["search_fooditem"]:
+                            found_item = item
                             food_available = 1
-                            self.orderdict["item_price"] = item[f"{self.orderdict["search_servesize"]}_food_price"]
-                            self.orderdict["tableno_booked"] = self.table_select
-                            self.orderdict["seats_booked"] = self.seat_select
-                            self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
                             break
 
                 if food_available == 1:
-                    self.orderlist.append(self.orderdict)
-                else:
-                    print("Food Category/Item Not available...Search anything else")
+                    self.display_item(found_item)
 
-                add_moreitem = input("Add Items: y/n")
+                    if "nosize_food_price" in found_item:
+                        self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
+                        self.orderdict["item_price"] = found_item["nosize_food_price"]
+                    else:
+                        while True:
+                            choose_serving = int(input("Choose Serving Size: "))      
+                            if choose_serving == 1:
+                                serve = "small"
+                                break
+                            elif choose_serving == 2:
+                                serve = "medium"
+                                break
+                            elif choose_serving == 3:
+                                serve = "large"
+                                break
+                            else:
+                                print(print_obj.invalid_msg)
+                        
+                        self.orderdict["item_quantity"] = int(input("Enter Food item quantity: "))
+                        self.orderdict["item_price"] = found_item[f"{serve}_food_price"]
+                    
+                    self.orderdict["tableno_booked"] = self.table_select
+                    self.orderdict["seats_booked"] = self.seat_select
+                    self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
+                    self.orderlist.append(self.orderdict)
+
+                else:
+                    print(print_obj.noitem_msg)
+
+                add_moreitem = input("Add another Item: y/n ")
                 if add_moreitem != "y":
                     break 
             return self.orderlist
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)            
                         
 order_obj = PlaceOrder(error_path,placedorder_path,bill_path)

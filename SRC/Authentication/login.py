@@ -4,8 +4,11 @@ from SRC.Domain.Table.book_table import table_obj
 from SRC.Domain.Table.display_table import display_table_obj
 from SRC.Domain.Order import order_obj,cancel_obj
 from SRC.Domain.Payment import pay_obj
+from SRC.Domain.Validation import print_obj
 from abc import ABC,abstractmethod
+import os
 import pwinput
+from SRC.Domain.Report.get_report import report_obj
 
 class User(ABC):
     @abstractmethod
@@ -20,6 +23,7 @@ class User(ABC):
     def user_option(self):
         pass
 
+
 class Admin(User):
     def user_menu(self):
         print()
@@ -29,14 +33,18 @@ class Admin(User):
         print("4 - Display Menu")
         print("5 - Add Table")
         print("6 - Cancel Order")
+        print("7 - Report")
         print("0 - Admin Logout")
-        
+    
+    def clear_screen(self):
+        if os.name == "nt":
+            os.system("cls")
 
     def user_option(self):
         while True:
             try:
                 self.user_menu()
-                admin_option = int(input("Enter admin option: "))
+                admin_option = int(input(print_obj.enter_option))
                 if admin_option == 1:
                     foodmenu_obj.add_menu()
                 elif admin_option == 2:
@@ -49,18 +57,21 @@ class Admin(User):
                     table_obj.add_table()
                 elif admin_option == 6:
                     cancel_obj.order_cancel()
+                elif admin_option == 7:
+                    report_obj.report_option()
                 elif admin_option == 0:
+                    self.clear_screen()
                     break
                 else:
-                    print("Choose valid option ")
+                    print(print_obj.invalid_msg)
             except Exception as err:
-                print("Resolving issue..Try again after some time")
+                print(print_obj.err_msg)
                 operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def user_login(self):
         try:
-            admin_email = input("Enter admin email: ").lower()
-            admin_password = pwinput.pwinput(prompt="Enter admin password: ",mask="#")
+            admin_email = input(print_obj.email_address).lower()
+            admin_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
             admin_verified = 0
             for user in operation_obj.adminlist:
                 if user["email"] == admin_email:
@@ -70,9 +81,9 @@ class Admin(User):
                         break
 
             if admin_verified == 0:
-                print("Invalid Credentials")
+                print(print_obj.invalid_info)
         except Exception as err:
-            print("Try again after some time...")
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 admin_obj = Admin()
 
@@ -91,7 +102,7 @@ class Staff(User):
         while True:
             try:
                 self.user_menu()
-                staff_option = int(input("Enter staff option: "))
+                staff_option = int(input(print_obj.enter_option))
                 if staff_option == 1:
                     display_menu_obj.formatted_menu()
                 elif staff_option == 2:
@@ -103,13 +114,14 @@ class Staff(User):
                 elif staff_option == 5:
                     pay_obj.payment_option()
                 elif staff_option == 0:
+                    admin_obj.clear_screen()
                     break
             except Exception as err:
-                pass
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
     def user_login(self):
-        staff_email = input("Enter staff email: ").lower()
-        staff_password = pwinput.pwinput(prompt="Enter staff password: ",mask="#")
+        staff_email = input(print_obj.email_address).lower()
+        staff_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
         staff_verified = 0
         for user in operation_obj.userlist:
             if user["email"] == staff_email:
@@ -118,10 +130,10 @@ class Staff(User):
                     staff_verified = 1
                     break
         if staff_verified == 0:
-            print("Invalid Credentials") 
+            print(print_obj.invalid_info) 
 staff_obj = Staff()
 
-class UserOption(Admin,Staff):
+class UserOption():
     def select_user(self):
         print()
         print("1 - Admin Login")
@@ -131,14 +143,15 @@ class UserOption(Admin,Staff):
     def user_login(self):
         while True:
             self.select_user()
-            ask_login = int(input("Enter Login Option: "))
+            ask_login = int(input(print_obj.enter_option))
             if ask_login == 1:
                 admin_obj.user_login()
             elif ask_login == 2:
                 staff_obj.user_login()
             elif ask_login == 0:
+                admin_obj.clear_screen()
                 break
             else:
-                print("Choose valid option")
+                print(print_obj.invalid_msg)
 
 login_obj = UserOption()

@@ -1,5 +1,6 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validation import print_obj
 foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class RemoveFood(MenuItem):
@@ -17,7 +18,7 @@ class RemoveFood(MenuItem):
                         id_matched = 1
                         break
                 if id_matched == 0:
-                    print("\nOrder id not found")
+                    print(print_obj.noid_msg)
 
                 remove_item = input("Remove item y/n: ")
                 if remove_item != "y":
@@ -25,7 +26,7 @@ class RemoveFood(MenuItem):
 
             operation_obj.write_file(data=self.foodmenu_list,path=self.food_path)
         except Exception as err:
-            print(self.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 removemenu_obj = RemoveFood(foodmenu_path)

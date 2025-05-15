@@ -1,7 +1,6 @@
-from SRC.Domain.Order import order_obj
-from SRC.Domain.Validation import paymentid_obj
+from SRC.Domain.Order import order_obj 
+from SRC.Domain.Validation import paymentid_obj,print_obj
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Menu import foodmenu_obj
 from SRC.Domain.Table.book_table import table_obj
 from SRC.Domain.Bill.generate_bill import bill_obj
 
@@ -12,7 +11,7 @@ class Payment(ABC):
     def payment_type(self):
         pass
 
-    def seat_deallocate(self,txn_no=None):
+    def seat_deallocate(self,txn_no=None,mode = None):
         try:
             id_matched = 0
             for id in order_obj.placedorder_list:
@@ -32,45 +31,35 @@ class Payment(ABC):
 
             operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
             if txn_no != None:
-                bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no)
+                bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no,mode= mode)
         except Exception as err:
-            print("Resolving issue...Try again :)")
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
     
 class Upi(Payment):
     def payment_type(self):
         try:
-            self.__pin = input("Enter upi pin: ")
+            self.__pin = input("Enter 4/6 digits upi pin: ")
             if (len(self.__pin) == 4 or len(self.__pin) == 6) and self.__pin.isdigit():
                 self.transaction_id = paymentid_obj.id_unique()
                 print(f"\nBill paid Transaction id is {self.transaction_id}")
-                self.seat_deallocate(txn_no = self.transaction_id)
+                self.seat_deallocate(txn_no = self.transaction_id, mode = "upi")
             else:
-                print("\nInvalid pin/option")
+                print(print_obj.invalid_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 Upi_obj = Upi()
 
 class Cash(Payment):
-    def payment_type(self):
+    def payment_type(self,cash_amount):
         try:
-            cash_amount = int(input("Enter cash amount: "))
-            valid_amount = 0
-            for amount in order_obj.bill_list:
-                if cash_amount >= amount["total"]:
-                    valid_amount = 1
-                    break
-
-            if valid_amount == 1:
-                return_cash = cash_amount - amount["total"]
-                print("Bill paid :)")
-                print(f"Amount returned {return_cash}")
-                self.seat_deallocate(txn_no="cash")
-            else:
-                print("Paying Amount should be Non-Negative/Greater than bill amount")
+            return_cash = cash_amount - pay_obj.total
+            print(print_obj.billpaid)
+            print(f"{print_obj.amountreturned}: {return_cash}")
+            self.seat_deallocate(txn_no="cash",mode = "cash")
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)  
 cash_obj = Cash()
 
@@ -80,16 +69,16 @@ class Card(Payment):
             swipe_card = int(input("Enter 1 to Swipe Card: "))
             self.__card_num = paymentid_obj.id_unique()
             if swipe_card == 1 and len(self.__card_num) == 16:
-                print("Bill paid :)")
-                self.seat_deallocate(txn_no = self.__card_num)
+                print(print_obj.billpaid)
+                self.seat_deallocate(txn_no = self.__card_num, mode = "card")
             else:
-                print("Card Declined")
+                print(print_obj.card_declined)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 card_obj = Card()
 
-class PaymentSelect(Upi,Cash,Card):
+class PaymentSelect(Card):
 
     def payment_menu(self):
         print()
@@ -97,38 +86,75 @@ class PaymentSelect(Upi,Cash,Card):
         print("2 - Upi")
         print("3 - Card")
 
+    def bill_display(self,bill):
+        gst = 0.10
+        subtotal = bill["total_price"]
+        gst_amount = subtotal * gst
+        self.total = subtotal + gst_amount
+
+        print("\n--------------------------------------------")
+        print(f"Order ID      : {bill['order_id']}")
+        print(f"Customer Name : {bill['customer_name']}")
+        print(f"Order Time    : {bill['order_time']}")
+        print("--------------------------------------------")
+        print(f"{"Item"}    {"Qty"}    {"Price"}    {"Amount"}")
+        print("--------------------------------------------")
+
+        for order in bill["order_placed"]:
+            item = order["search_fooditem"]
+            qty = order["item_quantity"]
+            price = order["item_price"]
+            amount = qty * price
+            print(f"{item}     {qty}      {price}       {amount}")
+
+        print("\n--------------------------------------------")
+        print(f"{print_obj.subtotal}           Rs. {subtotal}")
+        print(f"{"GST (10%)"}          Rs. {gst_amount}")
+        print(f"{print_obj.totalbill}         Rs. {self.total}")
+
     def payment_option(self):
         try:
+            order_obj.bill_list = operation_obj.read_file(path=bill_obj.bill_path)
             self.order_id = input("\nEnter order id: ")
             orderid_matched = 0
             for id in order_obj.placedorder_list:
                 if id["order_id"] == self.order_id:
                     orderid_matched = 1
-                    gst = 0.10
-                    self.billamount= id["total_price"] + (id["total_price"] * gst)
+                    individual_bill = id
                     break
 
             if orderid_matched == 1:
+                self.bill_display(individual_bill) 
+                cash_amount = int(input("\nEnter amount to pay: "))
+                valid_amount = 0
+                for amount in order_obj.placedorder_list:
+                    if cash_amount >= pay_obj.total:
+                        valid_amount = 1
+                        break
+
                 for bill in order_obj.bill_list:
                     if bill["order_id"] == self.order_id:
                         print(f"\nPayment for Order id {self.order_id} already done")
                         return None
                     
-                print(f"Bill amount for above order id: {self.billamount}")
-                self.payment_menu()
-                pay_bill = int(input("Enter payment option: "))
-                if pay_bill == 1:
-                    cash_obj.payment_type()
-                elif pay_bill == 2:
-                    Upi_obj.payment_type()
-                elif pay_bill == 3:
-                    card_obj.payment_type()
+                if valid_amount == 1:
+                    self.payment_menu()
+                    pay_bill = int(input(print_obj.enter_option))
+
+                    if pay_bill == 1:
+                        cash_obj.payment_type(cash_amount)
+                    elif pay_bill == 2:
+                        Upi_obj.payment_type()
+                    elif pay_bill == 3:
+                        card_obj.payment_type()
+                    else:
+                        print(print_obj.invalid_msg) 
                 else:
-                    print("Invalid payment option")    
+                    print(print_obj.invalidamount_msg)   
             else:
-                print("Order id not found")
+                print(print_obj.noid_msg)
         except Exception as err:
-            print(foodmenu_obj.err_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
 
 pay_obj = PaymentSelect()

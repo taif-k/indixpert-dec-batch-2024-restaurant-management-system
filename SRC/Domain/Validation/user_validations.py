@@ -1,13 +1,12 @@
 import uuid
 import sys,os
+import pwinput
 sys.path.append(os.getcwd())
 from abc import ABC,abstractmethod
 from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.Validation.print_variables import print_obj
 
 class Validation(ABC):
-    def __init__(self):
-        self.error_msg = "Resolving issue with assigning unique id"
-
     @abstractmethod
     def id_unique(self):
         pass
@@ -19,7 +18,7 @@ class UserValidation(Validation):
             if all(word.isalpha() for word in ask_name.split()):
                 return ask_name
             else:
-                print("Name should be in Alphabets")
+                print(print_obj.namenot_aplha)
 
     def user_contact(self):
         while True:
@@ -28,7 +27,7 @@ class UserValidation(Validation):
                 ask_contact = int(ask_contact)
                 break
             else:
-                print("Contact should be of 10 digits")
+                print(print_obj.invalid_contact)
         return ask_contact
     
     def user_email(self):
@@ -37,7 +36,7 @@ class UserValidation(Validation):
             if "@" in ask_email and "." in ask_email.split("@")[1]:
                 return ask_email
             else:
-                print("Enter valid Email....Ex: taif@mail.com")
+                print(print_obj.invalid_email)
         
     def user_address(self):
         ask_address = input("Enter address: ").lower()
@@ -48,7 +47,7 @@ class UserValidation(Validation):
             user_id = self.unique_id = str(uuid.uuid4())[:4]
             return user_id
         except Exception as err:
-            print(self.error_msg)
+            print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
     
     def user_role(self,role = None):
@@ -60,11 +59,11 @@ class UserValidation(Validation):
 
     def user_password(self):
         while True:
-            ask_password = input("Enter password: ")
+            ask_password = pwinput.pwinput(prompt="Enter password: ",mask="#")
             if len(ask_password) >= 8 and "@" in ask_password:
                 return ask_password
             else:
-                print("Password must be atleast 8 characters long and include @ also")
+                print(print_obj.password_demo)
 
 validation_obj = UserValidation()
 
@@ -74,7 +73,7 @@ class FoodValidation(Validation):
             food_id = self.unique_id = str(uuid.uuid4())[:2]
             return food_id
         except Exception as err:
-            print(self.error_msg)
+            print(print_obj.err_msg)
 
 Foodvalid_obj = FoodValidation()
 
@@ -84,7 +83,7 @@ class PaymentValidation(Validation):
             card_upi_no = self.unique_id = str(uuid.uuid4())[:16]
             return card_upi_no
         except:
-            print(self.error_msg)
+            print(print_obj.err_msg)
     
 paymentid_obj = PaymentValidation()
 

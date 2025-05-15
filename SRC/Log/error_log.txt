@@ -78,3 +78,25 @@
 {'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '10/05/2025, 15:00:47', 'line': 26}
 {'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': AttributeError("'PaymentSelect' object has no attribute 'order_id'"), 'date': '10/05/2025, 15:11:32', 'line': 17}
 {'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total'), 'date': '11/05/2025, 16:45:09', 'line': 102}
+{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': NameError("name 'pay_obj' is not defined"), 'date': '12/05/2025, 17:41:38', 'line': 22}
+{'module': 'pay_bill.py', 'function': 'payment_type', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '12/05/2025, 17:42:12', 'line': 61}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '13/05/2025, 11:50:22', 'line': 102}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '13/05/2025, 11:50:30', 'line': 102}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:21', 'line': 19}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:24', 'line': 19}
+{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 11:59:25', 'line': 19}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': KeyError('item_quantity'), 'date': '13/05/2025, 12:01:32', 'line': 107}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('search_servesize'), 'date': '13/05/2025, 18:31:08', 'line': 99}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('100_food_price'), 'date': '13/05/2025, 18:41:13', 'line': 110}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('100_food_price'), 'date': '13/05/2025, 18:42:16', 'line': 110}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: 'b517'"), 'date': '13/05/2025, 18:42:27', 'line': 95}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("'NoneType' object is not iterable"), 'date': '13/05/2025, 18:42:31', 'line': 114}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': UnboundLocalError("cannot access local variable 'serve' where it is not associated with a value"), 'date': '13/05/2025, 18:50:12', 'line': 107}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '13/05/2025, 18:52:02', 'line': 97}
+{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("'NoneType' object is not iterable"), 'date': '13/05/2025, 18:52:28', 'line': 114}
+{'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: 'rajma'"), 'date': '13/05/2025, 19:00:43', 'line': 97}
+{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:16:07', 'line': 74}
+{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('na'), 'date': '13/05/2025, 20:19:08', 'line': 21}
+{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:29:13', 'line': 74}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '13/05/2025, 20:34:10', 'line': 95}
+{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '14/05/2025, 07:15:19', 'line': 27}

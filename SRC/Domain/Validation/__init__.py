@@ -1,1 +1,2 @@
 from .user_validations import validation_obj,Foodvalid_obj,paymentid_obj
+from .print_variables import print_obj
