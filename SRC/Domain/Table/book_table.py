@@ -22,9 +22,12 @@ class Table:
 
             tabledict = {
                 "table_no": largest_table_no + 1,
-                "slot1":4,
-                "slot2":4,
-                "slot3":4 
+                "available_seats":4
+                # "slots": [
+                #     {"slot1": 4},  
+                #     {"slot2": 4},  
+                #     {"slot3": 4},
+                # ]
             }
 
             self.tablelist.append(tabledict)
