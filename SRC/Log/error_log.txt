@@ -1,4 +1,3 @@
-
 "{'module': 'Read_writefile.py', 'function': 'read_file', 'error': AttributeError(\"module 'json' has no attribute 'loadz'\"), 'date': '02/05/2025, 20:05:54', 'line': 42}"
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
@@ -100,12 +99,16 @@
 {'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:29:13', 'line': 74}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '13/05/2025, 20:34:10', 'line': 95}
 {'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '14/05/2025, 07:15:19', 'line': 27}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:55:42', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:55:43', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:57:55', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:57:55', 'line': 363}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: 'fea3'"), 'date': '15/05/2025, 20:23:09', 'line': 105}
-{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': KeyError('available_seats'), 'date': '15/05/2025, 20:23:33', 'line': 28}
-{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': KeyError(1), 'date': '15/05/2025, 20:39:38', 'line': 37}
-{'module': 'place_order.py', 'function': 'select_table', 'error': UnboundLocalError("cannot access local variable 'selected_table' where it is not associated with a value"), 'date': '15/05/2025, 20:46:20', 'line': 70}
-{'module': 'place_order.py', 'function': 'select_table', 'error': ValueError("invalid literal for int() with base 10: 'a'"), 'date': '15/05/2025, 20:48:06', 'line': 50}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:13:38', 'line': 34}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:14:39', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:25:32', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:26:01', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '15/05/2025, 12:30:35', 'line': 33}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '15/05/2025, 13:15:11', 'line': 47}
+{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '15/05/2025, 13:15:50', 'line': 33}
+{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '15/05/2025, 13:26:33', 'line': 75}
+{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'OrderReport' object has no attribute 'date_differnce'"), 'date': '16/05/2025, 09:00:16', 'line': 76}
+{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'OrderReport' object has no attribute 'date_differnce'"), 'date': '16/05/2025, 09:00:27', 'line': 76}
+{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '16/05/2025, 09:01:56', 'line': 77}
+{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '16/05/2025, 09:02:59', 'line': 78}
+{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '16/05/2025, 09:03:05', 'line': 78}
