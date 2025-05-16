@@ -1,3 +1,4 @@
+
 from SRC.Domain.Order import order_obj 
 from SRC.Domain.Validation import paymentid_obj,print_obj
 from SRC.Domain.ReadFile import operation_obj
@@ -17,24 +18,16 @@ class Payment(ABC):
             for id in order_obj.placedorder_list:
                 if id["order_id"] == pay_obj.order_id:
                     id_matched = 1
-                    slot_no = id["table_slot"]
-
-                    if slot_no == 1:
-                        slot_used = "slot1"
-                    elif slot_no == 2:
-                        slot_used = "slot2"
-                    elif slot_no == 3:
-                        slot_used = "slot3" 
-
                     for item in id["order_placed"]:
                         if "tableno_booked" in item and "seats_booked" in item:
                             table_no = item["tableno_booked"]
                             seats = item["seats_booked"]
                             break
+
             if id_matched == 1:
                 for table in table_obj.tablelist:
-                    if table["table_no"] == table_no and table[slot_used] < 4:
-                        table[slot_used] = table[slot_used] + seats
+                    if table["table_no"] == table_no and table["available_seats"] < 4:
+                        table["available_seats"] = table["available_seats"] + seats
                         break
 
             operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
