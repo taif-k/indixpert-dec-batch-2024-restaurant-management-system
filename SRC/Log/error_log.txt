@@ -100,3 +100,12 @@
 {'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '13/05/2025, 20:29:13', 'line': 74}
 {'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '13/05/2025, 20:34:10', 'line': 95}
 {'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '14/05/2025, 07:15:19', 'line': 27}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:55:42', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:55:43', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:57:55', 'line': 363}
+{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '15/05/2025, 19:57:55', 'line': 363}
+{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: 'fea3'"), 'date': '15/05/2025, 20:23:09', 'line': 105}
+{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': KeyError('available_seats'), 'date': '15/05/2025, 20:23:33', 'line': 28}
+{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': KeyError(1), 'date': '15/05/2025, 20:39:38', 'line': 37}
+{'module': 'place_order.py', 'function': 'select_table', 'error': UnboundLocalError("cannot access local variable 'selected_table' where it is not associated with a value"), 'date': '15/05/2025, 20:46:20', 'line': 70}
+{'module': 'place_order.py', 'function': 'select_table', 'error': ValueError("invalid literal for int() with base 10: 'a'"), 'date': '15/05/2025, 20:48:06', 'line': 50}
