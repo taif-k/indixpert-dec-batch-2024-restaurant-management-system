@@ -1,11 +1,11 @@
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import Foodvalid_obj,print_obj
-foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuItem:
-    def __init__(self,foodmenu_path):
-        self.food_path = foodmenu_path
-        self.foodmenu_list = operation_obj.read_file(self.food_path)
+    foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
+
+    def __init__(self):
+        self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
 
         self.categories_with_size = ("breakfast", "lunch", "dinner") 
         self.serve_size = ("small","medium","large")
@@ -40,11 +40,10 @@ class MenuItem:
                 if add_item != "y":
                     break
 
-            operation_obj.write_file(data=self.foodmenu_list, path=self.food_path)
+            operation_obj.write_file(data=self.foodmenu_list, path=self.foodmenu_path)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=operation_obj.err_path, mode="a", isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=operation_obj.error_path, mode="a", isJson=0)
 
-        
-foodmenu_obj = MenuItem(foodmenu_path)
+foodmenu_obj = MenuItem()

@@ -3,16 +3,12 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import validation_obj,print_obj
 from SRC.Domain.Table import display_table_obj,table_obj
 
-error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
-placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
-bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
-
 class PlaceOrder:
-    def __init__(self,err_path,ordered_path,bill_path):
-        self.err_path = err_path
-        self.ordered_path = ordered_path
-        self.bill_path = bill_path
-        self.placedorder_list =  operation_obj.read_file(self.ordered_path)
+    placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
+    bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
+
+    def __init__(self):
+        self.placedorder_list =  operation_obj.read_file(self.placedorder_path)
         self.bill_list = operation_obj.read_file(self.bill_path)
 
     def book_order(self):
@@ -31,7 +27,7 @@ class PlaceOrder:
                     
                     print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                     self.placedorder_list.append(orderplaceddict)
-                    operation_obj.write_file(data=self.placedorder_list,path=self.ordered_path)
+                    operation_obj.write_file(data=self.placedorder_list,path=self.placedorder_path)
                 else:
                     print(":(")
                     
@@ -39,7 +35,7 @@ class PlaceOrder:
                 print(print_obj.no_order_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
     def select_table(self):
         try:
@@ -65,7 +61,7 @@ class PlaceOrder:
                     print(print_obj.book_confirm_msg)  
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
     def display_item(self, searched_item):
         print("-------------------------------------")
@@ -75,7 +71,7 @@ class PlaceOrder:
         if "nosize_food_price" in searched_item:
             print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{'-'}\t\t{searched_item["nosize_food_price"]}\t\t")
         else:
-            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}  {"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
+            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
             print(f"{""}\t\t{""}\t\t{"2-Medium"}\t{searched_item["medium_food_price"]}")
             print(f"{""}\t\t{""}\t\t{"3-Large"}\t\t{searched_item["large_food_price"]}\t\t")
             print("-")
@@ -134,9 +130,9 @@ class PlaceOrder:
             return self.orderlist
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)            
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)            
                         
-order_obj = PlaceOrder(error_path,placedorder_path,bill_path)
+order_obj = PlaceOrder()
 
 
     

@@ -27,4 +27,4 @@ class Restaurant:
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data = operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+                operation_obj.write_file(data = operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
