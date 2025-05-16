@@ -10,11 +10,11 @@ class DisplayTable(Table):
     def available_tables(self):
         self.tablelist = operation_obj.read_file(self.alltable_path)
         print()
-        print(f"{print_obj.tableno}     {print_obj.availableseat}")
-        print("------------------------------------")
+        print(f"{print_obj.tableno}     {"slot 1 (11:00 am - 1:00 pm)"}     {"slot 2 (01:00 pm - 3:00 pm)"}     {"slot 3 (3:00 pm - 5:00 pm)"}")
+        print("----------------------------------------------------------------------------------------------------------")
         
         for table in self.tablelist:
-            print(f"   {table["table_no"]}                     {table["available_seats"]}")
+            print(f"   {table["table_no"]}\t\t\t\t{table["slot1"]}\t\t\t\t{table["slot2"]}\t\t\t\t{table["slot3"]}")
 
 display_table_obj = DisplayTable(alltable_path)
 
