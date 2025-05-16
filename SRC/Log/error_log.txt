@@ -1,4 +1,3 @@
-
 "{'module': 'Read_writefile.py', 'function': 'read_file', 'error': AttributeError(\"module 'json' has no attribute 'loadz'\"), 'date': '02/05/2025, 20:05:54', 'line': 42}"
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}
 {'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '02/05/2025, 20:09:53', 'line': 45}

@@ -69,6 +69,7 @@ class ReportData:
         print(f"Total : Rs {total}")
 report_obj = ReportData()
 
+
 class OrderReport(ReportData):
     def orders_timeline(self):
         try:
@@ -82,6 +83,7 @@ class OrderReport(ReportData):
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+
 
     def mode_type(self):
         print()
@@ -122,9 +124,8 @@ report_order = OrderReport()
 
 class ErrorReport(ReportData):
 
+
     def errors_type(self):
         print("Errors report........")
 
 report_error = ErrorReport()
-
-

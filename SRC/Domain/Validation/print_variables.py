@@ -1,4 +1,3 @@
-
 class PrintMessage:
     def __init__(self):
         self.enter_option = "Enter option: "
@@ -31,10 +30,4 @@ class PrintMessage:
         self.invalid_email = "\nEnter valid Email....Ex: taif@mail.com"
         self.password_demo = "\nPassword must be atleast 8 characters long and include @ also"
 
-
-
-
-
 print_obj = PrintMessage()
-        
-     
