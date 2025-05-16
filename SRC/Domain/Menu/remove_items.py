@@ -3,7 +3,6 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 
 class RemoveFood(MenuItem):
-    foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
     def __init__(self):
         super().__init__()

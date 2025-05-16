@@ -4,8 +4,6 @@ from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
 
 class CancelOrder(PlaceOrder):
-    placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
-    bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
 
     def __init__(self):
         super().__init__()

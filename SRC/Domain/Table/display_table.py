@@ -3,7 +3,6 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 
 class DisplayTable(Table):
-    alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 
     def __init__(self):
         super().__init__()
@@ -18,6 +17,34 @@ class DisplayTable(Table):
             print(f"   {table["table_no"]}                     {table["available_seats"]}")
 
 display_table_obj = DisplayTable()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # from .book_table import Table
 # alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
