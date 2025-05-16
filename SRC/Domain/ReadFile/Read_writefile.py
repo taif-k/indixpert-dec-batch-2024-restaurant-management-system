@@ -3,22 +3,19 @@ import traceback
 import datetime
 import os
 
-userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
-error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
-admindata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_admin.json"
-
 class DataFile:
-    def __init__(self, path, err_path,admin_path):
-        self.user_path = path
-        self.err_path = err_path
-        self.admin_path = admin_path
+    userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
+    error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
+    admindata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_admin.json"
+
+    def __init__(self):
         self.userlist = self.read_file()
-        self.adminlist = self.read_file(self.admin_path)
+        self.adminlist = self.read_file(self.admindata_path)
 
     def write_file(self, data = None, path = None,mode = "w",isJson = 1):
         if data == None and path == None:
             data = self.userlist
-            path = self.user_path
+            path = self.userdata_path
 
         with open(path,mode) as file:
             if isJson == 1:
@@ -44,7 +41,7 @@ class DataFile:
         
     def read_file(self,path = None):
         if path == None:
-            path = self.user_path
+            path = self.userdata_path
 
         try:
             with open(path,"r") as file:
@@ -52,7 +49,7 @@ class DataFile:
                 return user_data     
         except Exception as err:
             print("Resolving issue..")
-            self.write_file(data=self.get_errdetails(err),path=self.err_path,mode="a",isJson=0)
+            self.write_file(data=self.get_errdetails(err),path=self.error_path,mode="a",isJson=0)
             return []       
 
-operation_obj = DataFile(userdata_path,error_path,admindata_path)
+operation_obj = DataFile()

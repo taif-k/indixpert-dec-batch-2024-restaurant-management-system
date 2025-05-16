@@ -1,15 +1,16 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
-foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
 
 class MenuDisplay(MenuItem):
-    def __init__(self, foodmenu_path):
-        super().__init__(foodmenu_path)
+    foodmenu_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\foodmenu.json"
+    
+    def __init__(self):
+        super().__init__()
 
     def formatted_menu(self):
         try:
-            self.foodmenu_list = operation_obj.read_file(foodmenu_path)
+            self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
             separate_menu = {"breakfast": [], "lunch": [], "dinner": [], "beverages": []}
 
             for item in self.foodmenu_list:
@@ -38,7 +39,7 @@ class MenuDisplay(MenuItem):
                     print()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
 
-display_menu_obj = MenuDisplay(foodmenu_path)
+display_menu_obj = MenuDisplay()

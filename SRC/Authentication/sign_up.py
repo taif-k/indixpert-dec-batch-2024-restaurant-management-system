@@ -3,14 +3,9 @@ sys.path.append(os.getcwd())
 from SRC.Domain.Validation import validation_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
-userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
-error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
+
 
 class RestaurantUsers:
-    def __init__(self,path,err_path):
-        self.__user_path = path
-        self.__err_path = err_path
-
     def user_signup(self):
         try:
             userdict = {}
@@ -26,7 +21,7 @@ class RestaurantUsers:
             operation_obj.write_file()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
             
 
-signup_obj = RestaurantUsers(userdata_path,error_path)
+signup_obj = RestaurantUsers()
