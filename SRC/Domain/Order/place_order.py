@@ -28,7 +28,6 @@ class PlaceOrder:
                     orderplaceddict["order_id"] = validation_obj.id_unique()
                     orderplaceddict["total_price"] = self.total_price
                     orderplaceddict["order_time"] = operation_obj.get_errdetails(get_date=True)
-                    orderplaceddict["table_slot"] = self.table_slot
                     
                     print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                     self.placedorder_list.append(orderplaceddict)
@@ -48,27 +47,20 @@ class PlaceOrder:
             while table_available != 1:
                 display_table_obj.available_tables()
                 self.table_select = int(input("Enter table no. to book: ")) 
-                self.seat_select = int(input("Enter no. of seats to book: "))           
-                self.table_slot = int(input("Enter slot no: "))
+                self.seat_select = int(input("Enter no. of seats to book: "))                          
                 
-                if self.table_slot == 1:
-                    slot_no = "slot1"
-                elif self.table_slot == 2:
-                    slot_no = "slot2"
-                elif self.table_slot == 3:
-                    slot_no = "slot3"
-
                 for table in table_obj.tablelist:
-                    if table["table_no"] == self.table_select and self.seat_select <= table[slot_no]:
+                    if table["table_no"] == self.table_select and self.seat_select <= table["available_seats"]:
                         table_available = 1
-                        selected_table = table
                         break   
-
                 if table_available == 0:
                     print(print_obj.choose_validtable)
 
-                if selected_table:
-                    selected_table[slot_no] -= self.seat_select
+                if table_available == 1:
+                    updated_seats = table["available_seats"]-self.seat_select
+                    updatetable = {"table_no":self.table_select,"available_seats":updated_seats}
+                    table_obj.tablelist.remove(table)
+                    table_obj.tablelist.append(updatetable)
                     operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
                     print(print_obj.book_confirm_msg)  
         except Exception as err:
@@ -83,10 +75,10 @@ class PlaceOrder:
         if "nosize_food_price" in searched_item:
             print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{'-'}\t\t{searched_item["nosize_food_price"]}\t\t")
         else:
-            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
+            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}  {"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
             print(f"{""}\t\t{""}\t\t{"2-Medium"}\t{searched_item["medium_food_price"]}")
             print(f"{""}\t\t{""}\t\t{"3-Large"}\t\t{searched_item["large_food_price"]}\t\t")
-
+            print("-")
 
     def orders_list(self):
         try:
