@@ -39,7 +39,7 @@ class ReportData:
             self.date_differnce = time_compare
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
     def report_option(self):
         while True:
@@ -76,13 +76,14 @@ class OrderReport(ReportData):
             self.timeline_range()    
             timelinelist = []
             for bill in bill_obj.bill_list:
-                if bill["order_time"] >= self.date_differnce.strftime("%d/%m/%Y, %H:%M:%S"):
+                date_diff = self.date_differnce.strptime(bill["order_time"], "%d/%m/%Y, %H:%M:%S")
+                if date_diff >= self.date_differnce:
                     timelinelist.append(bill)
 
             self.display_mode(timelinelist)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
 
     def mode_type(self):
@@ -118,14 +119,12 @@ class OrderReport(ReportData):
                 self.orders_timeline()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
 report_order = OrderReport()
 
 class ErrorReport(ReportData):
-
-
-    def errors_type(self):
-        print("Errors report........")
-
+    def errors_type(self):            
+        print("working on error report...")
+            
 report_error = ErrorReport()
