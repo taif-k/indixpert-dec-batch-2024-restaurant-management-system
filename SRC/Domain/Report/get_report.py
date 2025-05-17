@@ -65,10 +65,9 @@ class ReportData:
             total += bill["total"]
 
         print("------------------------------------------------------------------------")
-        print(f"Transactions: {len(modelist)}")
+        print(f"Total orders: {len(modelist)}")
         print(f"Total : Rs {total}")
 report_obj = ReportData()
-
 
 class OrderReport(ReportData):
     def orders_timeline(self):
@@ -76,8 +75,7 @@ class OrderReport(ReportData):
             self.timeline_range()    
             timelinelist = []
             for bill in bill_obj.bill_list:
-                date_diff = self.date_differnce.strptime(bill["order_time"], "%d/%m/%Y, %H:%M:%S")
-                if date_diff >= self.date_differnce:
+                if bill["order_time"]  >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
                     timelinelist.append(bill)
 
             self.display_mode(timelinelist)
