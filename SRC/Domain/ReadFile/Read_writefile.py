@@ -25,7 +25,7 @@ class DataFile:
 
     def get_errdetails(self,error = None, get_date = False):
         date = datetime.datetime.now()
-        str_date = date.strftime("%d/%m/%Y, %H:%M:%S")
+        str_date = date.strftime("%Y-%m-%d %H:%M:%S")
 
         if get_date == True:
             return str_date
@@ -36,7 +36,7 @@ class DataFile:
             function_name = tb.name
             line_no = tb.lineno
 
-            err_details = str({"module":module_name,"function":function_name,"error":error,"date":str_date,"line":line_no})
+            err_details = json.dumps({"module":module_name,"function":function_name,"error":str(error),"date":str_date,"line":line_no}) #will check and do str(error)
             return err_details
         
     def read_file(self,path = None):
@@ -45,8 +45,14 @@ class DataFile:
 
         try:
             with open(path,"r") as file:
-                user_data = json.load(file)
-                return user_data     
+                if path == self.error_path:
+                    err_list = []
+                    for line in file:
+                        err_list.append(json.loads(line))
+                    return err_list
+                else:
+                    return json.load(file)
+                
         except Exception as err:
             print("Resolving issue..")
             self.write_file(data=self.get_errdetails(err),path=self.error_path,mode="a",isJson=0)

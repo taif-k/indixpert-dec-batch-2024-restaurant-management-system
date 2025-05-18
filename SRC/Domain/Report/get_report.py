@@ -7,10 +7,11 @@ class ReportData:
 
     def time_range_menu(self):
         print()
-        print("1 - Weekly")
-        print("2 - Monthly")
-        print("3 - 6 Months")
-        print("4 - Yearly")
+        print("1 - Today")
+        print("2 - Weekly")
+        print("3 - Monthly")
+        print("4 - 6 Months")
+        print("5 - Yearly")
 
     def report_type(self):
         print()
@@ -22,24 +23,27 @@ class ReportData:
     def timeline_range(self):
         try:
             self.time_range_menu()
-            range_option = int(input("Enter option: "))
-            today = datetime.datetime.now()
+            range_option = int(input("Enter option: ")) 
+            now = datetime.datetime.now()
+            today_date = datetime.datetime(now.year, now.month, now.day, 0, 0, 0)
 
             if range_option == 1:
-                time_compare = today + datetime.timedelta(-7)
+                time_compare = today_date
             elif range_option == 2:
-                time_compare = today + datetime.timedelta(-30)
+                time_compare = today_date + datetime.timedelta(-7)
             elif range_option == 3:
-                time_compare = today + datetime.timedelta(-180)
+                time_compare = today_date + datetime.timedelta(-30)
             elif range_option == 4:
-                time_compare = today + datetime.timedelta(-365)
+                time_compare = today_date + datetime.timedelta(-180)
+            elif range_option == 5:
+                time_compare = today_date + datetime.timedelta(-365)
             else:
                 print(print_obj.invalid_msg)
             
             self.date_differnce = time_compare
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
     def report_option(self):
         while True:
@@ -61,14 +65,13 @@ class ReportData:
 
         total = 0
         for bill in modelist:
-            print(f"{bill["order_id"]}\t\t{bill["customer_name"]}\t\t{bill["total"]}\t\t{bill["order_time"]}")
+            print(f"{bill['order_id']}\t\t{bill['customer_name']}\t\t{bill['total']}\t\t{bill['order_time']}")
             total += bill["total"]
 
         print("------------------------------------------------------------------------")
-        print(f"Transactions: {len(modelist)}")
+        print(f"Total orders: {len(modelist)}")
         print(f"Total : Rs {total}")
 report_obj = ReportData()
-
 
 class OrderReport(ReportData):
     def orders_timeline(self):
@@ -76,13 +79,13 @@ class OrderReport(ReportData):
             self.timeline_range()    
             timelinelist = []
             for bill in bill_obj.bill_list:
-                if bill["order_time"] >= self.date_differnce.strftime("%d/%m/%Y, %H:%M:%S"):
+                if bill["order_time"]  >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
                     timelinelist.append(bill)
 
             self.display_mode(timelinelist)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
 
     def mode_type(self):
@@ -95,11 +98,12 @@ class OrderReport(ReportData):
         if mode_option == 1:
             mode = "cash"
         elif mode_option == 2:
-            mode = "upi"
-        elif mode_option == 3:
             mode = "card"
+        elif mode_option == 3:
+            mode = "upi"
         else:
             print(print_obj.invalid_msg)
+            return None
 
         modelist = []
         for bill in bill_obj.bill_list:
@@ -118,14 +122,36 @@ class OrderReport(ReportData):
                 self.orders_timeline()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.err_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
 
 report_order = OrderReport()
 
 class ErrorReport(ReportData):
 
+    def errors_type(self):            
+        try:
+            self.timeline_range()
+            errors = operation_obj.read_file(operation_obj.error_path)
+            sortederrors = []
+            for err in errors:
+                if err["date"] >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
+                    sortederrors.append(err)
+            self.formated_err_display(sortederrors)
 
-    def errors_type(self):
-        print("Errors report........")
+        except Exception as err:
+            print(print_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+
+    def formated_err_display(self, sortederrors):
+        print("------------------------------------------------------------------------------------------------------")
+        print("MODULE               FUNCTION                 ERROR                        LINE        ERROR TIME")
+        print("------------------------------------------------------------------------------------------------------")
+
+        for err in sortederrors:
+            print(f"{err['module']:<20} {err['function']:<20}  {err['error'][:30]:<32}  {str(err['line']):<8}  {err['date']:<8}")
+
+        print("\n------------------")
+        print(f"Total Errors  {len(sortederrors)}")
+        print("------------------")
 
 report_error = ErrorReport()

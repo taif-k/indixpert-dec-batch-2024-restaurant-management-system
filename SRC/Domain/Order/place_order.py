@@ -56,6 +56,7 @@ class PlaceOrder:
                     updated_seats = table["available_seats"]-self.seat_select
                     updatetable = {"table_no":self.table_select,"available_seats":updated_seats}
                     table_obj.tablelist.remove(table)
+                    table["available_seats"] = updated_seats
                     table_obj.tablelist.append(updatetable)
                     operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)
                     print(print_obj.book_confirm_msg)  
