@@ -1,115 +1,117 @@
-"{'module': 'Read_writefile.py', 'function': 'read_file', 'error': AttributeError(\"module 'json' has no attribute 'loadz'\"), 'date': '2025-05-02, 20:05:54', 'line': 42}"
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '2025-05-02, 20:09:53', 'line': 45}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': ValueError("invalid mode: 'xyz'"), 'date': '2025-05-02, 20:09:53', 'line': 45}
-{'module': 'sign_up.py', 'function': 'user_signup', 'error': AttributeError("'DataFile' object has no attribute 'write_fil'"), 'date': '2025-05-02, 20:18:38', 'line': 26}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:30:48', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:30:48', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:31:00', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:31:00', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:34:44', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:34:44', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:35:04', 'line': 48}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 07:35:04', 'line': 48}
-{'module': 'user_validations.py', 'function': 'user_role', 'error': UnboundLocalError("cannot access local variable 'ask_role' where it is not associated with a value"), 'date': '2025-05-03, 11:54:25', 'line': 46}
-{'module': 'user_validations.py', 'function': 'user_role', 'error': AttributeError("'UserValidation' object has no attribute 'ask_role'"), 'date': '2025-05-03, 11:56:29', 'line': 45}
-{'module': 'login.py', 'function': 'staff_login', 'error': KeyError('staff_email'), 'date': '2025-05-03, 20:26:59', 'line': 99}
-{'module': 'login.py', 'function': 'staff_login', 'error': KeyError('staff_email'), 'date': '2025-05-03, 20:27:37', 'line': 99}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 20:56:33', 'line': 51}
-{'module': 'Read_writefile.py', 'function': 'read_file', 'error': FileNotFoundError(2, 'No such file or directory'), 'date': '2025-05-03, 20:56:33', 'line': 51}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-03, 21:03:38', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-03, 21:03:38', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 08:42:07', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 08:42:07', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 08:45:45', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 08:45:45', 'line': 363}
-{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-04, 09:50:11', 'line': 18}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:00:18', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:00:18', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:08:54', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:08:54', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:11:59', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:11:59', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:20:29', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:20:29', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:51:49', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 10:51:49', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 15:46:00', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 15:46:00', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 15:48:11', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 15:48:11', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 16:39:36', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 16:39:36', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 16:41:41', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 16:41:41', 'line': 363}
-{'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-04, 16:52:18', 'line': 112}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 17:02:09', 'line': 363}
-{'module': 'decoder.py', 'function': 'raw_decode', 'error': JSONDecodeError('Expecting value: line 1 column 1 (char 0)'), 'date': '2025-05-04, 17:02:09', 'line': 363}
-{'module': 'sign_up.py', 'function': 'user_signup', 'error': TypeError('can only concatenate list (not "str") to list'), 'date': '2025-05-06, 08:32:32', 'line': 20}
-{'module': 'add_items.py', 'function': 'add_menu', 'error': IndexError('list index out of range'), 'date': '2025-05-06, 08:48:13', 'line': 14}
-{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: 'a'"), 'date': '2025-05-07, 13:16:15', 'line': 18}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\Domain\\\\Tables\\\\book_table.py"\''), 'date': '2025-05-07, 13:26:50', 'line': 33}
-{'module': 'book_table.py', 'function': 'add_table', 'error': ValueError('invalid literal for int() with base 10: "{\'table_no\': 2, \'available_seats\': 2}"'), 'date': '2025-05-07, 13:27:46', 'line': 27}
-{'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '2025-05-07, 16:43:00', 'line': 13}
-{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('s_food_price'), 'date': '2025-05-07, 16:45:08', 'line': 14}
-{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('small,medium,large_food_price'), 'date': '2025-05-07, 16:45:56', 'line': 14}
-{'module': 'update_items.py', 'function': 'update_item', 'error': KeyError('small_food_price'), 'date': '2025-05-07, 16:51:34', 'line': 15}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-07, 16:52:38', 'line': 34}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-07, 16:52:39', 'line': 34}
-{'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '2025-05-07, 17:11:42', 'line': 16}
-{'module': 'update_items.py', 'function': 'update_item', 'error': TypeError('list indices must be integers or slices, not str'), 'date': '2025-05-07, 17:11:45', 'line': 16}
-{'module': 'update_items.py', 'function': 'update_item', 'error': AttributeError("'MenuItem' object has no attribute 'serve_size'"), 'date': '2025-05-07, 17:18:20', 'line': 15}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('table_no'), 'date': '2025-05-08, 09:09:30', 'line': 32}
-{'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total_amount'), 'date': '2025-05-08, 10:14:33', 'line': 87}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('order_id'), 'date': '2025-05-08, 10:17:05', 'line': 59}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('tableno_booked'), 'date': '2025-05-08, 10:21:15', 'line': 55}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('tableno_booked'), 'date': '2025-05-08, 10:31:04', 'line': 55}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '2025-05-08, 10:46:35', 'line': 53}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '2025-05-08, 10:46:56', 'line': 53}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': KeyError('total_amount'), 'date': '2025-05-08, 10:56:44', 'line': 51}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '2025-05-08, 20:04:48', 'line': 55}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-08, 20:29:07', 'line': 58}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '2025-05-09, 08:29:13', 'line': 58}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '2025-05-09, 08:34:32', 'line': 58}
-{'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-09, 08:47:26', 'line': 149}
-{'module': 'login.py', 'function': 'user_login', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-09, 08:50:02', 'line': 149}
-{'module': 'place_order.py', 'function': 'select_table', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\SRC\\\\main.py"\''), 'date': '2025-05-10, 08:21:34', 'line': 80}
-{'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '2025-05-10, 14:51:45', 'line': 20}
-{'module': 'cancel_order.py', 'function': 'order_cancel', 'error': ValueError('list.remove(x): x not in list'), 'date': '2025-05-10, 15:00:47', 'line': 26}
-{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': AttributeError("'PaymentSelect' object has no attribute 'order_id'"), 'date': '2025-05-10, 15:11:32', 'line': 17}
-{'module': 'pay_bill.py', 'function': 'payment_option', 'error': KeyError('total'), 'date': '2025-05-11, 16:45:09', 'line': 102}
-{'module': 'pay_bill.py', 'function': 'seat_deallocate', 'error': NameError("name 'pay_obj' is not defined"), 'date': '2025-05-12, 17:41:38', 'line': 22}
-{'module': 'pay_bill.py', 'function': 'payment_type', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '2025-05-12, 17:42:12', 'line': 61}
-{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '2025-05-13, 11:50:22', 'line': 102}
-{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("string indices must be integers, not 'str'"), 'date': '2025-05-13, 11:50:30', 'line': 102}
-{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-13, 11:59:21', 'line': 19}
-{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-13, 11:59:24', 'line': 19}
-{'module': 'restaurant_sys.py', 'function': 'authentication_option', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-13, 11:59:25', 'line': 19}
-{'module': 'pay_bill.py', 'function': 'bill_display', 'error': KeyError('item_quantity'), 'date': '2025-05-13, 12:01:32', 'line': 107}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('search_servesize'), 'date': '2025-05-13, 18:31:08', 'line': 99}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('100_food_price'), 'date': '2025-05-13, 18:41:13', 'line': 110}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': KeyError('100_food_price'), 'date': '2025-05-13, 18:42:16', 'line': 110}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: 'b517'"), 'date': '2025-05-13, 18:42:27', 'line': 95}
-{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("'NoneType' object is not iterable"), 'date': '2025-05-13, 18:42:31', 'line': 114}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': UnboundLocalError("cannot access local variable 'serve' where it is not associated with a value"), 'date': '2025-05-13, 18:50:12', 'line': 107}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: ''"), 'date': '2025-05-13, 18:52:02', 'line': 97}
-{'module': 'pay_bill.py', 'function': 'bill_display', 'error': TypeError("'NoneType' object is not iterable"), 'date': '2025-05-13, 18:52:28', 'line': 114}
-{'module': 'place_order.py', 'function': 'orders_list', 'error': ValueError("invalid literal for int() with base 10: 'rajma'"), 'date': '2025-05-13, 19:00:43', 'line': 97}
-{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '2025-05-13, 20:16:07', 'line': 74}
-{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('na'), 'date': '2025-05-13, 20:19:08', 'line': 21}
-{'module': 'place_order.py', 'function': 'display_item', 'error': KeyError('small_food_price'), 'date': '2025-05-13, 20:29:13', 'line': 74}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError("invalid literal for int() with base 10: '6bb5'"), 'date': '2025-05-13, 20:34:10', 'line': 95}
-{'module': 'display_items.py', 'function': 'formatted_menu', 'error': KeyError('small_food_price'), 'date': '2025-05-14, 07:15:19', 'line': 27}
-{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-15, 12:13:38', 'line': 34}
-{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-15, 12:14:39', 'line': 33}
-{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-15, 12:25:32', 'line': 33}
-{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-15, 12:26:01', 'line': 33}
-{'module': 'get_report.py', 'function': 'time_report', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-15, 12:30:35', 'line': 33}
-{'module': 'login.py', 'function': 'user_option', 'error': ValueError('invalid literal for int() with base 10: \'python -u "d:\\\\Repositories\\\\indixpert-dec-batch-2024-restaurant-management-system\\\\main.py"\''), 'date': '2025-05-15, 13:15:11', 'line': 47}
-{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '2025-05-15, 13:15:50', 'line': 33}
-{'module': 'get_report.py', 'function': 'time_report', 'error': UnboundLocalError("cannot access local variable 'time_compare' where it is not associated with a value"), 'date': '2025-05-15, 13:26:33', 'line': 75}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'OrderReport' object has no attribute 'date_differnce'"), 'date': '2025-05-16, 09:00:16', 'line': 76}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'OrderReport' object has no attribute 'date_differnce'"), 'date': '2025-05-16, 09:00:27', 'line': 76}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '2025-05-16, 09:01:56', 'line': 77}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '2025-05-16, 09:02:59', 'line': 78}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': AttributeError("'ReportData' object has no attribute 'date_differnce'"), 'date': '2025-05-16, 09:03:05', 'line': 78}
-{'module': 'get_report.py', 'function': 'orders_timeline', 'error': TypeError("'>=' not supported between instances of 'str' and 'datetime.datetime'"), 'date': '2025-05-17 15:06:58', 'line': 80}
+{"module": "Read_writefile.py", "function": "read_file", "error": "ValueError('invalid mode: 'xyz'')", "date": "2025-05-02, 20:09:53", "line": 45}
+{"module": "Read_writefile.py", "function": "read_file", "error": "ValueError('invalid mode: 'xyz'')", "date": "2025-05-02, 20:09:53", "line": 45}
+{"module": "sign_up.py", "function": "user_signup", "error": "AttributeError(''DataFile' object has no attribute 'write_fil'')", "date": "2025-05-02, 20:18:38", "line": 26}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:30:48", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:30:48", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:31:00", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:31:00", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:34:44", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:34:44", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:35:04", "line": 48}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 07:35:04", "line": 48}
+{"module": "user_validations.py", "function": "user_role", "error": "UnboundLocalError('cannot access local variable 'ask_role' where it is not associated with a value')", "date": "2025-05-03, 11:54:25", "line": 46}
+{"module": "user_validations.py", "function": "user_role", "error": "AttributeError('UserValidation' object has no attribute 'ask_role'')", "date": "2025-05-03, 11:56:29", "line": 45}
+{"module": "login.py", "function": "staff_login", "error": "KeyError('staff_email')", "date": "2025-05-03, 20:26:59", "line": 99}
+{"module": "login.py", "function": "staff_login", "error": "KeyError('staff_email')", "date": "2025-05-03, 20:27:37", "line": 99}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 20:56:33", "line": 51}
+{"module": "Read_writefile.py", "function": "read_file", "error": "FileNotFoundError(2, 'No such file or directory')", "date": "2025-05-03, 20:56:33", "line": 51}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-03, 21:03:38", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-03, 21:03:38", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 08:42:07", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 08:42:07", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 08:45:45", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 08:45:45", "line": 363}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-04, 09:50:11", "line": 18}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:00:18", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:00:18", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:08:54", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:08:54", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:08:56", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:11:54", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:20:29", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:20:29", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:51:49", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 10:51:49", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 15:46:00", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 15:46:00", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 15:48:11", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 15:48:11", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 16:39:36", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 16:39:36", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 16:41:41", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 16:41:41", "line": 363}
+{"module": "login.py", "function": "user_login", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-04, 16:52:18", "line": 112}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 17:02:09", "line": 363}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')", "date": "2025-05-04, 17:02:09", "line": 363}
+{"module": "sign_up.py", "function": "user_signup", "error": "TypeError('can only concatenate list (not 'str') to list')", "date": "2025-05-06, 08:32:32", "line": 20}
+{"module": "add_items.py", "function": "add_menu", "error": "IndexError('list index out of range')", "date": "2025-05-06, 08:48:13", "line": 14}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "ValueError('invalid literal for int() with base 10: 'a'')", "date": "2025-05-07, 13:16:15", "line": 18}
+{"module": "update_items.py", "function": "update_item", "error": "AttributeError(''MenuItem' object has no attribute 'serve_size'')", "date": "2025-05-07, 16:43:00", "line": 13}
+{"module": "update_items.py", "function": "update_item", "error": "KeyError('s_food_price')", "date": "2025-05-07, 16:45:08", "line": 14}
+{"module": "update_items.py", "function": "update_item", "error": "KeyError('small,medium,large_food_price')", "date": "2025-05-07, 16:45:56", "line": 14}
+{"module": "update_items.py", "function": "update_item", "error": "KeyError('small_food_price')", "date": "2025-05-07, 16:51:34", "line": 15}
+{"module": "login.py", "function": "user_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-07, 16:52:38", "line": 34}
+{"module": "login.py", "function": "user_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-07, 16:52:39", "line": 34}
+{"module": "update_items.py", "function": "update_item", "error": "TypeError('list indices must be integers or slices, not str')", "date": "2025-05-07, 17:11:42", "line": 16}
+{"module": "update_items.py", "function": "update_item", "error": "TypeError('list indices must be integers or slices, not str')", "date": "2025-05-07, 17:11:45", "line": 16}
+{"module": "update_items.py", "function": "update_item", "error": "AttributeError(''MenuItem' object has no attribute 'serve_size'')", "date": "2025-05-07, 17:18:20", "line": 15}
+{"module": "place_order.py", "function": "orders_list", "error": "KeyError('table_no')", "date": "2025-05-08, 09:09:30", "line": 32}
+{"module": "pay_bill.py", "function": "payment_option", "error": "KeyError('total_amount')", "date": "2025-05-08, 10:14:33", "line": 87}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('order_id')", "date": "2025-05-08, 10:17:05", "line": 59}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('tableno_booked')", "date": "2025-05-08, 10:21:15", "line": 55}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('tableno_booked')", "date": "2025-05-08, 10:31:04", "line": 55}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('total_amount')", "date": "2025-05-08, 10:46:35", "line": 53}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('total_amount')", "date": "2025-05-08, 10:46:56", "line": 53}
+{"module": "pay_bill.py", "function": "payment_type", "error": "KeyError('total_amount')", "date": "2025-05-08, 10:56:44", "line": 51}
+{"module": "login.py", "function": "user_login", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-09, 08:47:26", "line": 149}
+{"module": "login.py", "function": "user_login", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-09, 08:50:02", "line": 149}
+{"module": "cancel_order.py", "function": "order_cancel", "error": "ValueError('list.remove(x): x not in list')", "date": "2025-05-10, 14:51:45", "line": 20}
+{"module": "cancel_order.py", "function": "order_cancel", "error": "ValueError('list.remove(x): x not in list')", "date": "2025-05-10, 15:00:47", "line": 26}
+{"module": "pay_bill.py", "function": "seat_deallocate", "error": "AttributeError(''PaymentSelect' object has no attribute 'order_id'')", "date": "2025-05-10, 15:11:32", "line": 17}
+{"module": "pay_bill.py", "function": "payment_option", "error": "KeyError('total')", "date": "2025-05-11, 16:45:09", "line": 102}
+{"module": "pay_bill.py", "function": "seat_deallocate", "error": "NameError('name 'pay_obj' is not defined')", "date": "2025-05-12, 17:41:38", "line": 22}
+{"module": "pay_bill.py", "function": "bill_display", "error": "TypeError('string indices must be integers, not 'str'')", "date": "2025-05-13, 11:50:22", "line": 102}
+{"module": "pay_bill.py", "function": "bill_display", "error": "TypeError('string indices must be integers, not 'str'')", "date": "2025-05-13, 11:50:30", "line": 102}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-13, 11:59:21", "line": 19}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-13, 11:59:24", "line": 19}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-13, 11:59:25", "line": 19}
+{"module": "pay_bill.py", "function": "bill_display", "error": "KeyError('item_quantity')", "date": "2025-05-13, 12:01:32", "line": 107}
+{"module": "place_order.py", "function": "orders_list", "error": "KeyError('search_servesize')", "date": "2025-05-13, 18:31:08", "line": 99}
+{"module": "place_order.py", "function": "orders_list", "error": "KeyError('100_food_price')", "date": "2025-05-13, 18:41:13", "line": 110}
+{"module": "place_order.py", "function": "orders_list", "error": "KeyError('100_food_price')", "date": "2025-05-13, 18:42:16", "line": 110}
+{"module": "login.py", "function": "user_option", "error": "ValueError('invalid literal for int() with base 10: 'b517'')", "date": "2025-05-13, 18:42:27", "line": 95}
+{"module": "pay_bill.py", "function": "bill_display", "error": "TypeError(''NoneType' object is not iterable')", "date": "2025-05-13, 18:42:31", "line": 114}
+{"module": "place_order.py", "function": "orders_list", "error": "UnboundLocalError('cannot access local variable 'serve' where it is not associated with a value')", "date": "2025-05-13, 18:50:12", "line": 107}
+{"module": "place_order.py", "function": "orders_list", "error": "ValueError('invalid literal for int() with base 10: ''')", "date": "2025-05-13, 18:52:02", "line": 97}
+{"module": "pay_bill.py", "function": "bill_display", "error": "TypeError(''NoneType' object is not iterable')", "date": "2025-05-13, 18:52:28", "line": 114}
+{"module": "place_order.py", "function": "orders_list", "error": "ValueError('invalid literal for int() with base 10: 'rajma'')", "date": "2025-05-13, 19:00:43", "line": 97}
+{"module": "place_order.py", "function": "display_item", "error": "KeyError('small_food_price')", "date": "2025-05-13, 20:16:07", "line": 74}
+{"module": "display_items.py", "function": "formatted_menu", "error": "KeyError('na')", "date": "2025-05-13, 20:19:08", "line": 21}
+{"module": "place_order.py", "function": "display_item", "error": "KeyError('small_food_price')", "date": "2025-05-13, 20:29:13", "line": 74}
+{"module": "login.py", "function": "user_option", "error": "ValueError('invalid literal for int() with base 10: '6bb5'')", "date": "2025-05-13, 20:34:10", "line": 95}
+{"module": "display_items.py", "function": "formatted_menu", "error": "KeyError('small_food_price')", "date": "2025-05-14, 07:15:19", "line": 27}
+{"module": "get_report.py", "function": "time_report", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-15, 12:13:38", "line": 34}
+{"module": "get_report.py", "function": "time_report", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-15, 12:14:39", "line": 33}
+{"module": "get_report.py", "function": "time_report", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-15, 12:25:32", "line": 33}
+{"module": "get_report.py", "function": "time_report", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-15, 12:26:01", "line": 33}
+{"module": "get_report.py", "function": "time_report", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-15, 12:30:35", "line": 33}
+{"module": "get_report.py", "function": "time_report", "error": "UnboundLocalError('cannot access local variable 'time_compare' where it is not associated with a value')", "date": "2025-05-15, 13:15:50", "line": 33}
+{"module": "get_report.py", "function": "time_report", "error": "UnboundLocalError('cannot access local variable 'time_compare' where it is not associated with a value')", "date": "2025-05-15, 13:26:33", "line": 75}
+{"module": "get_report.py", "function": "orders_timeline", "error": "AttributeError(''OrderReport' object has no attribute 'date_differnce'')", "date": "2025-05-16, 09:00:16", "line": 76}
+{"module": "get_report.py", "function": "orders_timeline", "error": "AttributeError(''OrderReport' object has no attribute 'date_differnce'')", "date": "2025-05-16, 09:00:27", "line": 76}
+{"module": "get_report.py", "function": "orders_timeline", "error": "AttributeError(''OrderReport' object has no attribute 'date_differnce'')", "date": "2025-05-16, 09:01:56", "line": 77}
+{"module": "get_report.py", "function": "orders_timeline", "error": "AttributeError(''OrderReport' object has no attribute 'date_differnce'')", "date": "2025-05-16, 09:02:59", "line": 78}
+{"module": "get_report.py", "function": "orders_timeline", "error": "AttributeError(''OrderReport' object has no attribute 'date_differnce'')", "date": "2025-05-16, 09:03:05", "line": 78}
+{"module": "get_report.py", "function": "orders_timeline", "error": "TypeError(''>=' not supported between instances of 'str' and 'datetime.datetime'')", "date": "2025-05-17 15:06:58", "line": 80}
+{"module": "decoder.py", "function": "raw_decode", "error": "JSONDecodeError('Expecting property name enclosed in double quotes: line 1 column 2 (char 1)')", "date": "2025-05-18 06:30:50", "line": 361}
+{"module": "decoder.py", "function": "raw_decode", "error": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)", "date": "2025-05-18 06:40:14", "line": 361}
+{"module": "decoder.py", "function": "decode", "error": "Extra data: line 2 column 1 (char 147)", "date": "2025-05-18 08:37:14", "line": 348}
+{"module": "get_report.py", "function": "formated_err_display", "error": "list indices must be integers or slices, not str", "date": "2025-05-18 09:25:18", "line": 146}
+{"module": "get_report.py", "function": "formated_err_display", "error": "cannot access local variable 'err' where it is not associated with a value", "date": "2025-05-18 09:26:35", "line": 146}
+{"module": "get_report.py", "function": "timeline_range", "error": "cannot access local variable 'time_compare' where it is not associated with a value", "date": "2025-05-18 09:40:35", "line": 41}
+{"module": "get_report.py", "function": "timeline_range", "error": "cannot access local variable 'time_compare' where it is not associated with a value", "date": "2025-05-18 09:49:35", "line": 41}
+{"module": "get_report.py", "function": "errors_type", "error": "'ErrorReport' object has no attribute 'date_differnce'", "date": "2025-05-18 09:49:35", "line": 135}
+{"module": "get_report.py", "function": "timeline_range", "error": "cannot access local variable 'time_compare' where it is not associated with a value", "date": "2025-05-18 09:50:47", "line": 39}
+{"module": "get_report.py", "function": "errors_type", "error": "'ErrorReport' object has no attribute 'date_differnce'", "date": "2025-05-18 09:50:47", "line": 133}
+{"module": "login.py", "function": "user_login", "error": "invalid literal for int() with base 10: '0\\\\'", "date": "2025-05-18 10:19:51", "line": 146}
+{"module": "get_report.py", "function": "errors_type", "error": "string indices must be integers, not 'str'", "date": "2025-05-18 10:50:58", "line": 137}
