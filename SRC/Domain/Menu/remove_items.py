@@ -25,6 +25,7 @@ class RemoveFood(MenuItem):
                     break
 
             operation_obj.write_file(data=self.foodmenu_list,path=self.foodmenu_path)
+            print("Item Removed from Menu")
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)

@@ -1,87 +1,112 @@
 [
-  {
-    "customer_name": "rohit",
-    "order_placed": [
-      {
-        "search_foodtype": "breakfast",
-        "search_fooditem": "oats",
-        "search_servesize": "medium",
-        "item_quantity": 1,
-        "item_price": 80,
-        "tableno_booked": 2,
-        "seats_booked": 1
-      }
-    ],
-    "order_id": "f751",
-    "total_price": 80,
-    "order_time": "2025-05-08 09:17:48"
-  },
-  {
-    "customer_name": "akash",
-    "order_placed": [
-      {
-        "search_foodtype": "breakfast",
-        "search_fooditem": "oats",
-        "search_servesize": "medium",
-        "item_quantity": 1,
-        "item_price": 80,
-        "tableno_booked": 3,
-        "seats_booked": 1
-      }
-    ],
-    "order_id": "08c9",
-    "total_price": 80,
-    "order_time": "2025-05-08 11:02:06"
-  },
-  {
-    "customer_name": "dimpy",
-    "order_placed": [
-      {
-        "search_foodtype": "lunch",
-        "search_fooditem": "butter naan",
-        "search_servesize": "medium",
-        "item_quantity": 2,
-        "item_price": 60,
-        "tableno_booked": 3,
-        "seats_booked": 1
-      }
-    ],
-    "order_id": "a348",
-    "total_price": 120,
-    "order_time": "2025-05-11 08:53:09"
-  },
-  {
-    "customer_name": "bilal",
-    "order_placed": [
-      {
-        "search_foodtype": "breakfast",
-        "search_fooditem": "chole bhature",
-        "search_servesize": "large",
-        "item_quantity": 1,
-        "item_price": 150,
-        "tableno_booked": 3,
-        "seats_booked": 1
-      }
-    ],
-    "order_id": "a4b7",
-    "total_price": 150,
-    "order_time": "2025-05-12 09:03:50"
-  },
-  {
-    "customer_name": "taif",
-    "order_placed": [
-      {
-        "search_foodtype": "lunch",
-        "search_fooditem": "jeera rice",
-        "search_servesize": "small",
-        "item_quantity": 2,
-        "item_price": 80,
-        "tableno_booked": 2,
-        "seats_booked": 1
-      }
-    ],
-    "order_id": "549f",
-    "total_price": 160,
-    "order_time": "2025-05-12 17:34:41"
-  }
+   {
+      "customer_name": "testt",
+      "order_placed": [
+         {
+            "search_fooditem": "oats",
+            "item_quantity": 2,
+            "item_price": 60,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot3",
+            "start_datetime": "2025-05-18 20:00:00",
+            "end_datetime": "2025-05-18 22:00:00"
+         },
+         {
+            "search_fooditem": "water",
+            "item_quantity": 1,
+            "item_price": 40,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot3",
+            "start_datetime": "2025-05-18 20:00:00",
+            "end_datetime": "2025-05-18 22:00:00"
+         }
+      ],
+      "order_id": "9394",
+      "total_price": 160,
+      "order_time": "2025-05-18 20:00:00"
+   },
+   {
+      "customer_name": "taif",
+      "order_placed": [
+         {
+            "search_fooditem": "water",
+            "item_quantity": 2,
+            "item_price": 40,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot3",
+            "start_datetime": "2025-05-18 20:00:00",
+            "end_datetime": "2025-05-18 22:00:00"
+         }
+      ],
+      "order_id": "0815",
+      "total_price": 80,
+      "order_time": "2025-05-18 20:00:00"
+   },
+   {
+      "customer_name": "abeer",
+      "order_placed": [
+         {
+            "search_fooditem": "butter naan",
+            "item_quantity": 2,
+            "item_price": 30,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot1",
+            "start_datetime": "2025-05-19 12:59:00",
+            "end_datetime": "2025-05-19 14:59:00"
+         },
+         {
+            "search_fooditem": "water",
+            "item_quantity": 2,
+            "item_price": 40,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot1",
+            "start_datetime": "2025-05-19 12:59:00",
+            "end_datetime": "2025-05-19 14:59:00"
+         }
+      ],
+      "order_id": "e156",
+      "total_price": 140,
+      "order_time": "2025-05-19 12:59:00"
+   },
+   {
+      "customer_name": "ajay",
+      "order_placed": [
+         {
+            "search_fooditem": "oats",
+            "item_quantity": 2,
+            "item_price": 100,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot1",
+            "start_datetime": "2025-05-19 13:02:00",
+            "end_datetime": "2025-05-19 15:02:00"
+         }
+      ],
+      "order_id": "0d36",
+      "total_price": 200,
+      "order_time": "2025-05-19 13:02:00"
+   },
+   {
+      "customer_name": "karan",
+      "order_placed": [
+         {
+            "search_fooditem": "palak paneer",
+            "item_quantity": 2,
+            "item_price": 105,
+            "tableno_booked": 1,
+            "seats_booked": 2,
+            "slot_booked": "slot1",
+            "start_datetime": "2025-05-19 13:10:00",
+            "end_datetime": "2025-05-19 15:10:00"
+         }
+      ],
+      "order_id": "4c96",
+      "total_price": 210,
+      "order_time": "2025-05-19 13:10:00"
+   }
 ]

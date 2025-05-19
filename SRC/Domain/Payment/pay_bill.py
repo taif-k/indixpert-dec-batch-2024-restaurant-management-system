@@ -18,15 +18,17 @@ class Payment(ABC):
                 if id["order_id"] == pay_obj.order_id:
                     id_matched = 1
                     for item in id["order_placed"]:
-                        if "tableno_booked" in item and "seats_booked" in item:
+                        if "tableno_booked" in item and "seats_booked" in item and "slot_booked" in item:
                             table_no = item["tableno_booked"]
+                            slot_booked = item["slot_booked"]
                             seats = item["seats_booked"]
                             break
+                    break    
 
-            if id_matched == 1:
+            if id_matched == 1 and table_no is not None and slot_booked is not None:
                 for table in table_obj.tablelist:
-                    if table["table_no"] == table_no and table["available_seats"] < 4:
-                        table["available_seats"] = table["available_seats"] + seats
+                    if table["table_no"] == table_no:
+                        table[slot_booked] += seats
                         break
 
             operation_obj.write_file(data=table_obj.tablelist,path=table_obj.alltable_path)

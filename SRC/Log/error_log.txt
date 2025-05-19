@@ -115,3 +115,7 @@
 {"module": "get_report.py", "function": "errors_type", "error": "'ErrorReport' object has no attribute 'date_differnce'", "date": "2025-05-18 09:50:47", "line": 133}
 {"module": "login.py", "function": "user_login", "error": "invalid literal for int() with base 10: '0\\\\'", "date": "2025-05-18 10:19:51", "line": 146}
 {"module": "get_report.py", "function": "errors_type", "error": "string indices must be integers, not 'str'", "date": "2025-05-18 10:50:58", "line": 137}
+{"module": "get_report.py", "function": "timeline_range", "error": "cannot access local variable 'time_compare' where it is not associated with a value", "date": "2025-05-19 09:50:47", "line": 39}
+{"module": "get_report.py", "function": "errors_type", "error": "'ErrorReport' object has no attribute 'date_differnce'", "date": "2025-05-19 09:50:47", "line": 133}
+{"module": "login.py", "function": "user_login", "error": "invalid literal for int() with base 10: '0\\\\'", "date": "2025-05-19 10:19:51", "line": 146}
+{"module": "get_report.py", "function": "errors_type", "error": "string indices must be integers, not 'str'", "date": "2025-05-19 10:50:58", "line": 137}
