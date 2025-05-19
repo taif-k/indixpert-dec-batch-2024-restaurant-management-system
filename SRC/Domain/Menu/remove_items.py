@@ -10,6 +10,7 @@ class RemoveFood(MenuItem):
     def remove_menu(self):
         try:
             while True:
+                self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
                 food_id = input("Enter food item id to remove from menu: ")
                 id_matched = 0
                 for item in self.foodmenu_list:
