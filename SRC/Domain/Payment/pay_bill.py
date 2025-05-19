@@ -4,6 +4,7 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Table.book_table import table_obj
 from SRC.Domain.Bill.generate_bill import bill_obj
 from SRC.Domain.Path.all_paths import path_obj
+import datetime
 
 from abc import ABC,abstractmethod
 
@@ -117,7 +118,23 @@ class PaymentSelect(Card):
 
     def payment_option(self):
         try:
+            today_str = datetime.datetime.now().strftime("%Y-%m-%d")
             order_obj.bill_list = operation_obj.read_file(path=path_obj.bill_path)
+
+            print("\nToday's Orders:")
+            print("------------------------------------------------------------")
+            print("Order ID      Customer Name      Order Time")
+            print("------------------------------------------------------------")
+
+            for order in order_obj.placedorder_list:
+                if "order_time" in order and order["order_time"] is not None:
+                    order_time = order["order_time"]
+                    if len(order_time) >= 10:
+                        order_date_part = order_time[:10]
+                        if order_date_part == today_str:
+                            print(f"{order['order_id']:<13} {order['customer_name']:<18} {order_time}")
+            print("------------------------------------------------------------")
+
             self.order_id = input("\nEnter order id: ")
             orderid_matched = 0
             for id in order_obj.placedorder_list:
