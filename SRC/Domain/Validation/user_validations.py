@@ -5,6 +5,7 @@ sys.path.append(os.getcwd())
 from abc import ABC,abstractmethod
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation.print_variables import print_obj
+from SRC.Domain.Path.all_paths import path_obj
 
 class Validation(ABC):
     @abstractmethod
@@ -48,7 +49,7 @@ class UserValidation(Validation):
             return user_id
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
     
     def user_role(self,role = None):
         if role == None:

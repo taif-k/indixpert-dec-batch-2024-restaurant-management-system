@@ -3,14 +3,13 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import validation_obj,print_obj
 from SRC.Domain.Table import display_table_obj,table_obj
 from datetime import datetime,timedelta
+from SRC.Domain.Path.all_paths import path_obj
 
 class PlaceOrder:
-    placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
-    bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
 
     def __init__(self):
-        self.placedorder_list =  operation_obj.read_file(self.placedorder_path)
-        self.bill_list = operation_obj.read_file(self.bill_path)
+        self.placedorder_list =  operation_obj.read_file(path_obj.placedorder_path)
+        self.bill_list = operation_obj.read_file(path_obj.bill_path)
 
     def book_order(self):
         try:
@@ -28,7 +27,7 @@ class PlaceOrder:
                     
                     print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                     self.placedorder_list.append(orderplaceddict)
-                    operation_obj.write_file(data=self.placedorder_list,path=self.placedorder_path)
+                    operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path)
                 else:
                     print(":(")
                     
@@ -36,7 +35,7 @@ class PlaceOrder:
                 print(print_obj.no_order_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def slot_range(self):
         print()
@@ -101,12 +100,12 @@ class PlaceOrder:
                     updated_seats = table[self.slot_selected] - self.seat_select
                     table[self.slot_selected] = updated_seats
 
-                    operation_obj.write_file(data=table_obj.tablelist, path=table_obj.alltable_path)
+                    operation_obj.write_file(data=table_obj.tablelist, path=path_obj.alltable_path)
                     print(print_obj.book_confirm_msg)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=operation_obj.error_path, mode="a", isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
 
 
     def display_item(self, searched_item):
@@ -181,7 +180,7 @@ class PlaceOrder:
             return self.orderlist
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)            
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)            
                         
 order_obj = PlaceOrder()
 

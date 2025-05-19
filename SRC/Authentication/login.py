@@ -9,6 +9,7 @@ from abc import ABC,abstractmethod
 import os
 import pwinput
 from SRC.Domain.Report.get_report import report_obj
+from SRC.Domain.Path.all_paths import path_obj
 
 class User(ABC):
     @abstractmethod
@@ -66,7 +67,7 @@ class Admin(User):
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def user_login(self):
         try:
@@ -84,7 +85,7 @@ class Admin(User):
                 print(print_obj.invalid_info)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 admin_obj = Admin()
 
 class Staff(User):
@@ -117,7 +118,7 @@ class Staff(User):
                     admin_obj.clear_screen()
                     break
             except Exception as err:
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def user_login(self):
         staff_email = input(print_obj.email_address).lower()

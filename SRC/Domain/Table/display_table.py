@@ -1,6 +1,7 @@
 from .book_table import Table
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
+from SRC.Domain.Path.all_paths import path_obj
 
 class DisplayTable(Table):
 
@@ -8,7 +9,7 @@ class DisplayTable(Table):
         super().__init__()
 
     def available_tables(self):
-        self.tablelist = operation_obj.read_file(self.alltable_path)
+        self.tablelist = operation_obj.read_file(path_obj.alltable_path)
 
         print()
         print(f"{print_obj.tableno}     {'slot 1 (11:00 AM - 01:00 PM)'}     {'slot 2 (02:00 PM - 04:00 PM)'}     {'slot 3 (05:00 PM - 07:00 PM)'}     {'slot 4 (08:00 PM - 10:00 PM)'}")

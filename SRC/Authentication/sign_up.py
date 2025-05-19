@@ -3,6 +3,7 @@ sys.path.append(os.getcwd())
 from SRC.Domain.Validation import validation_obj
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
+from SRC.Domain.Path.all_paths import path_obj
 
 
 class RestaurantUsers:
@@ -21,7 +22,7 @@ class RestaurantUsers:
             operation_obj.write_file()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
             
 
 signup_obj = RestaurantUsers()
