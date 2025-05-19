@@ -19,15 +19,7 @@ class Table:
                 if table["table_no"] > largest_table_no:
                     largest_table_no = table["table_no"]
 
-            tabledict = {
-                "table_no": largest_table_no + 1,
-                "available_seats":4
-                # "slots": [
-                #     {"slot1": 4},  
-                #     {"slot2": 4},  
-                #     {"slot3": 4},
-                # ]
-            }
+            tabledict = {"table_no": largest_table_no + 1,"slot1": 4,  "slot2": 4,  "slot3": 4}
 
             self.tablelist.append(tabledict)
 

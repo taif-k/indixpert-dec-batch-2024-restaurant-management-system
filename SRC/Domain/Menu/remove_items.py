@@ -1,6 +1,7 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
+from SRC.Domain.Menu.display_items import display_menu_obj
 
 class RemoveFood(MenuItem):
 
@@ -10,6 +11,8 @@ class RemoveFood(MenuItem):
     def remove_menu(self):
         try:
             while True:
+                self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
+                display_menu_obj.formatted_menu()
                 food_id = input("Enter food item id to remove from menu: ")
                 id_matched = 0
                 for item in self.foodmenu_list:
@@ -25,6 +28,7 @@ class RemoveFood(MenuItem):
                     break
 
             operation_obj.write_file(data=self.foodmenu_list,path=self.foodmenu_path)
+            print("Item Removed from Menu")
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
