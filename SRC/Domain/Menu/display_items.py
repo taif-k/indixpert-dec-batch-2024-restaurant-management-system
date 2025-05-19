@@ -25,18 +25,19 @@ class MenuDisplay(MenuItem):
 
             for food_type in ["breakfast", "lunch", "dinner", "beverages"]:
                 if separate_menu[food_type]:
-                    print(f"\n                {food_type.upper()}")
-                    print(f"{"Food ID"}\t\t{"Name"}\t\t{"Serving"}\t\t{"Price(Rs)"}")
-                    print("----------------------------------------------------------")
+                    print(f"\n\t\t\t{food_type.upper()}")
+                    print(f"{'Food ID':<10}{'Name':<25}{'Serving':<15}{'Price(Rs)':<10}")
+                    print("-" * 60)
                     for food in separate_menu[food_type]:
                         if food_type in ("breakfast", "lunch", "dinner"):
-                            print(f"{food["food_id"]}\t      {food["food_item"]}\t\t{"small"}\t\t{food["small_food_price"]}")
-                            print(f"{""}{""}\t\t\t\t{'medium'}\t\t{food["medium_food_price"]}")
-                            print(f"{""}{""}\t\t\t\t{"large"}\t\t{food["large_food_price"]}")
+                            print(f"{food['food_id']:<10}{food['food_item']:<25}{'small':<15}{food['small_food_price']:<10}")
+                            print(f"{'':<35}{'medium':<15}{food['medium_food_price']:<10}")
+                            print(f"{'':<35}{'large':<15}{food['large_food_price']:<10}")
                             print()
                         elif food_type == "beverages":
-                            print(f"{food["food_id"]}\t\t{food["food_item"]}\t\t{"NA"}\t\t{food["nosize_food_price"]}")
+                            print(f"{food['food_id']:<10}{food['food_item']:<25}{'NA':<15}{food['nosize_food_price']:<10}")
                     print()
+
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)

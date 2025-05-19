@@ -15,12 +15,16 @@ class Validation(ABC):
 
 class UserValidation(Validation):
     def user_name(self):
-        while True:       
-            ask_name = input("Enter name: ").lower()
-            if all(word.isalpha() for word in ask_name.split()):
-                return ask_name
-            else:
-                print(print_obj.namenot_aplha)
+        while True:
+            try:       
+                ask_name = input("Enter name: ").lower()
+                if all(word.isalpha() for word in ask_name.split()):
+                    return ask_name
+                else:
+                    print(print_obj.namenot_aplha)
+            except Exception as err:
+                print(print_obj.err_msg)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def user_contact(self):
         while True:

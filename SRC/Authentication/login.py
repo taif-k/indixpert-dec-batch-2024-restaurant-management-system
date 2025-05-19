@@ -1,4 +1,4 @@
-# Parent class "User" has child classes "admin" & "staff" 
+# child classes "admin" & "staff" are inherting from "User" class
 
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Menu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
@@ -119,20 +119,26 @@ class Staff(User):
                     admin_obj.clear_screen()
                     break
             except Exception as err:
+                print(print_obj.invalid_msg)
                 operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def user_login(self):
-        staff_email = input(print_obj.email_address).lower()
-        staff_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
-        staff_verified = 0
-        for user in operation_obj.userlist:
-            if user["email"] == staff_email:
-                if user["password"] == staff_password:
-                    self.user_option()
-                    staff_verified = 1
-                    break
-        if staff_verified == 0:
-            print(print_obj.invalid_info) 
+        try:
+            staff_email = input(print_obj.email_address).lower()
+            staff_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
+            staff_verified = 0
+            for user in operation_obj.userlist:
+                if user["email"] == staff_email:
+                    if user["password"] == staff_password:
+                        self.user_option()
+                        staff_verified = 1
+                        break
+            if staff_verified == 0:
+                print(print_obj.invalid_info) 
+        except Exception as err:
+            print(print_obj.invalid_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+
 staff_obj = Staff()
 
 class UserOption():
@@ -144,16 +150,20 @@ class UserOption():
 
     def user_login(self):
         while True:
-            self.select_user()
-            ask_login = int(input(print_obj.enter_option))
-            if ask_login == 1:
-                admin_obj.user_login()
-            elif ask_login == 2:
-                staff_obj.user_login()
-            elif ask_login == 0:
-                admin_obj.clear_screen()
-                break
-            else:
+            try:
+                self.select_user()
+                ask_login = int(input(print_obj.enter_option))
+                if ask_login == 1:
+                    admin_obj.user_login()
+                elif ask_login == 2:
+                    staff_obj.user_login()
+                elif ask_login == 0:
+                    admin_obj.clear_screen()
+                    break
+                else:
+                    print(print_obj.invalid_msg)
+            except Exception as err:
                 print(print_obj.invalid_msg)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
 login_obj = UserOption()

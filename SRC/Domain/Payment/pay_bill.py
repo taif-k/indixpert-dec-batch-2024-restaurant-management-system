@@ -92,30 +92,34 @@ class PaymentSelect(Card):
         print("3 - Card")
 
     def bill_display(self,bill):
-        gst = 0.10
-        subtotal = bill["total_price"]
-        gst_amount = subtotal * gst
-        self.total = subtotal + gst_amount
+        try:
+            gst = 0.10
+            subtotal = bill["total_price"]
+            gst_amount = subtotal * gst
+            self.total = subtotal + gst_amount
 
-        print("\n--------------------------------------------")
-        print(f"Order ID      : {bill['order_id']}")
-        print(f"Customer Name : {bill['customer_name']}")
-        print(f"Order Time    : {bill['order_time']}")
-        print("--------------------------------------------")
-        print(f"{"Item"}    {"Qty"}    {"Price"}    {"Amount"}")
-        print("--------------------------------------------")
+            print("\n--------------------------------------------")
+            print(f"Order ID      : {bill['order_id']}")
+            print(f"Customer Name : {bill['customer_name']}")
+            print(f"Order Time    : {bill['order_time']}")
+            print("--------------------------------------------")
+            print(f"{"Item"}    {"Qty"}    {"Price"}    {"Amount"}")
+            print("--------------------------------------------")
 
-        for order in bill["order_placed"]:
-            item = order["search_fooditem"]
-            qty = order["item_quantity"]
-            price = order["item_price"]
-            amount = qty * price
-            print(f"{item}     {qty}      {price}       {amount}")
+            for order in bill["order_placed"]:
+                item = order["search_fooditem"]
+                qty = order["item_quantity"]
+                price = order["item_price"]
+                amount = qty * price
+                print(f"{item}     {qty}      {price}       {amount}")
 
-        print("\n--------------------------------------------")
-        print(f"{print_obj.subtotal}           Rs. {subtotal}")
-        print(f"{"GST (10%)"}          Rs. {gst_amount}")
-        print(f"{print_obj.totalbill}         Rs. {self.total}")
+            print("\n--------------------------------------------")
+            print(f"{print_obj.subtotal}           Rs. {subtotal}")
+            print(f"{"GST (10%)"}          Rs. {gst_amount}")
+            print(f"{print_obj.totalbill}         Rs. {self.total}")
+        except Exception as err:
+            print(print_obj.invalid_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def payment_option(self):
         try:
