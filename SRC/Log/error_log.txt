@@ -119,3 +119,19 @@
 {"module": "get_report.py", "function": "errors_type", "error": "'ErrorReport' object has no attribute 'date_differnce'", "date": "2025-05-19 09:50:47", "line": 133}
 {"module": "login.py", "function": "user_login", "error": "invalid literal for int() with base 10: '0\\\\'", "date": "2025-05-19 10:19:51", "line": 146}
 {"module": "get_report.py", "function": "errors_type", "error": "string indices must be integers, not 'str'", "date": "2025-05-19 10:50:58", "line": 137}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:11:52", "line": 18}
+{"module": "login.py", "function": "user_option", "error": "'PlaceOrder' object has no attribute 'book_order'", "date": "2025-05-19 16:12:03", "line": 109}
+{"module": "login.py", "function": "user_option", "error": "'PlaceOrder' object has no attribute 'book_order'", "date": "2025-05-19 16:12:05", "line": 109}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:14:15", "line": 18}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:14:18", "line": 18}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: 'y'", "date": "2025-05-19 16:14:18", "line": 105}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:14:21", "line": 18}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: 'y'", "date": "2025-05-19 16:14:21", "line": 105}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:14:25", "line": 18}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: 'y'", "date": "2025-05-19 16:14:26", "line": 105}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:17:04", "line": 18}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:17:48", "line": 18}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:33:38", "line": 18}
+{"module": "pay_bill.py", "function": "bill_display", "error": "'NoneType' object is not iterable", "date": "2025-05-19 16:37:00", "line": 105}
+{"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:44:45", "line": 18}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: '6da5'", "date": "2025-05-19 17:14:54", "line": 105}

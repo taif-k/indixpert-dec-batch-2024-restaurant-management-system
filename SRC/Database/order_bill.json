@@ -58,5 +58,15 @@
       "order_time": "2025-05-19 11:00:00",
       "card/transaction_no": "cash",
       "mode": "cash"
+   },
+   {
+      "customer_name": "ombir",
+      "order_id": "6da5",
+      "food_amount": 130,
+      "gst": "10.0%",
+      "total": 143.0,
+      "order_time": "2025-05-19 11:00:00",
+      "card/transaction_no": "cash",
+      "mode": "cash"
    }
 ]

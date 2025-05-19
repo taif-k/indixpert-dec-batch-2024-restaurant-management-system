@@ -126,5 +126,23 @@
       "order_id": "d8e8",
       "total_price": 200,
       "order_time": "2025-05-19 11:00:00"
+   },
+   {
+      "customer_name": "ombir",
+      "order_placed": [
+         {
+            "search_fooditem": "oats",
+            "item_quantity": 1,
+            "item_price": 130,
+            "tableno_booked": 1,
+            "seats_booked": 1,
+            "slot_booked": "slot1",
+            "start_datetime": "2025-05-19 11:00:00",
+            "end_datetime": "2025-05-19 13:00:00"
+         }
+      ],
+      "order_id": "6da5",
+      "total_price": 130,
+      "order_time": "2025-05-19 11:00:00"
    }
 ]
