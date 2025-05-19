@@ -3,6 +3,8 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
+
+
 class Restaurant:
     def __init__(self):
         pass
@@ -11,7 +13,8 @@ class Restaurant:
         print("1 - Sign Up")
         print("2 - Login")
         print("0 - Exit")
-
+    
+    # main calls this function
     def authentication_option(self):
         print("\n----Restaurant Managment System----\n")
         while True:

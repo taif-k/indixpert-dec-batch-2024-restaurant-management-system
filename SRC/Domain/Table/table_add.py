@@ -2,7 +2,7 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
-
+# admin can add new table to restaurant
 class Table:
     alltable_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\alltables.json"
 

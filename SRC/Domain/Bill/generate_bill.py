@@ -7,6 +7,7 @@ class Bill:
     def __init__(self):
         self.bill_list = operation_obj.read_file(path_obj.bill_path)
 
+    # bill is saved on order_nill.json only after payment
     def bill_generate(self,order_id = None,txn_no = None, mode = None):
         try:
             if txn_no == None:

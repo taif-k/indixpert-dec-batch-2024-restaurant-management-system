@@ -1,13 +1,14 @@
-from .book_table import Table
+from .table_add import Table
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
+# available updated seats are shown when staff press 4 or 2 for advance booking and order plac respectively
 class DisplayTable(Table):
 
     def __init__(self):
         super().__init__()
-
+    
     def available_tables(self):
         self.tablelist = operation_obj.read_file(path_obj.alltable_path)
 

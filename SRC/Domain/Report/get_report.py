@@ -21,6 +21,7 @@ class ReportData:
         print("2 - Errors")
         print("0 - Exit")
 
+    # getting data for today, weekly, current month, 6 months and yearly
     def timeline_range(self):
         try:
             self.time_range_menu()
@@ -46,6 +47,8 @@ class ReportData:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
+
+    # Report  A. Orders B. Errors 
     def report_option(self):
         while True:
             self.report_type()
@@ -74,6 +77,7 @@ class ReportData:
         print(f"Total : Rs {total}")
 report_obj = ReportData()
 
+# Order Report has two types, A. Payment mode B. Timewise report(weekly etc) 
 class OrderReport(ReportData):
     def orders_timeline(self):
         try:
@@ -127,6 +131,7 @@ class OrderReport(ReportData):
 
 report_order = OrderReport()
 
+# Error Report has timewise option 
 class ErrorReport(ReportData):
 
     def errors_type(self):            
