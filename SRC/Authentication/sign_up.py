@@ -20,6 +20,7 @@ class RestaurantUsers:
             userdict["joined_date"] = operation_obj.get_errdetails(get_date=True)
             operation_obj.userlist.append(userdict)
             operation_obj.write_file()
+            print(f"\n{userdict["name"]} Signed up Sucessfully :) ")
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
