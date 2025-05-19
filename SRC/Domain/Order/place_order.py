@@ -3,14 +3,13 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import validation_obj,print_obj
 from SRC.Domain.Table import display_table_obj,table_obj
 from datetime import datetime,timedelta
+from SRC.Domain.Path.all_paths import path_obj
 
 class PlaceOrder:
-    placedorder_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\orderplaced.json"
-    bill_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\order_bill.json"
 
     def __init__(self):
-        self.placedorder_list =  operation_obj.read_file(self.placedorder_path)
-        self.bill_list = operation_obj.read_file(self.bill_path)
+        self.placedorder_list =  operation_obj.read_file(path_obj.placedorder_path)
+        self.bill_list = operation_obj.read_file(path_obj.bill_path)
 
     def book_order(self):
         try:
@@ -28,7 +27,7 @@ class PlaceOrder:
                     
                     print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                     self.placedorder_list.append(orderplaceddict)
-                    operation_obj.write_file(data=self.placedorder_list,path=self.placedorder_path)
+                    operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path)
                 else:
                     print(":(")
                     
@@ -36,71 +35,92 @@ class PlaceOrder:
                 print(print_obj.no_order_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+
+    def slot_range(self):
+        print()
+        print("1 - 11:00 AM - 1:00 PM")
+        print("2 - 1:15 PM - 3:15 PM")
+        print("3 - 5:00 PM - 7:00 PM")
+        print("4 - 8:00 PM - 10:00 PM")
+
 
     def select_table(self):
         try:
-            table_available = 0
-            while table_available != 1:
-                today_str = datetime.today().strftime("%Y-%m-%d")
-                max_date_str = (datetime.today() + timedelta(days=30)).strftime("%Y-%m-%d")
+            table_available = False
+            while not table_available:
+                today = datetime.today().strftime("%Y-%m-%d")
+                one_month_date = (datetime.today() + timedelta(days=30)).strftime("%Y-%m-%d")
                 display_table_obj.available_tables()
 
-                self.table_select = int(input("Enter table no. to book: ")) 
-                self.seat_select = int(input("Enter no. of seats to book: "))    
-                self.time_input = input("Enter booking start time (HH-MM in 24-hr format): ")
-                input_booking_date = input("Enter booking date (YYYY-MM-DD): ").strip()
-                self.booking_date = input_booking_date
-
-                if not (today_str <= input_booking_date <= max_date_str):
-                    print(f"Booking date must be between {today_str} and {max_date_str}")
+                self.table_select = int(input("Enter table number to book: "))
+                self.seat_select = int(input("Enter number of seats to book: "))
+                input_booking_date = input(f"Enter booking date (y-m-d)").strip()
+                
+                if not (today <= input_booking_date <= one_month_date):
+                    print(f"Booking date must be between {today} and {one_month_date}")
                     continue
 
-                matched_slot = None
+                self.booking_date = input_booking_date
+                self.slot_range()
+                
+                slot_option = int(input("Enter slot no : "))
+                
+                slot_time = {}
+                slot_time[1] = ("slot1", "11:00", "13:00")
+                slot_time[2] = ("slot2", "13:15", "15:15")
+                slot_time[3] = ("slot3", "17:00", "19:00")
+                slot_time[4] = ("slot4", "20:00", "22:00")
 
-                if "11-00" <= self.time_input < "14-00":
-                    matched_slot = "slot1"
-                elif "15-00" <= self.time_input < "17-00":
-                    matched_slot = "slot2"
-                elif "20-00" <= self.time_input < "22-00":
-                    matched_slot = "slot3"
 
-                if not matched_slot:
-                    print("Booking range must be:\n11:00-14:00 | 15:00-17-00 |  20:00-22-00")
+                if slot_option in slot_time:
+                    selected_slot = slot_time[slot_option]
+                    
+                    self.slot_selected = selected_slot[0]
+                    start_time = selected_slot[1]
+                    end_time = selected_slot[2]
+                else:
+                    print(print_obj.invalid_msg)
                     continue
 
                 for table in table_obj.tablelist:
-                    if table["table_no"] == self.table_select and self.seat_select <= table[matched_slot]:
-                        table_available = 1
-                        break   
+                    if table["table_no"] == self.table_select and self.seat_select <= table[self.slot_selected]:
+                        table_available = True
+                        break
 
-                if table_available == 0:
+                if not table_available:
                     print(print_obj.choose_validtable)
                 else:
-                    updated_seats = table[matched_slot] - self.seat_select
-                    table[matched_slot] = updated_seats
-                    self.slot_selected = matched_slot
+                    start_dt_str = f"{self.booking_date} {start_time}:00"
+                    end_dt_str = f"{self.booking_date} {end_time}:00"
 
-                    operation_obj.write_file(data=table_obj.tablelist, path=table_obj.alltable_path)
+                    self.start_datetime = datetime.strptime(start_dt_str, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
+                    self.end_datetime = datetime.strptime(end_dt_str, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
+
+                    updated_seats = table[self.slot_selected] - self.seat_select
+                    table[self.slot_selected] = updated_seats
+
+                    operation_obj.write_file(data=table_obj.tablelist, path=path_obj.alltable_path)
                     print(print_obj.book_confirm_msg)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=operation_obj.error_path, mode="a", isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
 
 
     def display_item(self, searched_item):
         print("-------------------------------------")
-        print(f"{"ID"}\t\t{"ITEM"}\t\t{"SERVING"}\t\t{"PRICE"}")
+        print(f"{'ID':<10}{'ITEM':<20}{'SERVING':<15}{'PRICE':<10}")
         print("-------------------------------------")
-        
+
         if "nosize_food_price" in searched_item:
-            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{'-'}\t\t{searched_item["nosize_food_price"]}\t\t")
+            print(f"{searched_item['food_id']:<10}{searched_item['food_item']:<20}{'-':<15}{searched_item['nosize_food_price']:>10}")
         else:
-            print(f"{searched_item["food_id"]}\t\t{searched_item["food_item"]}\t\t{"1-Small"}\t\t{searched_item["small_food_price"]}\t\t")
-            print(f"{""}\t\t{""}\t\t{"2-Medium"}\t{searched_item["medium_food_price"]}")
-            print(f"{""}\t\t{""}\t\t{"3-Large"}\t\t{searched_item["large_food_price"]}\t\t")
-            print("-")
+            print(f"{searched_item['food_id']:<10}{searched_item['food_item']:<20}{'1-Small':<15}{searched_item['small_food_price']:>10}")
+            print(f"{'':<10}{'':<20}{'2-Medium':<15}{searched_item['medium_food_price']:>10}")
+            print(f"{'':<10}{'':<20}{'3-Large':<15}{searched_item['large_food_price']:>10}")
+        print("-------------------------------------")
+
 
     def orders_list(self):
         try:
@@ -146,16 +166,8 @@ class PlaceOrder:
                     self.orderdict["seats_booked"] = self.seat_select
                     self.orderdict["slot_booked"] = self.slot_selected
 
-                    start_dt_str = f"{self.booking_date} {self.time_input.replace('-', ':')}:00"
-                    start_dt_obj = datetime.strptime(start_dt_str, "%Y-%m-%d %H:%M:%S")
-                    end_dt_obj = start_dt_obj + timedelta(hours=2)
-
-                    self.start_datetime = start_dt_obj.strftime("%Y-%m-%d %H:%M:%S")
-                    self.end_datetime = end_dt_obj.strftime("%Y-%m-%d %H:%M:%S")
-
                     self.orderdict["start_datetime"] = self.start_datetime
                     self.orderdict["end_datetime"] = self.end_datetime
-
 
                     self.total_price += self.orderdict["item_price"] * self.orderdict["item_quantity"]
                     self.orderlist.append(self.orderdict)
@@ -168,7 +180,7 @@ class PlaceOrder:
             return self.orderlist
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)            
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)            
                         
 order_obj = PlaceOrder()
 

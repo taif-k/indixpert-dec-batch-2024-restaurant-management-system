@@ -2,20 +2,18 @@ import json
 import traceback
 import datetime
 import os
+from SRC.Domain.Path.all_paths import path_obj
 
 class DataFile:
-    userdata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_staff.json"
-    error_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Log\error_log.txt"
-    admindata_path = r"D:\Repositories\indixpert-dec-batch-2024-restaurant-management-system\SRC\Database\registered_admin.json"
 
     def __init__(self):
         self.userlist = self.read_file()
-        self.adminlist = self.read_file(self.admindata_path)
+        self.adminlist = self.read_file(path_obj.admindata_path)
 
     def write_file(self, data = None, path = None,mode = "w",isJson = 1):
         if data == None and path == None:
             data = self.userlist
-            path = self.userdata_path
+            path = path_obj.userdata_path
 
         with open(path,mode) as file:
             if isJson == 1:
@@ -41,11 +39,11 @@ class DataFile:
         
     def read_file(self,path = None):
         if path == None:
-            path = self.userdata_path
+            path = path_obj.userdata_path
 
         try:
             with open(path,"r") as file:
-                if path == self.error_path:
+                if path == path_obj.error_path:
                     err_list = []
                     for line in file:
                         err_list.append(json.loads(line))
@@ -55,7 +53,7 @@ class DataFile:
                 
         except Exception as err:
             print("Resolving issue..")
-            self.write_file(data=self.get_errdetails(err),path=self.error_path,mode="a",isJson=0)
+            self.write_file(data=self.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
             return []       
 
 operation_obj = DataFile()

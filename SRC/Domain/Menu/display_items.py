@@ -1,6 +1,7 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
+from SRC.Domain.Path.all_paths import path_obj
 
 class MenuDisplay(MenuItem):
   
@@ -9,7 +10,7 @@ class MenuDisplay(MenuItem):
 
     def formatted_menu(self):
         try:
-            self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
+            self.foodmenu_list = operation_obj.read_file(path_obj.foodmenu_path)
             separate_menu = {"breakfast": [], "lunch": [], "dinner": [], "beverages": []}
 
             for item in self.foodmenu_list:
@@ -38,7 +39,7 @@ class MenuDisplay(MenuItem):
                     print()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=operation_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
 
 display_menu_obj = MenuDisplay()
