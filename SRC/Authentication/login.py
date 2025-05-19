@@ -1,6 +1,8 @@
+# Parent class "User" has child classes "admin" & "staff" 
+
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Menu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
-from SRC.Domain.Table.book_table import table_obj
+from SRC.Domain.Table.table_add import table_obj
 from SRC.Domain.Table.display_table import display_table_obj
 from SRC.Domain.Order import order_obj,cancel_obj
 from SRC.Domain.Payment import pay_obj
@@ -23,7 +25,6 @@ class User(ABC):
     @abstractmethod
     def user_option(self):
         pass
-
 
 class Admin(User):
     def user_menu(self):

@@ -1,7 +1,7 @@
 from SRC.Domain.Order import order_obj 
 from SRC.Domain.Validation import paymentid_obj,print_obj
 from SRC.Domain.ReadFile import operation_obj
-from SRC.Domain.Table.book_table import table_obj
+from SRC.Domain.Table.table_add import table_obj
 from SRC.Domain.Bill.generate_bill import bill_obj
 from SRC.Domain.Path.all_paths import path_obj
 import datetime
@@ -13,6 +13,7 @@ class Payment(ABC):
     def payment_type(self):
         pass
 
+    # seats are reset if staff does payment or admin cancels the seats
     def seat_deallocate(self,txn_no=None,mode = None):
         try:
             id_matched = 0

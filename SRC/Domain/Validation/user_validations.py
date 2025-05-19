@@ -7,6 +7,7 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation.print_variables import print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
+# abtarction is used for unique id for user id(len= 5), food id(len= 2) and card txn no (len= 16)
 class Validation(ABC):
     @abstractmethod
     def id_unique(self):

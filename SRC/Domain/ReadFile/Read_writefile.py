@@ -10,6 +10,7 @@ class DataFile:
         self.userlist = self.read_file()
         self.adminlist = self.read_file(path_obj.admindata_path)
 
+    # using write func for writing order data and appending error logs as well 
     def write_file(self, data = None, path = None,mode = "w",isJson = 1):
         if data == None and path == None:
             data = self.userlist
@@ -21,6 +22,7 @@ class DataFile:
             else:
                 file.write(f"\n{data}")    
 
+    #using traceback module to dynamically get error details across project
     def get_errdetails(self,error = None, get_date = False):
         date = datetime.datetime.now()
         str_date = date.strftime("%Y-%m-%d %H:%M:%S")
@@ -36,7 +38,7 @@ class DataFile:
 
             err_details = json.dumps({"module":module_name,"function":function_name,"error":str(error),"date":str_date,"line":line_no}) #will check and do str(error)
             return err_details
-        
+           
     def read_file(self,path = None):
         if path == None:
             path = path_obj.userdata_path

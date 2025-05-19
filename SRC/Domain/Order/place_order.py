@@ -11,6 +11,7 @@ class PlaceOrder:
         self.placedorder_list =  operation_obj.read_file(path_obj.placedorder_path)
         self.bill_list = operation_obj.read_file(path_obj.bill_path)
 
+    # stores details of customer along with orders
     def book_order(self):
         try:
             table_book = input("Book Table to place order: y/n: ").lower()
@@ -43,8 +44,8 @@ class PlaceOrder:
         print("2 - 1:15 PM - 3:15 PM")
         print("3 - 5:00 PM - 7:00 PM")
         print("4 - 8:00 PM - 10:00 PM")
-
-
+    
+    # user can book  4 slots using option 1,2...
     def select_table(self):
         try:
             table_available = False
@@ -107,7 +108,7 @@ class PlaceOrder:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
 
-
+    # searched item is displayed 
     def display_item(self, searched_item):
         print("-------------------------------------")
         print(f"{'ID':<10}{'ITEM':<20}{'SERVING':<15}{'PRICE':<10}")

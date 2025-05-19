@@ -9,6 +9,7 @@ class CancelOrder(PlaceOrder):
     def __init__(self):
         super().__init__()
 
+    # when order is cancelled by admin, seats are reset
     def order_cancel(self):
         try:
             self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)

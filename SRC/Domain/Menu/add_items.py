@@ -6,11 +6,11 @@ class MenuItem:
 
     def __init__(self):
         self.foodmenu_list = operation_obj.read_file(path_obj.foodmenu_path)
-
         self.categories_with_size = ("breakfast", "lunch", "dinner") 
         self.serve_size = ("small","medium","large")
         self.categories_without_size = ("beverages")
- 
+
+    # bevereges has no serving size category
     def add_menu(self):
         try:
             while True:
