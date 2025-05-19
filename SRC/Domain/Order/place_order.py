@@ -44,9 +44,7 @@ class PlaceOrder:
             while table_available != 1:
                 today_str = datetime.today().strftime("%Y-%m-%d")
                 max_date_str = (datetime.today() + timedelta(days=30)).strftime("%Y-%m-%d")
-                slot_ranges = {"slot1": ("11-00", "14-00"),"slot2": ("15-00", "17-00"),"slot3": ("20-00", "22-00")}
                 display_table_obj.available_tables()
-
 
                 self.table_select = int(input("Enter table no. to book: ")) 
                 self.seat_select = int(input("Enter no. of seats to book: "))    
@@ -68,7 +66,7 @@ class PlaceOrder:
                     matched_slot = "slot3"
 
                 if not matched_slot:
-                    print("Booking range must be:\n11:00-14:00, 15:00-17-00, or 20:00-22-00")
+                    print("Booking range must be:\n11:00-14:00 | 15:00-17-00 |  20:00-22-00")
                     continue
 
                 for table in table_obj.tablelist:
