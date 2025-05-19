@@ -51,16 +51,20 @@ class ReportData:
     # Report  A. Orders B. Errors 
     def report_option(self):
         while True:
-            self.report_type()
-            report_option = int(input("\nEnter option: "))
-            if report_option == 1:
-                report_order.orders_type()
-            elif report_option == 2:
-                report_error.errors_type()
-            elif report_option == 0:
-                break
-            else:
-                print(print_obj.invalid_msg)
+            try:
+                self.report_type()
+                report_option = int(input("\nEnter option: "))
+                if report_option == 1:
+                    report_order.orders_type()
+                elif report_option == 2:
+                    report_error.errors_type()
+                elif report_option == 0:
+                    break
+                else:
+                    print(print_obj.invalid_msg)
+            except Exception as err:
+                print(print_obj.err_msg)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def display_mode(self, modelist):
         print("------------------------------------------------------------------------")
