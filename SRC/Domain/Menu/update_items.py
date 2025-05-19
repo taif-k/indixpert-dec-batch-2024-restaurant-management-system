@@ -1,6 +1,7 @@
 from .add_items import MenuItem
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Validation import print_obj
+from SRC.Domain.Menu.display_items import display_menu_obj
 
 class UpdateItem(MenuItem):
 
@@ -9,6 +10,8 @@ class UpdateItem(MenuItem):
 
     def update_item(self):
         try:
+            self.foodmenu_list = operation_obj.read_file(self.foodmenu_path)
+            display_menu_obj.formatted_menu()
             food_id = input("Enter food id to update content: ")
             id_matched = 0
             
