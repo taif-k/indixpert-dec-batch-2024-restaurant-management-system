@@ -40,6 +40,10 @@ Admin can view error logs and order reports
 
 Logs errors for administrative review  
 
+## Advance Table Booking  
+
+Staff can book tables in advance for up to one month from the current date  
+
 ### 📚 OOP Concepts Used
 Abstraction
 
