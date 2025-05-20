@@ -135,3 +135,4 @@
 {"module": "pay_bill.py", "function": "bill_display", "error": "'NoneType' object is not iterable", "date": "2025-05-19 16:37:00", "line": 105}
 {"module": "display_table.py", "function": "available_tables", "error": "'slot4'", "date": "2025-05-19 16:44:45", "line": 18}
 {"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: '6da5'", "date": "2025-05-19 17:14:54", "line": 105}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "invalid literal for int() with base 10: 'cls'", "date": "2025-05-20 09:51:31", "line": 23}
