@@ -48,8 +48,8 @@ class PlaceOrder:
     # user can book  4 slots using option 1,2...
     def select_table(self):
         try:
-            table_available = False
-            while not table_available:
+            table_available = 0
+            while table_available != 1:
                 today = datetime.today().strftime("%Y-%m-%d")
                 one_month_date = (datetime.today() + timedelta(days=30)).strftime("%Y-%m-%d")
                 display_table_obj.available_tables()
@@ -58,7 +58,7 @@ class PlaceOrder:
                 self.seat_select = int(input("Enter number of seats to book: "))
                 input_booking_date = input(f"Enter booking date (y-m-d)").strip()
                 
-                if not (today <= input_booking_date <= one_month_date):
+                if (input_booking_date < today) or (input_booking_date > one_month_date):
                     print(f"Booking date must be between {today} and {one_month_date}")
                     continue
 
@@ -86,10 +86,10 @@ class PlaceOrder:
 
                 for table in table_obj.tablelist:
                     if table["table_no"] == self.table_select and self.seat_select <= table[self.slot_selected]:
-                        table_available = True
+                        table_available = 1
                         break
 
-                if not table_available:
+                if table_available != 1:
                     print(print_obj.choose_validtable)
                 else:
                     start_dt_str = f"{self.booking_date} {start_time}:00"
@@ -110,16 +110,17 @@ class PlaceOrder:
 
     # searched item is displayed 
     def display_item(self, searched_item):
-        print("-------------------------------------")
-        print(f"{'ID':<10}{'ITEM':<20}{'SERVING':<15}{'PRICE':<10}")
-        print("-------------------------------------")
+        print("---------------------------------------------------")
+        print(f"{'ID':<10}{'ITEM':<20}{'SERVING':<15}\t{'PRICE':<10}")
+        print("---------------------------------------------------")
 
         if "nosize_food_price" in searched_item:
-            print(f"{searched_item['food_id']:<10}{searched_item['food_item']:<20}{'-':<15}{searched_item['nosize_food_price']:>10}")
+            print(f"{searched_item['food_id']:<10}{searched_item['food_item']:<20}{"-":<15}\t{searched_item["nosize_food_price"]:<10}")
         else:
-            print(f"{searched_item['food_id']:<10}{searched_item['food_item']:<20}{'1-Small':<15}{searched_item['small_food_price']:>10}")
-            print(f"{'':<10}{'':<20}{'2-Medium':<15}{searched_item['medium_food_price']:>10}")
-            print(f"{'':<10}{'':<20}{'3-Large':<15}{searched_item['large_food_price']:>10}")
+            print(f"{searched_item["food_id"]:<10}{searched_item["food_item"]:<20}{"1-Small":<15}\t{searched_item["small_food_price"]:<10}")
+            print(f"{'':<10}{'':<20}{"2-Medium":<15}\t{searched_item["medium_food_price"]:<10}")
+            print(f"{'':<10}{'':<20}{"3-Large":<15}\t{searched_item["large_food_price"]:<10}")
+
         print("-------------------------------------")
 
 

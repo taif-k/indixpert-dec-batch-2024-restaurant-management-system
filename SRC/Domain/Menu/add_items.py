@@ -36,7 +36,7 @@ class MenuItem:
                     self.foodmenu_list.append(foodmenu_dict)
                     print(print_obj.food_added)
 
-                add_item = input("Enter more items: y/n: ").lower()
+                add_item = input("Add more items y/n: ").lower()
                 if add_item != "y":
                     break
 

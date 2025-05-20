@@ -24,7 +24,7 @@ class RemoveFood(MenuItem):
                 if id_matched == 0:
                     print(print_obj.noid_msg)
 
-                remove_item = input("Remove item y/n: ")
+                remove_item = input("Remove another item y/n: ")
                 if remove_item != "y":
                     break
 
