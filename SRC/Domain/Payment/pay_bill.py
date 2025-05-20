@@ -13,7 +13,7 @@ class Payment(ABC):
     def payment_type(self):
         pass
 
-    # seats are reset if staff does payment or admin cancels the seats
+    # seats are reset if staff does payment or admin cancels the order
     def seat_deallocate(self,txn_no=None,mode = None):
         try:
             id_matched = 0
