@@ -7,7 +7,7 @@ Restaurant-Management-System/
 │   ├── Authentication/      # User login and signup (admin/staff)  
 │   │   ├── login.py  
 │   │   └── sign_up.py  
-│   │
+│   │  
 │   ├── Database/            # Stores data in JSON format  
 │   │   ├── alltables.json  
 │   │   ├── foodmenu.json  
@@ -15,7 +15,7 @@ Restaurant-Management-System/
 │   │   ├── orderplaced.json  
 │   │   ├── registered_admin.json  
 │   │   └── registered_staff.json  
-│   │
+│   │  
 │   ├── Domain/              # Core features of the system  
 │   │   ├── Bill/  
 │   │   ├── Menu/  
