@@ -21,7 +21,7 @@ class Payment(ABC):
                 if id["order_id"] == pay_obj.order_id:
                     id_matched = 1
                     for item in id["order_placed"]:
-                        if "tableno_booked" in item and "seats_booked" in item and "slot_booked" in item:
+                        if all(key in item for key in ["tableno_booked", "seats_booked", "slot_booked"]):
                             table_no = item["tableno_booked"]
                             slot_booked = item["slot_booked"]
                             seats = item["seats_booked"]
