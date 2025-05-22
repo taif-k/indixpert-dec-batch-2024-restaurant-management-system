@@ -137,3 +137,9 @@
 {"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: '6da5'", "date": "2025-05-19 17:14:54", "line": 105}
 {"module": "restaurant_sys.py", "function": "authentication_option", "error": "invalid literal for int() with base 10: 'cls'", "date": "2025-05-20 09:51:31", "line": 23}
 {"module": "login.py", "function": "user_login", "error": "invalid literal for int() with base 10: \"0'\"", "date": "2025-05-21 08:09:55", "line": 155}
+{"module": "cancel_order.py", "function": "orders_taken", "error": "'search_fooditem'", "date": "2025-05-22 20:35:15", "line": 20}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "invalid literal for int() with base 10: 'a'", "date": "2025-05-22 21:40:39", "line": 23}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "invalid literal for int() with base 10: 'a'", "date": "2025-05-22 21:40:40", "line": 23}
+{"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15^30' for object of type 'int'", "date": "2025-05-22 21:43:37", "line": 20}
+{"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15^30' for object of type 'str'", "date": "2025-05-22 21:45:56", "line": 18}
+{"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15 * 2' for object of type 'int'", "date": "2025-05-22 21:49:57", "line": 20}
