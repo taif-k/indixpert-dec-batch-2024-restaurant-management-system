@@ -3,16 +3,33 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
+import json
 
 class CancelOrder(PlaceOrder):
 
     def __init__(self):
         super().__init__()
 
+    def orders_taken(self):
+        try:
+            self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)    
+            for order in self.placedorder_list:
+                for order_detail in order["order_placed"]:
+                    print("ORDER ID      CUSTOMER NAME      ITEM      QTY      AMOUNT")
+                    print("----------------------------------------------------------")
+                    print(f"{order['order_id']}\t\t{order['customer_name']}\t\t{order_detail['search_fooditem']}\t\t{order_detail['item_quantity']}\t\t{order_detail['tableno_booked']}")
+                    print()
+
+        except Exception as err:
+            print(print_obj.invalid_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+
+            
     # when order is cancelled by admin, seats are reset
     def order_cancel(self):
         try:
-            self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)
+            self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)   
+            self.orders_taken() 
             order_id = input("Enter order id to cancel: ")
             id_matched = 0 
             for order in self.placedorder_list:
