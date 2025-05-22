@@ -3,7 +3,6 @@ from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
-import json
 
 class CancelOrder(PlaceOrder):
 
@@ -13,18 +12,19 @@ class CancelOrder(PlaceOrder):
     def orders_taken(self):
         try:
             self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)    
+            print(f"\n{'ORDER ID':<15}{'CUSTOMER NAME':<20}{'ITEM':<15}{'QTY':<15}{'AMOUNT':<15}")
             for order in self.placedorder_list:
+                print("-" * 75)
+                print(f"{order['order_id']:<15}{order['customer_name']:<20}{" -":<15}")
                 for order_detail in order["order_placed"]:
-                    print("ORDER ID      CUSTOMER NAME      ITEM      QTY      AMOUNT")
-                    print("----------------------------------------------------------")
-                    print(f"{order['order_id']}\t\t{order['customer_name']}\t\t{order_detail['search_fooditem']}\t\t{order_detail['item_quantity']}\t\t{order_detail['tableno_booked']}")
+                    item_total = order_detail['item_quantity'] * order_detail['item_price']
+                    print(f"{'':<20}{'':<15}{order_detail['search_fooditem']:<15}{order_detail['item_quantity']:<15}{item_total:<15}")
                     print()
 
         except Exception as err:
             print(print_obj.invalid_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
-
-            
+    
     # when order is cancelled by admin, seats are reset
     def order_cancel(self):
         try:
@@ -49,8 +49,8 @@ class CancelOrder(PlaceOrder):
         except Exception as err:
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
-
 cancel_obj = CancelOrder()
+
 
 
         
