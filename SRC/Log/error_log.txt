@@ -143,3 +143,6 @@
 {"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15^30' for object of type 'int'", "date": "2025-05-22 21:43:37", "line": 20}
 {"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15^30' for object of type 'str'", "date": "2025-05-22 21:45:56", "line": 18}
 {"module": "cancel_order.py", "function": "orders_taken", "error": "Invalid format specifier '<15 * 2' for object of type 'int'", "date": "2025-05-22 21:49:57", "line": 20}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: '40cd'", "date": "2025-05-23 20:17:56", "line": 49}
+{"module": "cancel_order.py", "function": "order_cancel", "error": "[WinError 233] No process is on the other end of the pipe", "date": "2025-05-23 20:27:54", "line": 35}
+{"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: ''", "date": "2025-05-23 21:16:11", "line": 107}
