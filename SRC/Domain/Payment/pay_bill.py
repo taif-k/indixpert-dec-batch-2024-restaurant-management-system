@@ -30,9 +30,11 @@ class Payment(ABC):
 
             if id_matched == 1 and table_no is not None and slot_booked is not None:
                 for table in table_obj.tablelist:
-                    if table["table_no"] == table_no:
+                    if table["table_no"] == table_no and table["table_no"] < 4:
                         table[slot_booked] += seats
                         break
+                    else:
+                        print("Seats are already reset")
 
             operation_obj.write_file(data=table_obj.tablelist,path=path_obj.alltable_path)
             if txn_no != None:
