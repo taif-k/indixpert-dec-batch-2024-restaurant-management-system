@@ -31,7 +31,6 @@ class Bill:
                     break
 
             operation_obj.write_file(data=self.bill_list,path=path_obj.bill_path)
-            print(f"\033[31m Bill Generated ")
         except Exception as err:
             print(print_obj.invalid_msg) 
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0) 

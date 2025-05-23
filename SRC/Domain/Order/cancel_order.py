@@ -28,22 +28,32 @@ class CancelOrder(PlaceOrder):
     # when order is cancelled by admin, seats are reset
     def order_cancel(self):
         try:
+            self.bill_list = operation_obj.read_file(path_obj.bill_path)
             self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)   
             self.orders_taken() 
+
             order_id = input("Enter order id to cancel: ")
             id_matched = 0 
             for order in self.placedorder_list:
                 if order["order_id"] == order_id:
                     id_matched = 1
                     break
+            
+            already_paid = 0
+            for bill in self.bill_list:
+                if bill["order_id"] == order_id:
+                    already_paid = 1
+                    break
 
-            if id_matched == 1:
+            if id_matched == 1 and already_paid == 0:
                 self.placedorder_list.remove(order)
                 operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
 
                 pay_obj.order_id = order_id
                 pay_obj.seat_deallocate()
                 print(print_obj.cancelled_msg)
+            elif id_matched == 1 and already_paid == 1:
+                print("\nCannot cancel paid order")
             else:
                 print(print_obj.noid_msg)
         except Exception as err:

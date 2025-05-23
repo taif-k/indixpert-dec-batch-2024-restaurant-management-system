@@ -68,5 +68,15 @@
       "order_time": "2025-05-19 11:00:00",
       "card/transaction_no": "cash",
       "mode": "cash"
+   },
+   {
+      "customer_name": "tk",
+      "order_id": "d380",
+      "food_amount": 200,
+      "gst": "10.0%",
+      "total": 220.0,
+      "order_time": "2025-05-23 20:00:00",
+      "card/transaction_no": "cash",
+      "mode": "cash"
    }
 ]
