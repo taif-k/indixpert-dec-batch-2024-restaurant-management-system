@@ -31,17 +31,22 @@ class CancelOrder(PlaceOrder):
             self.bill_list = operation_obj.read_file(path_obj.bill_path)
             self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)   
             self.orders_taken()
+            paid_bills_id = {bill["order_id"] for bill in self.bill_list} # bills generated after payment
 
             order_id = input("Enter order id to cancel: ")
 
             order_to_cancel = None 
+            id_available = 0
             for order in self.placedorder_list: # orders before payment
                 if order["order_id"] == order_id:
+                    id_available = 1
                     order_to_cancel = order
                     break
-            paid_bills_id = {bill["order_id"] for bill in self.bill_list} # bills generated after payment
-  
-            if order_to_cancel:
+
+            if id_available == 0:
+                print(print_obj.noid_msg)    
+                    
+            if order_to_cancel and id_available == 1:
                 if order["order_id"] in paid_bills_id:
                     print("\nPaid orders cannot be cancelled")
                 else:
