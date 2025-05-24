@@ -33,29 +33,25 @@ class CancelOrder(PlaceOrder):
             self.orders_taken() 
 
             order_id = input("Enter order id to cancel: ")
-            id_matched = 0 
+            order_to_cancel = None 
+
             for order in self.placedorder_list:
                 if order["order_id"] == order_id:
-                    id_matched = 1
+                    order_to_cancel = order
                     break
             
-            already_paid = 0
-            for bill in self.bill_list:
-                if bill["order_id"] == order_id:
-                    already_paid = 1
-                    break
+            paid_bills_id = {bill["order_id"] for bill in self.bill_list}
 
-            if id_matched == 1 and already_paid == 0:
+            if order_to_cancel:
+                if order["order_id"] in paid_bills_id:
+                    print("\nPaid orders cannot be cancelled")
+            else:
                 self.placedorder_list.remove(order)
                 operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
 
                 pay_obj.order_id = order_id
                 pay_obj.seat_deallocate()
                 print(print_obj.cancelled_msg)
-            elif id_matched == 1 and already_paid == 1:
-                print("\nCannot cancel paid order")
-            else:
-                print(print_obj.noid_msg)
         except Exception as err:
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
