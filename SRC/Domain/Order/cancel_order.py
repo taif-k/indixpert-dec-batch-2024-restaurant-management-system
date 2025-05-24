@@ -1,4 +1,4 @@
-from .place_order import PlaceOrder
+from SRC.Domain.Order.place_order import PlaceOrder
 from SRC.Domain.ReadFile import operation_obj
 from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
@@ -30,33 +30,30 @@ class CancelOrder(PlaceOrder):
         try:
             self.bill_list = operation_obj.read_file(path_obj.bill_path)
             self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)   
-            self.orders_taken() 
+            self.orders_taken()
 
             order_id = input("Enter order id to cancel: ")
-            order_to_cancel = None 
 
-            for order in self.placedorder_list:
+            order_to_cancel = None 
+            for order in self.placedorder_list: # orders before payment
                 if order["order_id"] == order_id:
                     order_to_cancel = order
                     break
-            
-            paid_bills_id = {bill["order_id"] for bill in self.bill_list}
-
+            paid_bills_id = {bill["order_id"] for bill in self.bill_list} # bills generated after payment
+  
             if order_to_cancel:
                 if order["order_id"] in paid_bills_id:
                     print("\nPaid orders cannot be cancelled")
-            else:
-                self.placedorder_list.remove(order)
-                operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
-
-                pay_obj.order_id = order_id
-                pay_obj.seat_deallocate()
-                print(print_obj.cancelled_msg)
+                else:
+                    self.placedorder_list.remove(order_to_cancel)
+                    operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
+                    pay_obj.order_id = order_id
+                    pay_obj.seat_deallocate()
+                    print(print_obj.cancelled_msg)
         except Exception as err:
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
 cancel_obj = CancelOrder()
-
 
 
         
