@@ -1,11 +1,11 @@
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation import Foodvalid_obj,print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
 class MenuItem:
 
     def __init__(self):
-        self.foodmenu_list = operation_obj.read_file(path_obj.foodmenu_path)
+        self.foodmenu_list = file_operation_obj.read_file(path_obj.foodmenu_path)
         self.categories_with_size = ("breakfast", "lunch", "dinner") 
         self.serve_size = ("small","medium","large")
         self.categories_without_size = ("beverages")
@@ -40,10 +40,10 @@ class MenuItem:
                 if add_item != "y":
                     break
 
-            operation_obj.write_file(data=self.foodmenu_list, path=path_obj.foodmenu_path)
+            file_operation_obj.write_file(data=self.foodmenu_list, path=path_obj.foodmenu_path)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a")
 
 foodmenu_obj = MenuItem()

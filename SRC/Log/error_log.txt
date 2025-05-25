@@ -146,3 +146,7 @@
 {"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: '40cd'", "date": "2025-05-23 20:17:56", "line": 49}
 {"module": "cancel_order.py", "function": "order_cancel", "error": "[WinError 233] No process is on the other end of the pipe", "date": "2025-05-23 20:27:54", "line": 35}
 {"module": "login.py", "function": "user_option", "error": "invalid literal for int() with base 10: ''", "date": "2025-05-23 21:16:11", "line": 107}
+{"module": "cancel_order.py", "function": "order_cancel", "error": "[WinError 233] No process is on the other end of the pipe", "date": "2025-05-24 11:09:22", "line": 40}
+{"module": "cancel_order.py", "function": "orders_taken", "error": "[WinError 233] No process is on the other end of the pipe", "date": "2025-05-24 11:09:22", "line": 28}
+{"module": "get_report.py", "function": "report_option", "error": "ErrorReport.errors_type() missing 1 required positional argument: 'self'", "date": "2025-05-25 09:49:42", "line": 48}
+{"module": "restaurant_sys.py", "function": "authentication_option", "error": "invalid literal for int() with base 10: 'a'", "date": "2025-05-25 11:40:57", "line": 23}

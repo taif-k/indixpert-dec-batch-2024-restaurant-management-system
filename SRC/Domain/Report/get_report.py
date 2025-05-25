@@ -1,5 +1,5 @@
 from SRC.Domain.Bill.generate_bill import bill_obj
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation.print_variables import print_obj
 import datetime
 from SRC.Domain.Path.all_paths import path_obj
@@ -45,8 +45,7 @@ class ReportData:
             self.date_differnce = time_compare
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
-
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     # Report  A. Orders B. Errors 
     def report_option(self):
@@ -64,8 +63,86 @@ class ReportData:
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
+report_obj = ReportData()
+
+# Order Report has two types, A. Payment mode B. Timewise report(weekly etc) 
+class OrderReport(ReportData):
+    def orders_timeline(self):
+        try:
+            self.timeline_range()    
+            timelinelist = []
+            for bill in bill_obj.bill_list:
+                if bill["order_time"]  >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
+                    timelinelist.append(bill)
+
+            report_display_obj.display_mode(timelinelist)
+        except Exception as err:
+            print(print_obj.err_msg)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+
+    def mode_type(self):
+        try:
+            print()
+            print("1- Cash")
+            print("2- Card")
+            print("3- Upi") 
+
+            mode_option = int(input("Enter mode option: : "))
+            if mode_option == 1:
+                mode = "cash"
+            elif mode_option == 2:
+                mode = "card"
+            elif mode_option == 3:
+                mode = "upi"
+            else:
+                print(print_obj.invalid_msg)
+                return None
+
+            modelist = []
+            for bill in bill_obj.bill_list:
+                if bill["mode"] == mode:
+                    modelist.append(bill)
+            report_display_obj.display_mode(modelist)
+        except Exception as err:
+            print(print_obj.err_msg)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+
+    def orders_type(self):
+        try:
+            print("1 - pay mode Report")
+            print("2 - TimeWise Report")
+            choose_option = int(input("Enter option: : "))
+            if choose_option == 1:
+                self.mode_type()
+            elif choose_option == 2:
+                self.orders_timeline()
+        except Exception as err:
+            print(print_obj.err_msg)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+
+report_order = OrderReport()
+
+# Error Report has timewise option 
+class ErrorReport(ReportData):
+    def errors_type(self):            
+        try:
+            self.timeline_range()
+            errors = file_operation_obj.read_file(path_obj.error_path)
+            sortederrors = []
+            for err in errors:
+                if err["date"] >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
+                    sortederrors.append(err)
+            report_display_obj.formated_err_display(sortederrors)
+
+        except Exception as err:
+            print(print_obj.err_msg)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+
+report_error = ErrorReport()
+
+class ReportDisplay:
     def display_mode(self, modelist):
         print("------------------------------------------------------------------------")
         print("Order ID      Customer Name      Total Amount      Order Time")
@@ -79,78 +156,6 @@ class ReportData:
         print("------------------------------------------------------------------------")
         print(f"Total orders: {len(modelist)}")
         print(f"Total : Rs {total}")
-report_obj = ReportData()
-
-# Order Report has two types, A. Payment mode B. Timewise report(weekly etc) 
-class OrderReport(ReportData):
-    def orders_timeline(self):
-        try:
-            self.timeline_range()    
-            timelinelist = []
-            for bill in bill_obj.bill_list:
-                if bill["order_time"]  >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
-                    timelinelist.append(bill)
-
-            self.display_mode(timelinelist)
-        except Exception as err:
-            print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
-
-
-    def mode_type(self):
-        print()
-        print("1- Cash")
-        print("2- Card")
-        print("3- Upi") 
-
-        mode_option = int(input("Enter mode option: : "))
-        if mode_option == 1:
-            mode = "cash"
-        elif mode_option == 2:
-            mode = "card"
-        elif mode_option == 3:
-            mode = "upi"
-        else:
-            print(print_obj.invalid_msg)
-            return None
-
-        modelist = []
-        for bill in bill_obj.bill_list:
-            if bill["mode"] == mode:
-                modelist.append(bill)
-        self.display_mode(modelist)
-
-    def orders_type(self):
-        try:
-            print("1 - pay mode Report")
-            print("2 - TimeWise Report")
-            choose_option = int(input("Enter option: : "))
-            if choose_option == 1:
-                self.mode_type()
-            elif choose_option == 2:
-                self.orders_timeline()
-        except Exception as err:
-            print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
-
-report_order = OrderReport()
-
-# Error Report has timewise option 
-class ErrorReport(ReportData):
-
-    def errors_type(self):            
-        try:
-            self.timeline_range()
-            errors = operation_obj.read_file(path_obj.error_path)
-            sortederrors = []
-            for err in errors:
-                if err["date"] >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
-                    sortederrors.append(err)
-            self.formated_err_display(sortederrors)
-
-        except Exception as err:
-            print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
     def formated_err_display(self, sortederrors):
         print("------------------------------------------------------------------------------------------------------")
@@ -164,4 +169,4 @@ class ErrorReport(ReportData):
         print(f"Total Errors  {len(sortederrors)}")
         print("------------------")
 
-report_error = ErrorReport()
+report_display_obj = ReportDisplay()

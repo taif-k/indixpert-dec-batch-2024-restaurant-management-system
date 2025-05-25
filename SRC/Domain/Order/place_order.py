@@ -1,15 +1,14 @@
 from SRC.Domain.Menu import foodmenu_obj,display_menu_obj
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation import validation_obj,print_obj
 from SRC.Domain.Table import display_table_obj,table_obj
 from datetime import datetime,timedelta
 from SRC.Domain.Path.all_paths import path_obj
 
 class PlaceOrder:
-
     def __init__(self):
-        self.placedorder_list =  operation_obj.read_file(path_obj.placedorder_path)
-        self.bill_list = operation_obj.read_file(path_obj.bill_path)
+        self.placedorder_list =  file_operation_obj.read_file(path_obj.placedorder_path)
+        self.bill_list = file_operation_obj.read_file(path_obj.bill_path)
 
     # stores details of customer along with orders
     def book_order(self):
@@ -28,7 +27,7 @@ class PlaceOrder:
                     
                     print(f"Order placed Sucessfully :)....Order id: {orderplaceddict["order_id"]}")
                     self.placedorder_list.append(orderplaceddict)
-                    operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path)
+                    file_operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path)
                 else:
                     print(":(")
                     
@@ -36,7 +35,7 @@ class PlaceOrder:
                 print(print_obj.no_order_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def slot_range(self):
         print()
@@ -44,7 +43,7 @@ class PlaceOrder:
         print("2 - 1:15 PM - 3:15 PM")
         print("3 - 5:00 PM - 7:00 PM")
         print("4 - 8:00 PM - 10:00 PM")
-    
+
     # user can book  4 slots using option 1,2...
     def select_table(self):
         try:
@@ -101,12 +100,12 @@ class PlaceOrder:
                     updated_seats = table[self.slot_selected] - self.seat_select
                     table[self.slot_selected] = updated_seats
 
-                    operation_obj.write_file(data=table_obj.tablelist, path=path_obj.alltable_path)
+                    file_operation_obj.write_file(data=table_obj.tablelist, path=path_obj.alltable_path)
                     print(print_obj.book_confirm_msg)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a")
 
     # searched item is displayed 
     def display_item(self, searched_item):
@@ -122,7 +121,6 @@ class PlaceOrder:
             print(f"{'':<10}{'':<20}{"3-Large":<15}\t{searched_item["large_food_price"]:<10}")
 
         print("-------------------------------------")
-
 
     def orders_list(self):
         try:
@@ -182,7 +180,7 @@ class PlaceOrder:
             return self.orderlist
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)            
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")            
                         
 order_obj = PlaceOrder()
 
