@@ -11,16 +11,18 @@ class DataFile:
         self.adminlist = self.read_file(path_obj.admindata_path)
 
     # using write func for writing order data and appending error logs as well 
-    def write_file(self, data = None, path = None,mode = "w",isJson = 1):
+    def write_file(self, data = None, path = None,mode = "w"):
         if data == None and path == None:
             data = self.userlist
             path = path_obj.userdata_path
 
         with open(path,mode) as file:
-            if isJson == 1:
-                file.write(json.dumps(data,indent=3))
+            if mode == "w":
+                data = json.dumps(data,indent=3)
             else:
-                file.write(f"\n{data}")    
+                data = f"\n{data}" # error data coming as json
+
+            file.write(data)    
 
     #using traceback module to dynamically get error details across project
     def get_errdetails(self,error = None, get_date = False):
@@ -36,7 +38,7 @@ class DataFile:
             function_name = tb.name
             line_no = tb.lineno
 
-            err_details = json.dumps({"module":module_name,"function":function_name,"error":str(error),"date":str_date,"line":line_no}) #will check and do str(error)
+            err_details = json.dumps({"module":module_name,"function":function_name,"error":str(error),"date":str_date,"line":line_no})
             return err_details
            
     def read_file(self,path = None):
@@ -55,7 +57,7 @@ class DataFile:
                 
         except Exception as err:
             print("Resolving issue..")
-            self.write_file(data=self.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            self.write_file(data=self.get_errdetails(err),path=path_obj.error_path,mode="a")
             return []       
 
 operation_obj = DataFile()
