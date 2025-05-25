@@ -47,7 +47,6 @@ class ReportData:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
-
     # Report  A. Orders B. Errors 
     def report_option(self):
         while True:
@@ -66,19 +65,6 @@ class ReportData:
                 print(print_obj.err_msg)
                 operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
 
-    def display_mode(self, modelist):
-        print("------------------------------------------------------------------------")
-        print("Order ID      Customer Name      Total Amount      Order Time")
-        print("------------------------------------------------------------------------")
-
-        total = 0
-        for bill in modelist:
-            print(f"{bill['order_id']}\t\t{bill['customer_name']}\t\t{bill['total']}\t\t{bill['order_time']}")
-            total += bill["total"]
-
-        print("------------------------------------------------------------------------")
-        print(f"Total orders: {len(modelist)}")
-        print(f"Total : Rs {total}")
 report_obj = ReportData()
 
 # Order Report has two types, A. Payment mode B. Timewise report(weekly etc) 
@@ -91,11 +77,10 @@ class OrderReport(ReportData):
                 if bill["order_time"]  >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
                     timelinelist.append(bill)
 
-            self.display_mode(timelinelist)
+            report_display_obj.display_mode(timelinelist)
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
-
 
     def mode_type(self):
         print()
@@ -118,7 +103,7 @@ class OrderReport(ReportData):
         for bill in bill_obj.bill_list:
             if bill["mode"] == mode:
                 modelist.append(bill)
-        self.display_mode(modelist)
+        report_display_obj.display_mode(modelist)
 
     def orders_type(self):
         try:
@@ -137,7 +122,6 @@ report_order = OrderReport()
 
 # Error Report has timewise option 
 class ErrorReport(ReportData):
-
     def errors_type(self):            
         try:
             self.timeline_range()
@@ -146,11 +130,28 @@ class ErrorReport(ReportData):
             for err in errors:
                 if err["date"] >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
                     sortederrors.append(err)
-            self.formated_err_display(sortederrors)
+            report_display_obj.formated_err_display(sortederrors)
 
         except Exception as err:
             print(print_obj.err_msg)
             operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+
+report_error = ErrorReport()
+
+class ReportDisplay:
+    def display_mode(self, modelist):
+        print("------------------------------------------------------------------------")
+        print("Order ID      Customer Name      Total Amount      Order Time")
+        print("------------------------------------------------------------------------")
+
+        total = 0
+        for bill in modelist:
+            print(f"{bill['order_id']}\t\t{bill['customer_name']}\t\t{bill['total']}\t\t{bill['order_time']}")
+            total += bill["total"]
+
+        print("------------------------------------------------------------------------")
+        print(f"Total orders: {len(modelist)}")
+        print(f"Total : Rs {total}")
 
     def formated_err_display(self, sortederrors):
         print("------------------------------------------------------------------------------------------------------")
@@ -164,4 +165,4 @@ class ErrorReport(ReportData):
         print(f"Total Errors  {len(sortederrors)}")
         print("------------------")
 
-report_error = ErrorReport()
+report_display_obj = ReportDisplay()
