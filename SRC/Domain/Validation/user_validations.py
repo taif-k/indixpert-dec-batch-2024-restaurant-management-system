@@ -24,7 +24,7 @@ class UserValidation(Validation):
                     print(print_obj.namenot_aplha)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def user_contact(self):
         while True:
@@ -54,7 +54,7 @@ class UserValidation(Validation):
             return user_id
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
     
     def user_role(self,role = None):
         if role == None:

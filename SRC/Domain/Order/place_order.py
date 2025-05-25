@@ -36,7 +36,7 @@ class PlaceOrder:
                 print(print_obj.no_order_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def slot_range(self):
         print()
@@ -106,7 +106,7 @@ class PlaceOrder:
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a", isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err), path=path_obj.error_path, mode="a")
 
     # searched item is displayed 
     def display_item(self, searched_item):
@@ -182,7 +182,7 @@ class PlaceOrder:
             return self.orderlist
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)            
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")            
                         
 order_obj = PlaceOrder()
 

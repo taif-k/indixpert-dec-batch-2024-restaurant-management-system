@@ -21,7 +21,7 @@ class DisplayTable(Table):
                 print(f"   {table['table_no']}\t\t\t\t{table['slot1']}\t\t\t  {table['slot2']}\t\t\t\t    {table['slot3']}\t\t\t\t    {table['slot4']}")
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 
 display_table_obj = DisplayTable()

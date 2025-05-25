@@ -23,7 +23,7 @@ class CancelOrder(PlaceOrder):
 
         except Exception as err:
             print(print_obj.invalid_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
     
     # when order is cancelled by admin, seats are reset
     def order_cancel(self):
@@ -56,7 +56,7 @@ class CancelOrder(PlaceOrder):
                     pay_obj.seat_deallocate()
                     print(print_obj.cancelled_msg)
         except Exception as err:
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 cancel_obj = CancelOrder()
 

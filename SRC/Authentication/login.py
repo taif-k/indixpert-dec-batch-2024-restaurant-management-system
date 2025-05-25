@@ -68,7 +68,7 @@ class Admin(User):
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def user_login(self):
         try:
@@ -86,7 +86,7 @@ class Admin(User):
                 print(print_obj.invalid_info)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 admin_obj = Admin()
 
 class Staff(User):
@@ -120,7 +120,7 @@ class Staff(User):
                     break
             except Exception as err:
                 print(print_obj.invalid_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def user_login(self):
         try:
@@ -137,7 +137,7 @@ class Staff(User):
                 print(print_obj.invalid_info) 
         except Exception as err:
             print(print_obj.invalid_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 staff_obj = Staff()
 
@@ -164,6 +164,6 @@ class UserOption():
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.invalid_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 login_obj = UserOption()
