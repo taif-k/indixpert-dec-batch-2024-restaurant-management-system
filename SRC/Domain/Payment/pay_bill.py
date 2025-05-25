@@ -1,6 +1,6 @@
 from SRC.Domain.Order import order_obj 
 from SRC.Domain.Validation import paymentid_obj,print_obj
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Table.table_add import table_obj
 from SRC.Domain.Bill.generate_bill import bill_obj
 from SRC.Domain.Path.all_paths import path_obj
@@ -34,12 +34,12 @@ class Payment(ABC):
                         table[slot_booked] += seats
                         break
 
-            operation_obj.write_file(data=table_obj.tablelist,path=path_obj.alltable_path)
+            file_operation_obj.write_file(data=table_obj.tablelist,path=path_obj.alltable_path)
             if txn_no != None:
                 bill_obj.bill_generate(order_id=id["order_id"],txn_no=txn_no,mode= mode)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
     
 class Upi(Payment):
     def payment_type(self):
@@ -53,7 +53,7 @@ class Upi(Payment):
                 print(print_obj.invalid_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 Upi_obj = Upi()
 
 class Cash(Payment):
@@ -65,7 +65,7 @@ class Cash(Payment):
             self.seat_deallocate(txn_no="cash",mode = "cash")
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")  
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")  
 cash_obj = Cash()
 
 class Card(Payment):
@@ -80,7 +80,7 @@ class Card(Payment):
                 print(print_obj.card_declined)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 card_obj = Card()
 
 class PaymentSelect(Card):
@@ -119,12 +119,12 @@ class PaymentSelect(Card):
             print(f"{print_obj.totalbill}         Rs. {self.total}")
         except Exception as err:
             print(print_obj.invalid_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def payment_option(self):
         try:
             today_str = datetime.datetime.now().strftime("%Y-%m-%d")
-            order_obj.bill_list = operation_obj.read_file(path=path_obj.bill_path)
+            order_obj.bill_list = file_operation_obj.read_file(path=path_obj.bill_path)
 
             print("\nToday's Orders:")
             print("------------------------------------------------------------")
@@ -180,6 +180,6 @@ class PaymentSelect(Card):
                 print(print_obj.noid_msg)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 pay_obj = PaymentSelect()

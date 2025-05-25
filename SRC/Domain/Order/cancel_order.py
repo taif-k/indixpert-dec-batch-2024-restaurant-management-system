@@ -1,5 +1,5 @@
 from SRC.Domain.Order.place_order import PlaceOrder
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Payment import pay_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
@@ -11,7 +11,7 @@ class CancelOrder(PlaceOrder):
 
     def orders_taken(self):
         try:
-            self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)    
+            self.placedorder_list = file_operation_obj.read_file(path=path_obj.placedorder_path)    
             print(f"\n{'ORDER ID':<15}{'CUSTOMER NAME':<20}{'ITEM':<15}{'QTY':<15}{'AMOUNT':<15}")
             for order in self.placedorder_list:
                 print("-" * 75)
@@ -23,13 +23,13 @@ class CancelOrder(PlaceOrder):
 
         except Exception as err:
             print(print_obj.invalid_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
     
     # when order is cancelled by admin, seats are reset
     def order_cancel(self):
         try:
-            self.bill_list = operation_obj.read_file(path_obj.bill_path)
-            self.placedorder_list = operation_obj.read_file(path=path_obj.placedorder_path)   
+            self.bill_list = file_operation_obj.read_file(path_obj.bill_path)
+            self.placedorder_list = file_operation_obj.read_file(path=path_obj.placedorder_path)   
             self.orders_taken()
             paid_bills_id = {bill["order_id"] for bill in self.bill_list} # bills generated after payment
 
@@ -51,12 +51,12 @@ class CancelOrder(PlaceOrder):
                     print("\nPaid orders cannot be cancelled")
                 else:
                     self.placedorder_list.remove(order_to_cancel)
-                    operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
+                    file_operation_obj.write_file(data=self.placedorder_list,path=path_obj.placedorder_path) 
                     pay_obj.order_id = order_id
                     pay_obj.seat_deallocate()
                     print(print_obj.cancelled_msg)
         except Exception as err:
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 cancel_obj = CancelOrder()
 

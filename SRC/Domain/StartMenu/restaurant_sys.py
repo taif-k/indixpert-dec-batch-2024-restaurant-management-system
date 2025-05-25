@@ -1,5 +1,5 @@
 from SRC.Authentication import signup_obj,login_obj
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Path.all_paths import path_obj
 
@@ -31,4 +31,4 @@ class Restaurant:
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data = operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+                file_operation_obj.write_file(data = file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")

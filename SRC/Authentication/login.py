@@ -1,6 +1,4 @@
-# child classes "admin" & "staff" are inherting from "User" class
-
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Menu import foodmenu_obj,removemenu_obj,updateitem_obj,display_menu_obj
 from SRC.Domain.Table.table_add import table_obj
 from SRC.Domain.Table.display_table import display_table_obj
@@ -13,6 +11,7 @@ import pwinput
 from SRC.Domain.Report.get_report import report_obj
 from SRC.Domain.Path.all_paths import path_obj
 
+# child classes "admin" & "staff" are inherting from "User" class
 class User(ABC):
     @abstractmethod
     def user_login(self):
@@ -68,14 +67,14 @@ class Admin(User):
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+                file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def user_login(self):
         try:
             admin_email = input(print_obj.email_address).lower()
             admin_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
             admin_verified = 0
-            for user in operation_obj.adminlist:
+            for user in file_operation_obj.adminlist:
                 if user["email"] == admin_email:
                     if user["password"] == admin_password: 
                         self.user_option()
@@ -86,7 +85,7 @@ class Admin(User):
                 print(print_obj.invalid_info)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 admin_obj = Admin()
 
 class Staff(User):
@@ -120,14 +119,14 @@ class Staff(User):
                     break
             except Exception as err:
                 print(print_obj.invalid_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+                file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def user_login(self):
         try:
             staff_email = input(print_obj.email_address).lower()
             staff_password = pwinput.pwinput(prompt=print_obj.enter_password,mask="#")
             staff_verified = 0
-            for user in operation_obj.userlist:
+            for user in file_operation_obj.userlist:
                 if user["email"] == staff_email:
                     if user["password"] == staff_password:
                         self.user_option()
@@ -137,7 +136,7 @@ class Staff(User):
                 print(print_obj.invalid_info) 
         except Exception as err:
             print(print_obj.invalid_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 staff_obj = Staff()
 
@@ -164,6 +163,6 @@ class UserOption():
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.invalid_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+                file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 login_obj = UserOption()

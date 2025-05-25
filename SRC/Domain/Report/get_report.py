@@ -1,5 +1,5 @@
 from SRC.Domain.Bill.generate_bill import bill_obj
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation.print_variables import print_obj
 import datetime
 from SRC.Domain.Path.all_paths import path_obj
@@ -45,7 +45,7 @@ class ReportData:
             self.date_differnce = time_compare
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     # Report  A. Orders B. Errors 
     def report_option(self):
@@ -63,7 +63,7 @@ class ReportData:
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+                file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_obj = ReportData()
 
@@ -80,7 +80,7 @@ class OrderReport(ReportData):
             report_display_obj.display_mode(timelinelist)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def mode_type(self):
         try:
@@ -107,7 +107,7 @@ class OrderReport(ReportData):
             report_display_obj.display_mode(modelist)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def orders_type(self):
         try:
@@ -120,7 +120,7 @@ class OrderReport(ReportData):
                 self.orders_timeline()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_order = OrderReport()
 
@@ -129,7 +129,7 @@ class ErrorReport(ReportData):
     def errors_type(self):            
         try:
             self.timeline_range()
-            errors = operation_obj.read_file(path_obj.error_path)
+            errors = file_operation_obj.read_file(path_obj.error_path)
             sortederrors = []
             for err in errors:
                 if err["date"] >= self.date_differnce.strftime("%Y-%m-%d %H:%M:%S"):
@@ -138,7 +138,7 @@ class ErrorReport(ReportData):
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_error = ErrorReport()
 

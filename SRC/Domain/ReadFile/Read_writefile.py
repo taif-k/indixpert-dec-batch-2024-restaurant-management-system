@@ -60,4 +60,4 @@ class DataFile:
             self.write_file(data=self.get_errdetails(err),path=path_obj.error_path,mode="a")
             return []       
 
-operation_obj = DataFile()
+file_operation_obj = DataFile()

@@ -1,5 +1,5 @@
 from .add_items import MenuItem
-from SRC.Domain.ReadFile import operation_obj
+from SRC.Domain.ReadFile import file_operation_obj
 from SRC.Domain.Validation import print_obj
 from SRC.Domain.Menu.display_items import display_menu_obj
 from SRC.Domain.Path.all_paths import path_obj
@@ -11,7 +11,7 @@ class UpdateItem(MenuItem):
 
     def update_item(self):
         try:
-            self.foodmenu_list = operation_obj.read_file(path_obj.foodmenu_path)
+            self.foodmenu_list = file_operation_obj.read_file(path_obj.foodmenu_path)
             display_menu_obj.formatted_menu()
             food_id = input("Enter food id to update price : ")
             
@@ -32,13 +32,13 @@ class UpdateItem(MenuItem):
                     new_price = int(input("Update price : "))
                     item["nosize_food_price"] = new_price
 
-                operation_obj.write_file(data=self.foodmenu_list,path=path_obj.foodmenu_path)
+                file_operation_obj.write_file(data=self.foodmenu_list,path=path_obj.foodmenu_path)
                 print(f"\n{food_id} Id price updated")
             else:    
                 print(print_obj.noid_msg)
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
+            file_operation_obj.write_file(data=file_operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 updateitem_obj = UpdateItem()
