@@ -45,7 +45,7 @@ class ReportData:
             self.date_differnce = time_compare
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     # Report  A. Orders B. Errors 
     def report_option(self):
@@ -63,7 +63,7 @@ class ReportData:
                     print(print_obj.invalid_msg)
             except Exception as err:
                 print(print_obj.err_msg)
-                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+                operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_obj = ReportData()
 
@@ -80,30 +80,34 @@ class OrderReport(ReportData):
             report_display_obj.display_mode(timelinelist)
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def mode_type(self):
-        print()
-        print("1- Cash")
-        print("2- Card")
-        print("3- Upi") 
+        try:
+            print()
+            print("1- Cash")
+            print("2- Card")
+            print("3- Upi") 
 
-        mode_option = int(input("Enter mode option: : "))
-        if mode_option == 1:
-            mode = "cash"
-        elif mode_option == 2:
-            mode = "card"
-        elif mode_option == 3:
-            mode = "upi"
-        else:
-            print(print_obj.invalid_msg)
-            return None
+            mode_option = int(input("Enter mode option: : "))
+            if mode_option == 1:
+                mode = "cash"
+            elif mode_option == 2:
+                mode = "card"
+            elif mode_option == 3:
+                mode = "upi"
+            else:
+                print(print_obj.invalid_msg)
+                return None
 
-        modelist = []
-        for bill in bill_obj.bill_list:
-            if bill["mode"] == mode:
-                modelist.append(bill)
-        report_display_obj.display_mode(modelist)
+            modelist = []
+            for bill in bill_obj.bill_list:
+                if bill["mode"] == mode:
+                    modelist.append(bill)
+            report_display_obj.display_mode(modelist)
+        except Exception as err:
+            print(print_obj.err_msg)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
     def orders_type(self):
         try:
@@ -116,7 +120,7 @@ class OrderReport(ReportData):
                 self.orders_timeline()
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_order = OrderReport()
 
@@ -134,7 +138,7 @@ class ErrorReport(ReportData):
 
         except Exception as err:
             print(print_obj.err_msg)
-            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a",isJson=0)
+            operation_obj.write_file(data=operation_obj.get_errdetails(err),path=path_obj.error_path,mode="a")
 
 report_error = ErrorReport()
 
