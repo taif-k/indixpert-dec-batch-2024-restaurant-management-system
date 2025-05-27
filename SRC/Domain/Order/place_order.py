@@ -122,6 +122,7 @@ class PlaceOrder:
 
         print("-------------------------------------")
 
+    # "order_placed" key in order placed.json
     def orders_list(self):
         try:
             self.orderlist = []
