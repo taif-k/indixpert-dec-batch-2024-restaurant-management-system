@@ -43,7 +43,7 @@ class PlaceOrder:
         print("2 - 1:15 PM - 3:15 PM")
         print("3 - 5:00 PM - 7:00 PM")
         print("4 - 8:00 PM - 10:00 PM")
-
+    
     # user can book  4 slots using option 1,2...
     def select_table(self):
         try:
@@ -51,19 +51,17 @@ class PlaceOrder:
             while table_available != 1:
                 today = datetime.today().strftime("%Y-%m-%d")
                 one_month_date = (datetime.today() + timedelta(days=30)).strftime("%Y-%m-%d")
+                
                 display_table_obj.available_tables()
-
                 self.table_select = int(input("Enter table number to book: "))
                 self.seat_select = int(input("Enter number of seats to book: "))
-                input_booking_date = input(f"Enter booking date (y-m-d)").strip()
+                self.input_booking_date = input(f"Enter booking date (y-m-d)").strip()
                 
-                if (input_booking_date < today) or (input_booking_date > one_month_date):
+                if (self.input_booking_date < today) or (self.input_booking_date > one_month_date):
                     print(f"Booking date must be between {today} and {one_month_date}")
                     continue
 
-                self.booking_date = input_booking_date
                 self.slot_range()
-                
                 slot_option = int(input("Enter slot no : "))
                 
                 slot_time = {}
@@ -71,8 +69,9 @@ class PlaceOrder:
                 slot_time[2] = ("slot2", "13:15", "15:15")
                 slot_time[3] = ("slot3", "17:00", "19:00")
                 slot_time[4] = ("slot4", "20:00", "22:00")
+                print(slot_time)
 
-
+# {1: ('slot1', '11:00', '13:00'), 2: ('slot2', '13:15', '15:15'), 3: ('slot3', '17:00', '19:00'), 4: ('slot4', '20:00', '22:00')}
                 if slot_option in slot_time:
                     selected_slot = slot_time[slot_option]
                     
@@ -91,8 +90,8 @@ class PlaceOrder:
                 if table_available != 1:
                     print(print_obj.choose_validtable)
                 else:
-                    start_dt_str = f"{self.booking_date} {start_time}:00"
-                    end_dt_str = f"{self.booking_date} {end_time}:00"
+                    start_dt_str = f"{self.input_booking_date} {start_time}:00"
+                    end_dt_str = f"{self.input_booking_date} {end_time}:00"
 
                     self.start_datetime = datetime.strptime(start_dt_str, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
                     self.end_datetime = datetime.strptime(end_dt_str, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
