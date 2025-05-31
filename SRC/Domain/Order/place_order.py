@@ -69,9 +69,6 @@ class PlaceOrder:
                 slot_time[2] = ("slot2", "13:15", "15:15")
                 slot_time[3] = ("slot3", "17:00", "19:00")
                 slot_time[4] = ("slot4", "20:00", "22:00")
-                print(slot_time)
-
-# {1: ('slot1', '11:00', '13:00'), 2: ('slot2', '13:15', '15:15'), 3: ('slot3', '17:00', '19:00'), 4: ('slot4', '20:00', '22:00')}
                 if slot_option in slot_time:
                     selected_slot = slot_time[slot_option]
                     
