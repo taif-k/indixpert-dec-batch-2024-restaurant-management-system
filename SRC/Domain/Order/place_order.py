@@ -75,6 +75,12 @@ class PlaceOrder:
                     self.slot_selected = selected_slot[0]
                     start_time = selected_slot[1]
                     end_time = selected_slot[2]
+
+                    if self.input_booking_date == datetime.today().strftime("%Y-%m-%d"):
+                        slot_start_dt = datetime.strptime(f"{self.input_booking_date} {start_time}", "%Y-%m-%d %H:%M")
+                        if datetime.now() >= slot_start_dt:
+                            print("Please choose a valid time slot")
+                            continue
                 else:
                     print(print_obj.invalid_msg)
                     continue
